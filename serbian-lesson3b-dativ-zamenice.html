@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Serbian · Lekcija 3b · Dativ — Zamenice</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg-primary: #ffffff; --bg-secondary: #f5f4f0; --bg-tertiary: #eeedea;
+    --text-primary: #1a1a1a; --text-secondary: #6b6b6b; --text-tertiary: #9b9b9b;
+    --border-light: rgba(0,0,0,0.1); --border-mid: rgba(0,0,0,0.18);
+    --radius-md: 8px; --radius-lg: 12px;
+    --teal-bg: #E1F5EE; --teal-text: #0F6E56; --teal-border: #1D9E75;
+    --green-bg: #E1F5EE; --green-text: #0F6E56; --green-border: #1D9E75;
+    --red-bg: #FCEBEB; --red-text: #A32D2D;
+    --purple-bg: #EEEDFE; --purple-text: #534AB7; --purple-border: #7F77DD;
+    --amber-bg: #FAEEDA; --amber-text: #633806; --amber-border: #BA7517;
+    --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-primary:#1e1e1e;--bg-secondary:#2a2a2a;--bg-tertiary:#333;
+      --text-primary:#f0f0f0;--text-secondary:#a0a0a0;--text-tertiary:#666;
+      --border-light:rgba(255,255,255,0.1);--border-mid:rgba(255,255,255,0.18);
+      --teal-bg:#04342C;--teal-text:#9FE1CB;--teal-border:#1D9E75;
+      --green-bg:#04342C;--green-text:#9FE1CB;--green-border:#1D9E75;
+      --red-bg:#501313;--red-text:#F09595;
+      --purple-bg:#26215C;--purple-text:#AFA9EC;--purple-border:#7F77DD;
+      --amber-bg:#412402;--amber-text:#FAC775;--amber-border:#BA7517;
+    }
+  }
+  body{font-family:var(--font);background:var(--bg-tertiary);color:var(--text-primary);min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:2rem 1rem;}
+  .lesson-header{width:100%;max-width:680px;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between;}
+  .lesson-badge{background:var(--teal-bg);color:var(--teal-text);font-size:12px;font-weight:500;padding:4px 12px;border-radius:20px;}
+  .lesson-name{font-size:14px;color:var(--text-secondary);}
+  .lesson-series{font-size:12px;color:var(--text-tertiary);}
+  .app{width:100%;max-width:680px;background:var(--bg-primary);border-radius:var(--radius-lg);border:0.5px solid var(--border-light);padding:2rem;}
+  .progress-bar{display:flex;gap:6px;margin-bottom:1.75rem;}
+  .pdot{height:5px;flex:1;border-radius:10px;background:var(--border-light);transition:background .3s;}
+  .pdot.done{background:var(--teal-border);}
+  .pdot.active{background:var(--teal-border);opacity:.45;}
+  .screen{display:none;}.screen.active{display:block;}
+  .slabel{font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.09em;margin-bottom:.5rem;}
+  .stitle{font-size:21px;font-weight:500;color:var(--text-primary);margin-bottom:1.25rem;line-height:1.3;}
+  .card{background:var(--bg-secondary);border:0.5px solid var(--border-light);border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:.75rem;}
+  .cs{font-size:17px;font-weight:500;color:var(--text-primary);margin-bottom:4px;}
+  .ce{font-size:14px;color:var(--text-secondary);}
+  .cn{font-size:13px;color:var(--teal-text);margin-top:6px;}
+  .hl {background:var(--teal-bg);  color:var(--teal-text);  padding:1px 6px;border-radius:4px;font-weight:500;}
+  .hl2{background:var(--purple-bg);color:var(--purple-text);padding:1px 6px;border-radius:4px;font-weight:500;}
+  .hl3{background:var(--amber-bg); color:var(--amber-text); padding:1px 6px;border-radius:4px;font-weight:500;}
+  .spk{display:inline-flex;align-items:center;gap:6px;background:none;border:0.5px solid var(--border-mid);border-radius:var(--radius-md);padding:5px 12px;font-size:13px;color:var(--text-secondary);cursor:pointer;margin-top:8px;transition:background .15s;font-family:var(--font);}
+  .spk:hover{background:var(--bg-tertiary);}
+  .spk svg{width:14px;height:14px;flex-shrink:0;}
+  .ibox{background:var(--bg-secondary);border-left:3px solid var(--teal-border);border-radius:0 var(--radius-md) var(--radius-md) 0;padding:.75rem 1rem;margin-bottom:1rem;font-size:14px;line-height:1.7;color:var(--text-secondary);}
+  .ibox strong{color:var(--text-primary);font-weight:500;}
+  .ibox-amber{border-left-color:var(--amber-border);}
+  .ibox-purple{border-left-color:var(--purple-border);}
+  .navrow{display:flex;justify-content:space-between;align-items:center;margin-top:1.5rem;}
+  .btnp{background:var(--teal-border);color:var(--teal-bg);border:none;border-radius:var(--radius-md);padding:10px 24px;font-size:15px;font-weight:500;cursor:pointer;transition:opacity .15s;font-family:var(--font);}
+  .btnp:hover{opacity:.88;}
+  .btnp:disabled{opacity:.4;cursor:default;}
+  .btng{background:none;border:0.5px solid var(--border-mid);border-radius:var(--radius-md);padding:10px 20px;font-size:15px;color:var(--text-secondary);cursor:pointer;font-family:var(--font);}
+  .btng:hover{background:var(--bg-secondary);}
+  .blank{display:inline-block;min-width:56px;border-bottom:2px solid var(--teal-border);text-align:center;padding:0 4px;font-weight:500;color:var(--teal-text);}
+  .optsrow{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0;}
+  .opt{border:1.5px solid var(--border-mid);background:var(--bg-primary);border-radius:var(--radius-md);padding:9px 18px;font-size:15px;cursor:pointer;color:var(--text-primary);transition:all .15s;font-family:var(--font);}
+  .opt:hover:not(.locked){border-color:var(--teal-border);background:var(--teal-bg);color:var(--teal-text);}
+  .opt.sel{border-color:var(--teal-border);background:var(--teal-bg);color:var(--teal-text);}
+  .opt.ok{border-color:var(--green-border);background:var(--green-bg);color:var(--green-text);}
+  .opt.bad{border-color:#E24B4A;background:var(--red-bg);color:var(--red-text);}
+  .opt.locked{cursor:default;}
+  .fb{font-size:14px;padding:8px 12px;border-radius:var(--radius-md);margin-top:6px;line-height:1.5;}
+  .fb.ok{background:var(--green-bg);color:var(--green-text);}
+  .fb.bad{background:var(--red-bg);color:var(--red-text);}
+  .tbl{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:.75rem;}
+  .tbl th{text-align:left;font-weight:500;font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.07em;padding:6px 10px;border-bottom:0.5px solid var(--border-light);}
+  .tbl td{padding:9px 10px;border-bottom:0.5px solid var(--border-light);color:var(--text-primary);vertical-align:top;}
+  .tbl tr:last-child td{border-bottom:none;}
+  .tbl .dim{color:var(--text-secondary);}
+  .tbl .pron{font-weight:500;color:var(--teal-text);font-size:15px;}
+  .before-after{display:grid;grid-template-columns:1fr 32px 1fr;gap:8px;align-items:center;margin-bottom:.75rem;}
+  .ba-card{background:var(--bg-secondary);border:0.5px solid var(--border-light);border-radius:var(--radius-lg);padding:.8rem 1rem;}
+  .ba-label{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text-tertiary);margin-bottom:4px;}
+  .ba-text{font-size:15px;font-weight:500;color:var(--text-primary);}
+  .ba-arrow{text-align:center;color:var(--text-tertiary);font-size:18px;}
+  .score-wrap{display:flex;gap:16px;justify-content:center;margin-bottom:1.5rem;}
+  .score-circle{width:90px;height:90px;border-radius:50%;border:3px solid var(--teal-border);display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  .score-num{font-size:28px;font-weight:500;color:var(--teal-text);line-height:1;}
+  .score-lbl{font-size:11px;color:var(--text-tertiary);}
+  footer{margin-top:2rem;font-size:12px;color:var(--text-tertiary);text-align:center;}
+  @media(max-width:480px){.before-after{grid-template-columns:1fr 20px 1fr;gap:6px;}.app{padding:1.25rem;}}
+
+  .home-link {
+    font-size: 13px;
+    color: var(--text-tertiary);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    border-radius: var(--radius-md);
+    border: 0.5px solid var(--border-light);
+    transition: background .15s;
+    cursor: pointer;
+    background: none;
+    font-family: var(--font);
+  }
+  .home-link:hover { background: var(--bg-secondary); color: var(--text-secondary); }
+  .btn-complete {
+    background: var(--green-border);
+    color: var(--green-bg);
+    border: none;
+    border-radius: var(--radius-md);
+    padding: 12px 28px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: var(--font);
+    margin-top: .5rem;
+    transition: opacity .15s;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  .btn-complete:hover { opacity: .88; }
+
+  </style>
+</head>
+<body>
+<div class="lesson-header">
+  <div style="display:flex;align-items:center;gap:10px;">
+    <span class="lesson-badge">Lekcija 3b · Lesson 3b</span>
+    <span class="lesson-name">Dativ — zamenice</span>
+  </div>
+  <span class="lesson-series">3 od 3 lekcija o dativu</span>
+</div>
+<div class="app">
+  <div class="progress-bar" id="pbar"></div>
+  <div id="screens"></div>
+</div>
+<footer>Serbian Language Course · Lesson 3b · Dativ – Pronouns</footer>
+
+<script>
+const SCREENS=[
+  {id:'intro'},
+  {id:'long-short'},
+  {id:'table'},
+  {id:'ex1'},
+  {id:'ex2'},
+  {id:'done'},
+];
+let cur=0;
+let ex1s={answers:{},checked:{}};
+let ex2s={answers:{},checked:{}};
+
+function speak(t,l){
+  if(!window.speechSynthesis)return;
+  window.speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(t);
+  u.lang=l||'sr-RS';u.rate=0.85;window.speechSynthesis.speak(u);
+}
+function spkBtn(t,l){
+  return `<button class="spk" onclick="speak('${t.replace(/'/g,"\\'")}','${l||'sr-RS'}')"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M10 3v14M6 6v8M14 5v10M2 8v4M18 7v6"/></svg>Slušaj</button>`;
+}
+
+// EX1: noun → pronoun replacement (single sentence)
+const EX1=[
+  {
+    noun:'Dajem <u>mami</u> poklon.',
+    eng:'I give mom a present.',
+    q:'Replace "mami" with a pronoun.',
+    opts:['Dajem joj poklon.','Dajem nju poklon.','Dajem ona poklon.'],
+    correct:0,
+    expl:'"Mami" is feminine dative → short form "joj". Never "nju" (that is accusative) or "ona" (that is nominative).',
+    full:'Dajem joj poklon.'
+  },
+  {
+    noun:'Pomažem <u>Marku</u>.',
+    eng:'I help Marko.',
+    q:'Replace "Marku" with a pronoun.',
+    opts:['Pomažem mu.','Pomažem ga.','Pomažem on.'],
+    correct:0,
+    expl:'"Marku" is masculine dative → short form "mu". "Ga" is accusative, "on" is nominative.',
+    full:'Pomažem mu.'
+  },
+  {
+    noun:'Pišem <u>sestri</u> pismo.',
+    eng:'I write my sister a letter.',
+    q:'Replace "sestri" with a pronoun.',
+    opts:['Pišem joj pismo.','Pišem nju pismo.','Pišem je pismo.'],
+    correct:0,
+    expl:'"Sestri" is feminine dative → "joj". "Nju" and "je" are accusative forms.',
+    full:'Pišem joj pismo.'
+  },
+  {
+    noun:'Verujem <u>drugu</u>.',
+    eng:'I trust my friend (masc.).',
+    q:'Replace "drugu" with a pronoun.',
+    opts:['Verujem mu.','Verujem ga.','Verujem njemu.'],
+    correct:0,
+    expl:'"Drugu" is masculine dative → short pronoun "mu". "Ga" is accusative. "Njemu" is the long form — correct but less natural here.',
+    full:'Verujem mu.'
+  },
+];
+
+// EX2: short vs long form — choose which fits the sentence
+const EX2=[
+  {
+    context:'Sentence without emphasis, mid-sentence.',
+    s:'Dajem ___ poklon svaki dan.',
+    e:'I give her a present every day.',
+    opts:['joj','njoj'],
+    correct:0,
+    expl:'In unstressed position inside a sentence the short form "joj" is standard. "Njoj" is reserved for emphasis or after prepositions.',
+    full:'Dajem joj poklon svaki dan.'
+  },
+  {
+    context:'Emphatic contrast.',
+    s:'Njemu sam rekla istinu, a ne tebi.',
+    e:'I told him the truth, not you.',
+    note:'already correct — identify the long form',
+    opts:['Njemu — long form, correct here','Mu — short form, correct here'],
+    correct:0,
+    expl:'"Njemu" is the long/emphatic form — exactly right when contrasting two people. "Mu" would sound too weak in an emphatic contrast.',
+    full:'Njemu sam rekla istinu, a ne tebi.'
+  },
+  {
+    context:'After a preposition.',
+    s:'Idem k ___.',
+    e:'I am going toward him.',
+    opts:['njemu','mu'],
+    correct:0,
+    expl:'After a preposition (k, prema…) Serbian always uses the long form: "njemu", never "mu".',
+    full:'Idem k njemu.'
+  },
+  {
+    context:'After a preposition.',
+    s:'Govori prema ___.',
+    e:'She speaks according to her (follows her lead).',
+    opts:['njoj','joj'],
+    correct:0,
+    expl:'After "prema" (toward/according to) always use the long form "njoj", not "joj".',
+    full:'Govori prema njoj.'
+  },
+];
+
+function buildProgress(){
+  document.getElementById('pbar').innerHTML=SCREENS.map((s,i)=>
+    `<div class="pdot ${i<cur?'done':i===cur?'active':''}"></div>`).join('');
+}
+
+function buildScreens(){
+  const c=document.getElementById('screens');c.innerHTML='';
+  const mk=(id,html)=>{
+    const d=document.createElement('div');
+    d.className=`screen ${id===SCREENS[cur].id?'active':''}`;
+    d.id=`sc-${id}`;d.innerHTML=html;c.appendChild(d);
+  };
+
+  mk('intro',`
+    <div class="slabel">Lekcija 3b · Lesson 3b</div>
+    <div class="stitle">Zamenice u dativu · Dative pronouns</div>
+    <div class="ibox">
+      Instead of repeating a noun like "mami" or "Marku", Serbian uses short dative pronouns. These are some of the most frequent words in the language — and each one has a <em>short form</em> for normal use and a <em>long form</em> for emphasis or after prepositions.
+    </div>
+    <div class="card">
+      <div class="cs">Dajem <span class="hl">mami</span> poklon. → Dajem <span class="hl">joj</span> poklon.</div>
+      <div class="ce">I give mom a present. → I give her a present.</div>
+      ${spkBtn('Dajem joj poklon.')}
+    </div>
+    <div class="card">
+      <div class="cs">Pomažem <span class="hl">Marku</span>. → Pomažem <span class="hl">mu</span>.</div>
+      <div class="ce">I help Marko. → I help him.</div>
+      ${spkBtn('Pomažem mu.')}
+    </div>
+    <div class="card">
+      <div class="cs">Pričam <span class="hl">detetu</span> priču. → Pričam <span class="hl">mu</span> priču.</div>
+      <div class="ce">I tell the child a story. → I tell him/her a story.</div>
+      ${spkBtn('Pričam mu priču.')}
+    </div>
+    <div class="navrow"><span></span><button class="btnp" onclick="goNext()">Dalje →</button></div>
+  `);
+
+  mk('long-short',`
+    <div class="slabel">Kratki i dugi oblici · Short and long forms</div>
+    <div class="stitle">Dva oblika iste zamenice · Two forms of each pronoun</div>
+    <div class="ibox ibox-amber">
+      This is a feature unique to Serbian (and other Slavic languages). Every dative pronoun has a <strong>short (clitic) form</strong> for regular use and a <strong>long (emphatic) form</strong> used for contrast, emphasis, and after prepositions.
+    </div>
+    <div class="before-after">
+      <div class="ba-card">
+        <div class="ba-label" style="color:var(--teal-text);">Short form — normal use</div>
+        <div class="ba-text">Dajem <span class="hl">joj</span> poklon.</div>
+        <div style="font-size:13px;color:var(--text-secondary);margin-top:4px;">I give her a present.</div>
+        ${spkBtn('Dajem joj poklon.')}
+      </div>
+      <div class="ba-arrow">→</div>
+      <div class="ba-card">
+        <div class="ba-label" style="color:var(--amber-text);">Long form — emphasis / after prep.</div>
+        <div class="ba-text">Dajem <span class="hl3">njoj</span>, ne tebi.</div>
+        <div style="font-size:13px;color:var(--text-secondary);margin-top:4px;">I give it to <em>her</em>, not you.</div>
+        ${spkBtn('Dajem njoj, ne tebi.')}
+      </div>
+    </div>
+    <div class="before-after">
+      <div class="ba-card">
+        <div class="ba-label" style="color:var(--teal-text);">Short — normal use</div>
+        <div class="ba-text">Kažem <span class="hl">mu</span> istinu.</div>
+        <div style="font-size:13px;color:var(--text-secondary);margin-top:4px;">I tell him the truth.</div>
+        ${spkBtn('Kažem mu istinu.')}
+      </div>
+      <div class="ba-arrow">→</div>
+      <div class="ba-card">
+        <div class="ba-label" style="color:var(--amber-text);">Long — after preposition</div>
+        <div class="ba-text">Idem k <span class="hl3">njemu</span>.</div>
+        <div style="font-size:13px;color:var(--text-secondary);margin-top:4px;">I am going to him.</div>
+        ${spkBtn('Idem k njemu.')}
+      </div>
+    </div>
+    <div class="ibox ibox-purple" style="margin-top:.25rem;">
+      <strong>Rule of thumb:</strong> After any preposition → long form. Mid-sentence without special stress → short form.
+    </div>
+    <div class="navrow"><button class="btng" onclick="goPrev()">← Nazad</button><button class="btnp" onclick="goNext()">Tabela · Table →</button></div>
+  `);
+
+  mk('table',`
+    <div class="slabel">Tabela · Table</div>
+    <div class="stitle">Sve dativne zamenice · All dative pronouns</div>
+    <div class="ibox">Learn the short forms first — they are far more frequent. Return to the long forms once the short ones feel natural.</div>
+    <table class="tbl">
+      <thead><tr><th>Lice · Person</th><th>Kratki · Short</th><th>Dugi · Long</th><th>Primer · Example</th></tr></thead>
+      <tbody>
+        <tr><td>ja → meni</td><td class="pron">mi</td><td class="dim">meni</td><td>Daj mi to. <button class="spk" style="margin:0;padding:3px 8px;" onclick="speak('Daj mi to.','sr-RS')"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="width:12px;height:12px"><path d="M10 3v14M6 6v8M14 5v10M2 8v4M18 7v6"/></svg></button></td></tr>
+        <tr><td>ti → tebi</td><td class="pron">ti</td><td class="dim">tebi</td><td>Dajem ti to. <button class="spk" style="margin:0;padding:3px 8px;" onclick="speak('Dajem ti to.','sr-RS')"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="width:12px;height:12px"><path d="M10 3v14M6 6v8M14 5v10M2 8v4M18 7v6"/></svg></button></td></tr>
+        <tr><td>on / ono → njemu</td><td class="pron">mu</td><td class="dim">njemu</td><td>Pomažem mu. <button class="spk" style="margin:0;padding:3px 8px;" onclick="speak('Pomažem mu.','sr-RS')"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="width:12px;height:12px"><path d="M10 3v14M6 6v8M14 5v10M2 8v4M18 7v6"/></svg></button></td></tr>
+        <tr><td>ona → njoj</td><td class="pron">joj</td><td class="dim">njoj</td><td>Dajem joj to. <button class="spk" style="margin:0;padding:3px 8px;" onclick="speak('Dajem joj to.','sr-RS')"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="width:12px;height:12px"><path d="M10 3v14M6 6v8M14 5v10M2 8v4M18 7v6"/></svg></button></td></tr>
+        <tr><td>mi → nama</td><td class="pron">nam</td><td class="dim">nama</td><td>Reci nam to. <button class="spk" style="margin:0;padding:3px 8px;" onclick="speak('Reci nam to.','sr-RS')"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="width:12px;height:12px"><path d="M10 3v14M6 6v8M14 5v10M2 8v4M18 7v6"/></svg></button></td></tr>
+        <tr><td>vi → vama</td><td class="pron">vam</td><td class="dim">vama</td><td>Dajem vam to. <button class="spk" style="margin:0;padding:3px 8px;" onclick="speak('Dajem vam to.','sr-RS')"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="width:12px;height:12px"><path d="M10 3v14M6 6v8M14 5v10M2 8v4M18 7v6"/></svg></button></td></tr>
+        <tr><td>oni/one → njima</td><td class="pron">im</td><td class="dim">njima</td><td>Kažem im to. <button class="spk" style="margin:0;padding:3px 8px;" onclick="speak('Kažem im to.','sr-RS')"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="width:12px;height:12px"><path d="M10 3v14M6 6v8M14 5v10M2 8v4M18 7v6"/></svg></button></td></tr>
+      </tbody>
+    </table>
+    <div class="ibox ibox-amber" style="margin-top:.25rem;">
+      <strong>Common mistake:</strong> Do not confuse dative "mu/joj" with accusative "ga/je". Test: can you replace it with "kome"? → dative. Can you replace with "koga/šta"? → accusative.
+    </div>
+    <div class="navrow"><button class="btng" onclick="goPrev()">← Nazad</button><button class="btnp" onclick="goNext()">Vežba 1 →</button></div>
+  `);
+
+  mk('ex1', buildEx1HTML());
+  mk('ex2', buildEx2HTML());
+
+  const s1=EX1.filter((_,i)=>ex1s.checked[i]===true).length;
+  const s2=EX2.filter((_,i)=>ex2s.checked[i]===true).length;
+  mk('done',`
+    <div class="slabel">Završeno · Done</div>
+    <div class="stitle">Odlično! Lekcija 3b završena.</div>
+    <div class="score-wrap">
+      <div class="score-circle"><div class="score-num">${s1}/${EX1.length}</div><div class="score-lbl">Vežba 1</div></div>
+      <div class="score-circle"><div class="score-num">${s2}/${EX2.length}</div><div class="score-lbl">Vežba 2</div></div>
+    </div>
+    <div class="card">
+      <div class="cs" style="font-size:15px;margin-bottom:8px;">Šta si naučio/la</div>
+      <ul style="padding-left:1.1rem;font-size:14px;color:var(--text-secondary);line-height:2.1;">
+        <li>Short forms (mi, ti, mu, joj, nam, vam, im) for regular use</li>
+        <li>Long forms (meni, tebi, njemu, njoj…) for emphasis &amp; after prepositions</li>
+        <li>Never use accusative forms (ga, je, ih) where dative is needed</li>
+        <li>Test: kome? → dative pronoun; šta/koga? → accusative pronoun</li>
+      </ul>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:.6rem;margin-top:1.25rem;">
+      <button class="btn-complete" onclick="markAndGoNext()">&#x279C; Sledeće · Up next:</strong> Lekcija 3c — dative with prepositions (k, prema, zahvaljujući) and real-life sentences.</button>
+      <button class="btng" style="width:100%;text-align:center;" onclick="markAndGoHome()">&#x21A9; Vrati se na početnu &middot; Back to home</button>
+      <button class="btng" style="width:100%;text-align:center;" onclick="restart()">&#x21BA; Ponovi lekciju &middot; Restart</button>
+    </div>
+  `);
+}
+
+function buildEx1HTML(){
+  let h=`<div class="slabel">Vežba 1 · Exercise 1</div>
+    <div class="stitle">Zameni imenicu zamenicom · Replace the noun</div>
+    <div class="ibox">The underlined word is in the dative. Replace the whole sentence using the correct short dative pronoun.</div>`;
+  EX1.forEach((q,qi)=>{
+    const chk=ex1s.checked[qi]!==undefined;
+    const sel=ex1s.answers[qi];
+    h+=`<div class="card" style="margin-bottom:1rem;">
+      <div style="font-size:16px;color:var(--text-primary);margin-bottom:2px;">${q.noun}</div>
+      <div style="font-size:13px;color:var(--text-secondary);margin-bottom:6px;">${q.eng}</div>
+      <div style="font-size:13px;color:var(--text-tertiary);margin-bottom:8px;">${q.q}</div>
+      <div class="optsrow">`;
+    q.opts.forEach((opt,oi)=>{
+      let cls='opt';
+      if(chk){cls+=' locked';if(oi===q.correct)cls+=' ok';else if(oi===sel&&oi!==q.correct)cls+=' bad';}
+      else if(sel===oi)cls+=' sel';
+      h+=`<button class="${cls}" onclick="ex1pick(${qi},${oi})" style="font-size:14px;">${opt}</button>`;
+    });
+    h+=`</div>`;
+    if(chk){
+      h+=`<div class="fb ${ex1s.checked[qi]?'ok':'bad'}">${ex1s.checked[qi]?'Tačno!':'Netačno.'} — ${q.expl}</div>`;
+      if(ex1s.checked[qi])h+=spkBtn(q.full);
+    }
+    h+=`</div>`;
+  });
+  const allA=EX1.every((_,i)=>ex1s.answers[i]!==undefined);
+  const allC=EX1.every((_,i)=>ex1s.checked[i]!==undefined);
+  h+=`<div class="navrow"><button class="btng" onclick="goPrev()">← Nazad</button>`;
+  if(!allC)h+=`<button class="btnp" ${allA?'':'disabled'} onclick="checkEx1()">Proveri · Check</button>`;
+  else h+=`<button class="btnp" onclick="goNext()">Vežba 2 →</button>`;
+  h+=`</div>`;return h;
+}
+
+function buildEx2HTML(){
+  let h=`<div class="slabel">Vežba 2 · Exercise 2</div>
+    <div class="stitle">Kratki ili dugi oblik? · Short or long form?</div>
+    <div class="ibox">The context label tells you whether emphasis or a preposition is involved. Choose accordingly.</div>`;
+  EX2.forEach((q,qi)=>{
+    const chk=ex2s.checked[qi]!==undefined;
+    const sel=ex2s.answers[qi];
+    const filled=sel!==undefined?q.opts[sel]:'___';
+    const display=q.s.includes('_')?q.s.replace('___',`<span class="blank">${filled}</span>`):q.s;
+    h+=`<div class="card" style="margin-bottom:1rem;">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--teal-text);margin-bottom:6px;">${q.context}</div>
+      <div style="font-size:17px;color:var(--text-primary);margin-bottom:4px;line-height:1.6;">${display}</div>
+      <div style="font-size:13px;color:var(--text-secondary);margin-bottom:8px;">${q.e}</div>
+      <div class="optsrow">`;
+    q.opts.forEach((opt,oi)=>{
+      let cls='opt';
+      if(chk){cls+=' locked';if(oi===q.correct)cls+=' ok';else if(oi===sel&&oi!==q.correct)cls+=' bad';}
+      else if(sel===oi)cls+=' sel';
+      h+=`<button class="${cls}" onclick="ex2pick(${qi},${oi})" style="font-size:14px;">${opt}</button>`;
+    });
+    h+=`</div>`;
+    if(chk){
+      h+=`<div class="fb ${ex2s.checked[qi]?'ok':'bad'}">${ex2s.checked[qi]?'Tačno!':'Netačno.'} — ${q.expl}</div>`;
+      if(ex2s.checked[qi])h+=spkBtn(q.full);
+    }
+    h+=`</div>`;
+  });
+  const allA=EX2.every((_,i)=>ex2s.answers[i]!==undefined);
+  const allC=EX2.every((_,i)=>ex2s.checked[i]!==undefined);
+  h+=`<div class="navrow"><button class="btng" onclick="goPrev()">← Nazad</button>`;
+  if(!allC)h+=`<button class="btnp" ${allA?'':'disabled'} onclick="checkEx2()">Proveri · Check</button>`;
+  else h+=`<button class="btnp" onclick="goNext()">Završetak →</button>`;
+  h+=`</div>`;return h;
+}
+
+function ex1pick(qi,oi){if(ex1s.checked[qi]!==undefined)return;ex1s.answers[qi]=oi;refreshEx1();}
+function refreshEx1(){
+  const old=document.getElementById('sc-ex1');if(!old)return;
+  const d=document.createElement('div');
+  d.className=`screen ${SCREENS[cur].id==='ex1'?'active':''}`;
+  d.id='sc-ex1';d.innerHTML=buildEx1HTML();old.replaceWith(d);
+}
+function checkEx1(){
+  EX1.forEach((_,i)=>{if(ex1s.answers[i]!==undefined)ex1s.checked[i]=ex1s.answers[i]===EX1[i].correct;});
+  refreshEx1();
+}
+function ex2pick(qi,oi){if(ex2s.checked[qi]!==undefined)return;ex2s.answers[qi]=oi;refreshEx2();}
+function refreshEx2(){
+  const old=document.getElementById('sc-ex2');if(!old)return;
+  const d=document.createElement('div');
+  d.className=`screen ${SCREENS[cur].id==='ex2'?'active':''}`;
+  d.id='sc-ex2';d.innerHTML=buildEx2HTML();old.replaceWith(d);
+}
+function checkEx2(){
+  EX2.forEach((_,i)=>{if(ex2s.answers[i]!==undefined)ex2s.checked[i]=ex2s.answers[i]===EX2[i].correct;});
+  refreshEx2();
+}
+function goNext(){if(cur<SCREENS.length-1){cur++;render();window.scrollTo({top:0,behavior:'smooth'});}}
+function goPrev(){if(cur>0){cur--;render();window.scrollTo({top:0,behavior:'smooth'});}}
+function restart(){cur=0;ex1s={answers:{},checked:{}};ex2s={answers:{},checked:{}};render();}
+function render(){
+  buildScreens();buildProgress();
+  document.querySelectorAll('.screen').forEach(s=>{
+    s.classList.toggle('active',s.id===`sc-${SCREENS[cur].id}`);
+  });
+}
+render();
+
+function markAndGoHome(){
+  try{
+    const p=JSON.parse(localStorage.getItem('serbian_course_progress')||'{}');
+    p['L3b']=true;
+    localStorage.setItem('serbian_course_progress',JSON.stringify(p));
+  }catch(e){}
+  window.location.href='serbian-course-home.html';
+}
+function markAndGoNext(){
+  try{const p=JSON.parse(localStorage.getItem('serbian_course_progress')||'{}');
+  p['L2b']=true;localStorage.setItem('serbian_course_progress',JSON.stringify(p));}catch(e){}
+  window.location.href='serbian-lesson3c-dativ-predlozi.html';
+}
+
+  </script>
+</body>
+</html>

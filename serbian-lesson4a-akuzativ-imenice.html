@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Serbian · Lekcija 4a · Akuzativ — Imenice</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f4f0;
+    --bg-tertiary: #eeedea;
+    --text-primary: #1a1a1a;
+    --text-secondary: #6b6b6b;
+    --text-tertiary: #9b9b9b;
+    --border-light: rgba(0,0,0,0.1);
+    --border-mid: rgba(0,0,0,0.18);
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --blue-bg: #E6F1FB;
+    --blue-text: #0C447C;
+    --blue-border: #378ADD;
+    --green-bg: #EAF3DE;
+    --green-text: #27500A;
+    --green-border: #639922;
+    --ok-bg: #E1F5EE;
+    --ok-text: #0F6E56;
+    --ok-border: #1D9E75;
+    --red-bg: #FCEBEB;
+    --red-text: #A32D2D;
+    --purple-bg: #EEEDFE;
+    --purple-text: #534AB7;
+    --purple-border: #7F77DD;
+    --amber-bg: #FAEEDA;
+    --amber-text: #633806;
+    --amber-border: #BA7517;
+    --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-primary: #1e1e1e; --bg-secondary: #2a2a2a; --bg-tertiary: #333;
+      --text-primary: #f0f0f0; --text-secondary: #a0a0a0; --text-tertiary: #666;
+      --border-light: rgba(255,255,255,0.1); --border-mid: rgba(255,255,255,0.18);
+      --blue-bg: #042C53; --blue-text: #85B7EB; --blue-border: #378ADD;
+      --green-bg: #173404; --green-text: #C0DD97; --green-border: #639922;
+      --ok-bg: #04342C; --ok-text: #9FE1CB; --ok-border: #1D9E75;
+      --red-bg: #501313; --red-text: #F09595;
+      --purple-bg: #26215C; --purple-text: #AFA9EC; --purple-border: #7F77DD;
+      --amber-bg: #412402; --amber-text: #FAC775; --amber-border: #BA7517;
+    }
+  }
+  body { font-family: var(--font); background: var(--bg-tertiary); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 2rem 1rem; }
+  .lesson-header { width: 100%; max-width: 680px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  .lesson-badge { background: var(--blue-bg); color: var(--blue-text); font-size: 12px; font-weight: 500; padding: 4px 12px; border-radius: 20px; }
+  .lesson-name { font-size: 14px; color: var(--text-secondary); }
+  .lesson-series { font-size: 12px; color: var(--text-tertiary); }
+  .app { width: 100%; max-width: 680px; background: var(--bg-primary); border-radius: var(--radius-lg); border: 0.5px solid var(--border-light); padding: 2rem; }
+  .progress-bar { display: flex; gap: 6px; margin-bottom: 1.75rem; }
+  .pdot { height: 5px; flex: 1; border-radius: 10px; background: var(--border-light); transition: background .3s; }
+  .pdot.done { background: var(--blue-border); }
+  .pdot.active { background: var(--blue-border); opacity: .5; }
+  .screen { display: none; }
+  .screen.active { display: block; }
+  .slabel { font-size: 11px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: .09em; margin-bottom: .5rem; }
+  .stitle { font-size: 21px; font-weight: 500; color: var(--text-primary); margin-bottom: 1.25rem; line-height: 1.3; }
+  .card { background: var(--bg-secondary); border: 0.5px solid var(--border-light); border-radius: var(--radius-lg); padding: 1rem 1.25rem; margin-bottom: .75rem; }
+  .cs { font-size: 17px; font-weight: 500; color: var(--text-primary); margin-bottom: 4px; }
+  .ce { font-size: 14px; color: var(--text-secondary); }
+  .cn { font-size: 13px; color: var(--blue-text); margin-top: 6px; }
+  .hl  { background: var(--blue-bg);   color: var(--blue-text);   padding: 1px 6px; border-radius: 4px; font-weight: 500; }
+  .hl2 { background: var(--purple-bg); color: var(--purple-text); padding: 1px 6px; border-radius: 4px; font-weight: 500; }
+  .hl3 { background: var(--amber-bg);  color: var(--amber-text);  padding: 1px 6px; border-radius: 4px; font-weight: 500; }
+  .hl4 { background: var(--green-bg);  color: var(--green-text);  padding: 1px 6px; border-radius: 4px; font-weight: 500; }
+  .spk { display: inline-flex; align-items: center; gap: 6px; background: none; border: 0.5px solid var(--border-mid); border-radius: var(--radius-md); padding: 5px 12px; font-size: 13px; color: var(--text-secondary); cursor: pointer; margin-top: 8px; transition: background .15s; font-family: var(--font); }
+  .spk:hover { background: var(--bg-tertiary); }
+  .spk svg { width: 14px; height: 14px; flex-shrink: 0; }
+  .ibox { background: var(--bg-secondary); border-left: 3px solid var(--blue-border); border-radius: 0 var(--radius-md) var(--radius-md) 0; padding: .75rem 1rem; margin-bottom: 1rem; font-size: 14px; line-height: 1.7; color: var(--text-secondary); }
+  .ibox strong { color: var(--text-primary); font-weight: 500; }
+  .ibox-amber  { border-left-color: var(--amber-border); }
+  .ibox-purple { border-left-color: var(--purple-border); }
+  .ibox-green  { border-left-color: var(--green-border); }
+  .navrow { display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; }
+  .btnp { background: var(--blue-border); color: #E6F1FB; border: none; border-radius: var(--radius-md); padding: 10px 24px; font-size: 15px; font-weight: 500; cursor: pointer; transition: opacity .15s; font-family: var(--font); }
+  .btnp:hover { opacity: .88; }
+  .btnp:disabled { opacity: .4; cursor: default; }
+  .btng { background: none; border: 0.5px solid var(--border-mid); border-radius: var(--radius-md); padding: 10px 20px; font-size: 15px; color: var(--text-secondary); cursor: pointer; font-family: var(--font); }
+  .btng:hover { background: var(--bg-secondary); }
+  .blank { display: inline-block; min-width: 72px; border-bottom: 2px solid var(--blue-border); text-align: center; padding: 0 4px; font-weight: 500; color: var(--blue-text); }
+  .optsrow { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0; }
+  .opt { border: 1.5px solid var(--border-mid); background: var(--bg-primary); border-radius: var(--radius-md); padding: 9px 18px; font-size: 15px; cursor: pointer; color: var(--text-primary); transition: all .15s; font-family: var(--font); }
+  .opt:hover:not(.locked) { border-color: var(--blue-border); background: var(--blue-bg); color: var(--blue-text); }
+  .opt.sel  { border-color: var(--blue-border); background: var(--blue-bg); color: var(--blue-text); }
+  .opt.ok   { border-color: var(--ok-border); background: var(--ok-bg); color: var(--ok-text); }
+  .opt.bad  { border-color: #E24B4A; background: var(--red-bg); color: var(--red-text); }
+  .opt.locked { cursor: default; }
+  .fb { font-size: 14px; padding: 8px 12px; border-radius: var(--radius-md); margin-top: 6px; line-height: 1.5; }
+  .fb.ok  { background: var(--ok-bg); color: var(--ok-text); }
+  .fb.bad { background: var(--red-bg); color: var(--red-text); }
+  .tbl { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: .75rem; }
+  .tbl th { text-align: left; font-weight: 500; font-size: 11px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: .07em; padding: 6px 10px; border-bottom: 0.5px solid var(--border-light); }
+  .tbl td { padding: 9px 10px; border-bottom: 0.5px solid var(--border-light); color: var(--text-primary); vertical-align: top; }
+  .tbl tr:last-child td { border-bottom: none; }
+  .tbl .dim { color: var(--text-secondary); font-size: 13px; }
+  .tbl .end { font-weight: 500; color: var(--blue-text); font-size: 15px; }
+  .tbl .warn { color: var(--amber-text); font-size: 13px; }
+  .anim-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: .75rem; }
+  .anim-card { border-radius: var(--radius-lg); padding: .9rem 1rem; }
+  .anim-card.animate { background: var(--amber-bg); border: 0.5px solid var(--amber-border); }
+  .anim-card.inanimate { background: var(--blue-bg); border: 0.5px solid var(--blue-border); }
+  .anim-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: .07em; margin-bottom: 6px; }
+  .anim-card.animate .anim-label { color: var(--amber-text); }
+  .anim-card.inanimate .anim-label { color: var(--blue-text); }
+  .anim-ex { font-size: 15px; font-weight: 500; margin-bottom: 3px; }
+  .anim-card.animate .anim-ex { color: var(--amber-text); }
+  .anim-card.inanimate .anim-ex { color: var(--blue-text); }
+  .anim-sub { font-size: 13px; }
+  .anim-card.animate .anim-sub { color: var(--amber-text); opacity: .8; }
+  .anim-card.inanimate .anim-sub { color: var(--blue-text); opacity: .8; }
+  .score-wrap { display: flex; gap: 16px; justify-content: center; margin-bottom: 1.5rem; }
+  .score-circle { width: 90px; height: 90px; border-radius: 50%; border: 3px solid var(--ok-border); display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .score-num { font-size: 28px; font-weight: 500; color: var(--ok-text); line-height: 1; }
+  .score-lbl { font-size: 11px; color: var(--text-tertiary); }
+  footer { margin-top: 2rem; font-size: 12px; color: var(--text-tertiary); text-align: center; }
+  @media (max-width: 480px) { .anim-grid { grid-template-columns: 1fr; } .app { padding: 1.25rem; } }
+
+  .home-link {
+    font-size: 13px;
+    color: var(--text-tertiary);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    border-radius: var(--radius-md);
+    border: 0.5px solid var(--border-light);
+    transition: background .15s;
+    cursor: pointer;
+    background: none;
+    font-family: var(--font);
+  }
+  .home-link:hover { background: var(--bg-secondary); color: var(--text-secondary); }
+  .btn-complete {
+    background: var(--green-border);
+    color: var(--green-bg);
+    border: none;
+    border-radius: var(--radius-md);
+    padding: 12px 28px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: var(--font);
+    margin-top: .5rem;
+    transition: opacity .15s;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  .btn-complete:hover { opacity: .88; }
+
+  </style>
+</head>
+<body>
+
+<div class="lesson-header">
+  <div style="display:flex;align-items:center;gap:10px;">
+    <span class="lesson-badge">Lekcija 4a · Lesson 4a</span>
+    <span class="lesson-name">Akuzativ — imenice</span>
+  </div>
+  <span class="lesson-series">1 od 3 lekcija o akuzativu</span>
+</div>
+
+<div class="app">
+  <div class="progress-bar" id="pbar"></div>
+  <div id="screens"></div>
+</div>
+
+<footer>Serbian Language Course · Lesson 4a · Akuzativ – Nouns &amp; Endings</footer>
+
+<script>
+const SCREENS=[
+  {id:'intro'},
+  {id:'animate'},
+  {id:'endings'},
+  {id:'ex1'},
+  {id:'ex2'},
+  {id:'done'},
+];
+let cur=0;
+let ex1s={answers:{},checked:{}};
+let ex2s={answers:{},checked:{}};
+
+function speak(t,l){
+  if(!window.speechSynthesis)return;
+  window.speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(t);
+  u.lang=l||'sr-RS';u.rate=0.85;
+  window.speechSynthesis.speak(u);
+}
+function spkBtn(t,l){
+  return `<button class="spk" onclick="speak('${t.replace(/'/g,"\\'")}','${l||'sr-RS'}')"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M10 3v14M6 6v8M14 5v10M2 8v4M18 7v6"/></svg>Slušaj</button>`;
+}
+
+// ─── EXERCISE 1 ───────────────────────────────────────────────────────────────
+// Task: nominative → accusative (one item per gender/animacy category)
+// Distractors are always real Serbian forms of the SAME noun (genitive, dative, nom)
+// so a learner has to know the accusative, not just spot a foreign word.
+const EX1=[
+  {
+    nom:'knjiga',
+    eng:'book (feminine)',
+    gender:'Ženski rod · Feminine',
+    opts:['knjigu','knjige','knjizi','knjigo'],
+    correct:0,
+    expl:'Feminine nouns ending in -a replace -a with -u in the accusative. knjig-a → knjig-u.'
+  },
+  {
+    nom:'film',
+    eng:'film / movie (masculine, inanimate)',
+    gender:'Muški rod, neživo · Masc. inanimate',
+    opts:['film','filma','filmu','filmom'],
+    correct:0,
+    expl:'Inanimate masculine nouns do NOT change in the accusative — the form is identical to the nominative. film → film.'
+  },
+  {
+    nom:'brat',
+    eng:'brother (masculine, animate)',
+    gender:'Muški rod, živo · Masc. animate',
+    opts:['brata','brat','bratu','bratom'],
+    correct:0,
+    expl:'Animate masculine nouns take the genitive form (-a) in the accusative. brat → brat-a. This is the key rule that makes accusative different from dative.'
+  },
+  {
+    nom:'selo',
+    eng:'village (neuter)',
+    gender:'Srednji rod · Neuter',
+    opts:['selo','sela','selu','selom'],
+    correct:0,
+    expl:'Neuter nouns do NOT change in the accusative — identical to nominative. selo → selo.'
+  },
+  {
+    nom:'žena',
+    eng:'woman / wife (feminine)',
+    gender:'Ženski rod · Feminine',
+    opts:['ženu','žene','ženi','ženom'],
+    correct:0,
+    expl:'Feminine -a nouns: remove -a, add -u. žen-a → žen-u.'
+  },
+  {
+    nom:'pas',
+    eng:'dog (masculine, animate)',
+    gender:'Muški rod, živo · Masc. animate',
+    opts:['psa','pas','psu','psom'],
+    correct:0,
+    expl:'Animate masculine: accusative = genitive form. "Pas" has a fleeting-a: pas → ps- + a = psa. This fleeting vowel drop is common in animate masculine nouns.'
+  },
+];
+
+// ─── EXERCISE 2 ───────────────────────────────────────────────────────────────
+// Task: complete a real sentence — accusative noun in context
+// Each item uses a SINGLE noun consistently (no noun-swapping).
+// Verbs chosen are genuine accusative-taking (transitive) verbs: videti, voleti,
+// čitati, gledati, imati, kupiti, slušati, zvati — NOT dative verbs.
+// Distractors are the nominative and genitive of the same noun.
+const EX2=[
+  {
+    s:'Vidim ___ na ulici.',
+    e:'I see ___ on the street.',
+    prompt:'mačka → mačku (fem., cat)',
+    opts:['mačku','mačka','mački'],
+    correct:0,
+    expl:'"Videti" (to see) takes a direct accusative object. mačk-a → mačk-u (fem. -a → -u).',
+    full:'Vidim mačku na ulici.'
+  },
+  {
+    s:'Volim ___ jako mnogo.',
+    e:'I love ___ very much.',
+    prompt:'majka → majku (fem., mother)',
+    opts:['majku','majka','majci'],
+    correct:0,
+    expl:'"Voleti" (to love) takes accusative. majk-a → majk-u.',
+    full:'Volim majku jako mnogo.'
+  },
+  {
+    s:'Čitam ___ svako jutro.',
+    e:'I read ___ every morning.',
+    prompt:'novine → novine (fem. pl., newspaper)',
+    opts:['novine','novina','novinama'],
+    correct:0,
+    expl:'"Čitati" (to read) takes accusative. Feminine plural nouns ending in -e are unchanged in accusative. novine → novine.',
+    full:'Čitam novine svako jutro.'
+  },
+  {
+    s:'Gledam ___ u bioskopu.',
+    e:'I am watching ___ at the cinema.',
+    prompt:'film (masc. inanimate)',
+    opts:['film','filma','filmu'],
+    correct:0,
+    expl:'"Gledati" (to watch) takes accusative. Inanimate masculine: accusative = nominative. film → film.',
+    full:'Gledam film u bioskopu.'
+  },
+  {
+    s:'Zovem ___ na telefon.',
+    e:'I am calling ___ on the phone.',
+    prompt:'brat → brata (masc. animate, brother)',
+    opts:['brata','brat','bratu'],
+    correct:0,
+    expl:'"Zvati" (to call) takes accusative. Animate masculine: accusative = genitive form (-a). brat → brat-a.',
+    full:'Zovem brata na telefon.'
+  },
+  {
+    s:'Kupujem ___ za ručak.',
+    e:'I am buying ___ for lunch.',
+    prompt:'hleb (masc. inanimate, bread)',
+    opts:['hleb','hleba','hlebu'],
+    correct:0,
+    expl:'"Kupovati" (to buy) takes accusative. Inanimate masculine: accusative = nominative. hleb → hleb.',
+    full:'Kupujem hleb za ručak.'
+  },
+];
+
+function buildProgress(){
+  document.getElementById('pbar').innerHTML=SCREENS.map((s,i)=>
+    `<div class="pdot ${i<cur?'done':i===cur?'active':''}"></div>`).join('');
+}
+
+function buildScreens(){
+  const c=document.getElementById('screens');
+  c.innerHTML='';
+  const mk=(id,html)=>{
+    const d=document.createElement('div');
+    d.className=`screen ${id===SCREENS[cur].id?'active':''}`;
+    d.id=`sc-${id}`;
+    d.innerHTML=html;
+    c.appendChild(d);
+  };
+
+  // ── SCREEN 1: Introduction ─────────────────────────────────────────────────
+  mk('intro',`
+    <div class="slabel">Lekcija 4a · Lesson 4a</div>
+    <div class="stitle">Akuzativ · The Accusative Case</div>
+    <div class="ibox">
+      <strong>What is the accusative?</strong><br>
+      The accusative marks the <em>direct object</em> — the thing or person directly affected by the action.
+      It answers <strong>koga?</strong> (whom?) for people and animals, and <strong>šta?</strong> (what?) for things.
+      If you can ask "what do I see / eat / love / read?", the answer is in the accusative.<br><br>
+      <strong>Šta je akuzativ?</strong><br>
+      Akuzativ označava <em>direktni objekat</em> — osobu ili stvar na koju radnja direktno prelazi.
+      Odgovara na pitanja <strong>koga?</strong> i <strong>šta?</strong>
+    </div>
+    <div class="card">
+      <div class="cs">Vidim <span class="hl">mačku</span>.</div>
+      <div class="ce">I see the cat. → šta vidim? — mačku</div>
+      <div class="cn">mačku = accusative of mačka (fem.) → direct object of seeing</div>
+      ${spkBtn('Vidim mačku.')}
+    </div>
+    <div class="card">
+      <div class="cs">Volim <span class="hl">brata</span>.</div>
+      <div class="ce">I love my brother. → koga volim? — brata</div>
+      <div class="cn">brata = accusative of brat (masc. animate) → direct object of loving</div>
+      ${spkBtn('Volim brata.')}
+    </div>
+    <div class="card">
+      <div class="cs">Čitam <span class="hl">knjigu</span>.</div>
+      <div class="ce">I am reading a book. → šta čitam? — knjigu</div>
+      <div class="cn">knjigu = accusative of knjiga (fem.) → direct object of reading</div>
+      ${spkBtn('Čitam knjigu.')}
+    </div>
+    <div class="card">
+      <div class="cs">Gledam <span class="hl">film</span>.</div>
+      <div class="ce">I am watching a film. → šta gledam? — film</div>
+      <div class="cn">film = accusative of film (masc. inanimate) → unchanged from nominative</div>
+      ${spkBtn('Gledam film.')}
+    </div>
+    <div class="navrow"><span></span><button class="btnp" onclick="goNext()">Dalje · Next →</button></div>
+  `);
+
+  // ── SCREEN 2: The animate/inanimate distinction ────────────────────────────
+  mk('animate',`
+    <div class="slabel">Ključno pravilo · Key rule</div>
+    <div class="stitle">Živo ili neživo? · Animate or inanimate?</div>
+    <div class="ibox ibox-amber">
+      <strong>The defining rule of Serbian accusative:</strong> for masculine nouns only, the ending depends on whether the noun refers to a living being (animate) or a thing (inanimate). Feminine and neuter nouns do not have this split.
+    </div>
+    <div class="anim-grid">
+      <div class="anim-card animate">
+        <div class="anim-label">Živo · Animate</div>
+        <div style="font-size:13px;color:var(--amber-text);margin-bottom:8px;opacity:.85;">people, animals</div>
+        <div class="anim-ex">brat → <strong>brata</strong></div>
+        <div class="anim-sub">brother → brot-a</div>
+        <div class="anim-ex" style="margin-top:6px;">pas → <strong>psa</strong></div>
+        <div class="anim-sub">dog → ps-a</div>
+        <div class="anim-ex" style="margin-top:6px;">čovek → <strong>čoveka</strong></div>
+        <div class="anim-sub">man → čovek-a</div>
+        <div style="font-size:12px;color:var(--amber-text);margin-top:10px;opacity:.85;">ending = genitive form (-a)</div>
+      </div>
+      <div class="anim-card inanimate">
+        <div class="anim-label">Neživo · Inanimate</div>
+        <div style="font-size:13px;color:var(--blue-text);margin-bottom:8px;opacity:.85;">objects, concepts</div>
+        <div class="anim-ex">film → <strong>film</strong></div>
+        <div class="anim-sub">film → film (unchanged)</div>
+        <div class="anim-ex" style="margin-top:6px;">sto → <strong>sto</strong></div>
+        <div class="anim-sub">table → sto (unchanged)</div>
+        <div class="anim-ex" style="margin-top:6px;">grad → <strong>grad</strong></div>
+        <div class="anim-sub">city → grad (unchanged)</div>
+        <div style="font-size:12px;color:var(--blue-text);margin-top:10px;opacity:.85;">accusative = nominative (no change)</div>
+      </div>
+    </div>
+    <div class="ibox ibox-purple">
+      <strong>How to test:</strong> ask <em>Koga vidim?</em> (animate) or <em>Šta vidim?</em> (inanimate).
+      If the answer is a living being → use -a ending. If it's a thing → no change.
+    </div>
+    <div class="card">
+      <div style="font-size:13px;font-weight:500;color:var(--text-secondary);margin-bottom:10px;">Hear the contrast</div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div>
+          <div style="font-size:15px;">Vidim <span class="hl3">brata</span>. — I see my brother. <em style="font-size:13px;color:var(--text-secondary)">(animate → -a)</em></div>
+          ${spkBtn('Vidim brata.')}
+        </div>
+        <div style="border-top:0.5px solid var(--border-light);padding-top:10px;">
+          <div style="font-size:15px;">Vidim <span class="hl">film</span>. — I see the film. <em style="font-size:13px;color:var(--text-secondary)">(inanimate → unchanged)</em></div>
+          ${spkBtn('Vidim film.')}
+        </div>
+      </div>
+    </div>
+    <div class="navrow"><button class="btng" onclick="goPrev()">← Nazad</button><button class="btnp" onclick="goNext()">Nastavci · Endings →</button></div>
+  `);
+
+  // ── SCREEN 3: Full endings table ───────────────────────────────────────────
+  mk('endings',`
+    <div class="slabel">Nastavci · Endings</div>
+    <div class="stitle">Kako se gradi akuzativ · How to form the accusative</div>
+    <div class="ibox">
+      Feminine and neuter follow simple, regular patterns. The masculine animate/inanimate split is the one rule that requires real attention.
+    </div>
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th>Rod · Gender</th>
+          <th>Nastavak · Ending</th>
+          <th>Nominativ → Akuzativ</th>
+          <th>Više primera</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="hl2">Muški, živo<br><small>Masc. animate</small></span></td>
+          <td class="end">-a <span class="warn">(= gen.)</span></td>
+          <td>brat → <strong>brata</strong><br>pas → <strong>psa</strong></td>
+          <td class="dim">čovek → čoveka<br>sin → sina<br>drug → druga</td>
+        </tr>
+        <tr>
+          <td><span class="hl">Muški, neživo<br><small>Masc. inanimate</small></span></td>
+          <td class="end">— <span class="warn">(= nom.)</span></td>
+          <td>film → <strong>film</strong><br>sto → <strong>sto</strong></td>
+          <td class="dim">grad → grad<br>hleb → hleb<br>auto → auto</td>
+        </tr>
+        <tr>
+          <td><span style="background:var(--purple-bg);color:var(--purple-text);padding:1px 6px;border-radius:4px;font-weight:500;">Ženski<br><small>Feminine</small></span></td>
+          <td class="end">-u</td>
+          <td>knjiga → <strong>knjigu</strong><br>žena → <strong>ženu</strong></td>
+          <td class="dim">mačka → mačku<br>majka → majku<br>sestra → sestru</td>
+        </tr>
+        <tr>
+          <td><span class="hl3">Srednji<br><small>Neuter</small></span></td>
+          <td class="end">— <span class="warn">(= nom.)</span></td>
+          <td>selo → <strong>selo</strong><br>more → <strong>more</strong></td>
+          <td class="dim">dete → dete<br>auto → auto<br>polje → polje</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="ibox ibox-amber" style="margin-top:.25rem;">
+      <strong>⚠ Note on neuter "dete":</strong> In the accusative, "dete" stays as <strong>dete</strong> (unchanged). Compare: genitive = "deteta", dative = "detetu". The accusative is the easy form here.
+    </div>
+    <div class="card">
+      <div style="font-size:13px;font-weight:500;color:var(--text-secondary);margin-bottom:10px;">Hear each pattern</div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div>
+          <span class="hl3">brata</span> — masc. animate (-a)
+          ${spkBtn('Vidim brata.')}
+        </div>
+        <div style="border-top:0.5px solid var(--border-light);padding-top:8px;">
+          <span class="hl">film</span> — masc. inanimate (unchanged)
+          ${spkBtn('Gledam film.')}
+        </div>
+        <div style="border-top:0.5px solid var(--border-light);padding-top:8px;">
+          <span style="background:var(--purple-bg);color:var(--purple-text);padding:1px 6px;border-radius:4px;font-weight:500;">knjigu</span> — feminine (-a → -u)
+          ${spkBtn('Čitam knjigu.')}
+        </div>
+        <div style="border-top:0.5px solid var(--border-light);padding-top:8px;">
+          <span class="hl2">selo</span> — neuter (unchanged)
+          ${spkBtn('Vidim selo.')}
+        </div>
+      </div>
+    </div>
+    <div class="navrow"><button class="btng" onclick="goPrev()">← Nazad</button><button class="btnp" onclick="goNext()">Vežba 1 →</button></div>
+  `);
+
+  // ── SCREENS 4 & 5: Exercises ───────────────────────────────────────────────
+  mk('ex1', buildEx1HTML());
+  mk('ex2', buildEx2HTML());
+
+  // ── SCREEN 6: Done ─────────────────────────────────────────────────────────
+  const s1=EX1.filter((_,i)=>ex1s.checked[i]===true).length;
+  const s2=EX2.filter((_,i)=>ex2s.checked[i]===true).length;
+  mk('done',`
+    <div class="slabel">Završeno · Done</div>
+    <div class="stitle">Odlično! Lekcija 4a završena.</div>
+    <div class="score-wrap">
+      <div class="score-circle"><div class="score-num">${s1}/${EX1.length}</div><div class="score-lbl">Vežba 1</div></div>
+      <div class="score-circle"><div class="score-num">${s2}/${EX2.length}</div><div class="score-lbl">Vežba 2</div></div>
+    </div>
+    <div class="card">
+      <div class="cs" style="font-size:15px;margin-bottom:8px;">Šta si naučio/la</div>
+      <ul style="padding-left:1.1rem;font-size:14px;color:var(--text-secondary);line-height:2.2;">
+        <li>Accusative answers <strong>koga?</strong> (whom?) and <strong>šta?</strong> (what?)</li>
+        <li>Feminine nouns: <strong>-a → -u</strong> (knjiga → knjigu, mačka → mačku)</li>
+        <li>Neuter nouns: <strong>unchanged</strong> (selo → selo, more → more)</li>
+        <li>Masculine <em>inanimate</em>: <strong>unchanged</strong> (film → film, hleb → hleb)</li>
+        <li>Masculine <em>animate</em>: <strong>-a ending</strong> (brat → brata, pas → psa)</li>
+        <li>Accusative verbs: videti, voleti, čitati, gledati, čuti, kupiti, zvati…</li>
+      </ul>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:.6rem;margin-top:1.25rem;">
+      <button class="btn-complete" onclick="markAndGoNext()">&#x279C; Lekcija 4b — accusative pronouns (me, te, ga, je, nas, vas, ih) and their position in the sentence.</button>
+      <button class="btng" style="width:100%;text-align:center;" onclick="markAndGoHome()">&#x21A9; Vrati se na početnu &middot; Back to home</button>
+      <button class="btng" style="width:100%;text-align:center;" onclick="restart()">&#x21BA; Ponovi lekciju &middot; Restart</button>
+    </div>
+  `);
+}
+
+// ── Exercise builders ──────────────────────────────────────────────────────────
+
+function buildEx1HTML(){
+  let h=`<div class="slabel">Vežba 1 · Exercise 1</div>
+    <div class="stitle">Nominativ → Akuzativ</div>
+    <div class="ibox">Each noun is shown in its nominative form. Choose the correct accusative. <strong>For masculine nouns, first decide: animate or inanimate?</strong></div>`;
+  EX1.forEach((q,qi)=>{
+    const chk=ex1s.checked[qi]!==undefined;
+    const sel=ex1s.answers[qi];
+    h+=`<div class="card" style="margin-bottom:1rem;">
+      <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:4px;">
+        <div class="cs">${q.nom}</div>
+        <div style="font-size:12px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.06em;">${q.gender}</div>
+      </div>
+      <div class="ce" style="margin-bottom:8px;">${q.eng}</div>
+      <div class="optsrow">`;
+    q.opts.forEach((opt,oi)=>{
+      let cls='opt';
+      if(chk){
+        cls+=' locked';
+        if(oi===q.correct) cls+=' ok';
+        else if(oi===sel && oi!==q.correct) cls+=' bad';
+      } else if(sel===oi) cls+=' sel';
+      h+=`<button class="${cls}" onclick="ex1pick(${qi},${oi})">${opt}</button>`;
+    });
+    h+=`</div>`;
+    if(chk) h+=`<div class="fb ${ex1s.checked[qi]?'ok':'bad'}">${ex1s.checked[qi]?'Tačno!':'Netačno.'} — ${q.expl}</div>`;
+    h+=`</div>`;
+  });
+  const allA=EX1.every((_,i)=>ex1s.answers[i]!==undefined);
+  const allC=EX1.every((_,i)=>ex1s.checked[i]!==undefined);
+  h+=`<div class="navrow"><button class="btng" onclick="goPrev()">← Nazad</button>`;
+  if(!allC) h+=`<button class="btnp" ${allA?'':'disabled'} onclick="checkEx1()">Proveri · Check</button>`;
+  else h+=`<button class="btnp" onclick="goNext()">Vežba 2 →</button>`;
+  h+=`</div>`;
+  return h;
+}
+
+function buildEx2HTML(){
+  let h=`<div class="slabel">Vežba 2 · Exercise 2</div>
+    <div class="stitle">Akuzativ u rečenici · Accusative in context</div>
+    <div class="ibox">Complete each sentence with the correct accusative form. The noun to transform and its gender are shown below each sentence.</div>`;
+  EX2.forEach((q,qi)=>{
+    const chk=ex2s.checked[qi]!==undefined;
+    const sel=ex2s.answers[qi];
+    const filled=sel!==undefined ? q.opts[sel] : '___';
+    h+=`<div class="card" style="margin-bottom:1rem;">
+      <div style="font-size:17px;color:var(--text-primary);margin-bottom:4px;line-height:1.6;">
+        ${q.s.replace('___',`<span class="blank">${filled}</span>`)}
+      </div>
+      <div style="font-size:13px;color:var(--text-secondary);margin-bottom:2px;">${q.e}</div>
+      <div style="font-size:12px;color:var(--text-tertiary);margin-bottom:8px;">→ <strong>${q.prompt}</strong></div>
+      <div class="optsrow">`;
+    q.opts.forEach((opt,oi)=>{
+      let cls='opt';
+      if(chk){
+        cls+=' locked';
+        if(oi===q.correct) cls+=' ok';
+        else if(oi===sel && oi!==q.correct) cls+=' bad';
+      } else if(sel===oi) cls+=' sel';
+      h+=`<button class="${cls}" onclick="ex2pick(${qi},${oi})">${opt}</button>`;
+    });
+    h+=`</div>`;
+    if(chk){
+      h+=`<div class="fb ${ex2s.checked[qi]?'ok':'bad'}">${ex2s.checked[qi]?'Tačno!':'Netačno.'} — ${q.expl}</div>`;
+      if(ex2s.checked[qi]) h+=spkBtn(q.full);
+    }
+    h+=`</div>`;
+  });
+  const allA=EX2.every((_,i)=>ex2s.answers[i]!==undefined);
+  const allC=EX2.every((_,i)=>ex2s.checked[i]!==undefined);
+  h+=`<div class="navrow"><button class="btng" onclick="goPrev()">← Nazad</button>`;
+  if(!allC) h+=`<button class="btnp" ${allA?'':'disabled'} onclick="checkEx2()">Proveri · Check</button>`;
+  else h+=`<button class="btnp" onclick="goNext()">Završetak →</button>`;
+  h+=`</div>`;
+  return h;
+}
+
+// ── State management ───────────────────────────────────────────────────────────
+
+function ex1pick(qi,oi){ if(ex1s.checked[qi]!==undefined)return; ex1s.answers[qi]=oi; refreshEx1(); }
+function refreshEx1(){
+  const old=document.getElementById('sc-ex1'); if(!old)return;
+  const d=document.createElement('div');
+  d.className=`screen ${SCREENS[cur].id==='ex1'?'active':''}`;
+  d.id='sc-ex1'; d.innerHTML=buildEx1HTML(); old.replaceWith(d);
+}
+function checkEx1(){
+  EX1.forEach((_,i)=>{ if(ex1s.answers[i]!==undefined) ex1s.checked[i]=ex1s.answers[i]===EX1[i].correct; });
+  refreshEx1();
+}
+function ex2pick(qi,oi){ if(ex2s.checked[qi]!==undefined)return; ex2s.answers[qi]=oi; refreshEx2(); }
+function refreshEx2(){
+  const old=document.getElementById('sc-ex2'); if(!old)return;
+  const d=document.createElement('div');
+  d.className=`screen ${SCREENS[cur].id==='ex2'?'active':''}`;
+  d.id='sc-ex2'; d.innerHTML=buildEx2HTML(); old.replaceWith(d);
+}
+function checkEx2(){
+  EX2.forEach((_,i)=>{ if(ex2s.answers[i]!==undefined) ex2s.checked[i]=ex2s.answers[i]===EX2[i].correct; });
+  refreshEx2();
+}
+function goNext(){ if(cur<SCREENS.length-1){ cur++; render(); window.scrollTo({top:0,behavior:'smooth'}); } }
+function goPrev(){ if(cur>0){ cur--; render(); window.scrollTo({top:0,behavior:'smooth'}); } }
+function restart(){ cur=0; ex1s={answers:{},checked:{}}; ex2s={answers:{},checked:{}}; render(); }
+function render(){
+  buildScreens(); buildProgress();
+  document.querySelectorAll('.screen').forEach(s=>{
+    s.classList.toggle('active', s.id===`sc-${SCREENS[cur].id}`);
+  });
+}
+render();
+
+function markAndGoHome(){
+  try{
+    const p=JSON.parse(localStorage.getItem('serbian_course_progress')||'{}');
+    p['L4a']=true;
+    localStorage.setItem('serbian_course_progress',JSON.stringify(p));
+  }catch(e){}
+  window.location.href='serbian-course-home.html';
+}
+
+function markAndGoNext(){
+  try{
+    const p=JSON.parse(localStorage.getItem('serbian_course_progress')||'{}');
+    p['L4a']=true;
+    localStorage.setItem('serbian_course_progress',JSON.stringify(p));
+  }catch(e){}
+  window.location.href='serbian-lesson4b-akuzativ-zamenice.html';
+}
+
+  </script>
+</body>
+</html>

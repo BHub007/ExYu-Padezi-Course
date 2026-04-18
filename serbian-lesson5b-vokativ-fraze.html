@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Serbian · Lekcija 5b · Vokativ — Fraze</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f4f0;
+    --bg-tertiary: #eeedea;
+    --text-primary: #1a1a1a;
+    --text-secondary: #6b6b6b;
+    --text-tertiary: #9b9b9b;
+    --border-light: rgba(0,0,0,0.1);
+    --border-mid: rgba(0,0,0,0.18);
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --pink-bg: #FBEAF0;
+    --pink-text: #72243E;
+    --pink-border: #D4537E;
+    --purple-bg: #EEEDFE;
+    --purple-text: #534AB7;
+    --purple-border: #7F77DD;
+    --green-bg: #E1F5EE;
+    --green-text: #0F6E56;
+    --green-border: #1D9E75;
+    --amber-bg: #FAEEDA;
+    --amber-text: #633806;
+    --amber-border: #BA7517;
+    --red-bg: #FCEBEB;
+    --red-text: #A32D2D;
+    --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-primary: #1e1e1e; --bg-secondary: #2a2a2a; --bg-tertiary: #333;
+      --text-primary: #f0f0f0; --text-secondary: #a0a0a0; --text-tertiary: #666;
+      --border-light: rgba(255,255,255,0.1); --border-mid: rgba(255,255,255,0.18);
+      --pink-bg: #4B1528; --pink-text: #ED93B1; --pink-border: #D4537E;
+      --purple-bg: #26215C; --purple-text: #AFA9EC; --purple-border: #7F77DD;
+      --green-bg: #04342C; --green-text: #9FE1CB; --green-border: #1D9E75;
+      --amber-bg: #412402; --amber-text: #FAC775; --amber-border: #BA7517;
+      --red-bg: #501313; --red-text: #F09595;
+    }
+  }
+  body { font-family: var(--font); background: var(--bg-tertiary); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 2rem 1rem; }
+  .lesson-header { width: 100%; max-width: 680px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+  .lesson-title-row { display: flex; align-items: center; gap: 12px; }
+  .lesson-badge { background: var(--pink-bg); color: var(--pink-text); font-size: 12px; font-weight: 500; padding: 4px 12px; border-radius: 20px; }
+  .lesson-name { font-size: 14px; color: var(--text-secondary); }
+  .app { width: 100%; max-width: 680px; background: var(--bg-primary); border-radius: var(--radius-lg); border: 0.5px solid var(--border-light); padding: 2rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  .progress-bar { display: flex; gap: 6px; margin-bottom: 1.75rem; }
+  .pdot { height: 5px; flex: 1; border-radius: 10px; background: var(--border-light); transition: background .3s; }
+  .pdot.done { background: var(--green-border); }
+  .pdot.active { background: var(--pink-border); }
+  .screen { display: none; }
+  .screen.active { display: block; }
+  .slabel { font-size: 11px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: .09em; margin-bottom: .5rem; }
+  .stitle { font-size: 21px; font-weight: 500; color: var(--text-primary); margin-bottom: 1.25rem; line-height: 1.3; }
+  .card { background: var(--bg-secondary); border: 0.5px solid var(--border-light); border-radius: var(--radius-lg); padding: 1rem 1.25rem; margin-bottom: .75rem; }
+  .cs { font-size: 17px; font-weight: 500; color: var(--text-primary); margin-bottom: 4px; }
+  .ce { font-size: 14px; color: var(--text-secondary); }
+  .cn { font-size: 13px; color: var(--pink-text); margin-top: 6px; }
+  .hl  { background: var(--pink-bg);   color: var(--pink-text);   padding: 1px 5px; border-radius: 4px; font-weight: 500; }
+  .hl2 { background: var(--green-bg);  color: var(--green-text);  padding: 1px 5px; border-radius: 4px; font-weight: 500; }
+  .hl3 { background: var(--purple-bg); color: var(--purple-text); padding: 1px 5px; border-radius: 4px; font-weight: 500; }
+  .hl4 { background: var(--amber-bg);  color: var(--amber-text);  padding: 1px 5px; border-radius: 4px; font-weight: 500; }
+  .spk { display: inline-flex; align-items: center; gap: 6px; background: none; border: 0.5px solid var(--border-mid); border-radius: var(--radius-md); padding: 5px 12px; font-size: 13px; color: var(--text-secondary); cursor: pointer; margin-top: 8px; transition: background .15s; font-family: var(--font); }
+  .spk:hover { background: var(--bg-tertiary); }
+  .spk svg { width: 14px; height: 14px; flex-shrink: 0; }
+  .ibox { background: var(--bg-secondary); border-left: 3px solid var(--pink-border); border-radius: 0 var(--radius-md) var(--radius-md) 0; padding: .75rem 1rem; margin-bottom: 1rem; font-size: 14px; line-height: 1.7; color: var(--text-secondary); }
+  .ibox strong { color: var(--text-primary); font-weight: 500; }
+  .ibox-amber { border-left-color: var(--amber-border); }
+  .ibox-purple { border-left-color: var(--purple-border); }
+  .navrow { display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; }
+  .btnp { background: var(--pink-border); color: var(--pink-bg); border: none; border-radius: var(--radius-md); padding: 10px 24px; font-size: 15px; font-weight: 500; cursor: pointer; transition: opacity .15s; font-family: var(--font); }
+  .btnp:hover { opacity: .88; }
+  .btnp:disabled { opacity: .4; cursor: default; }
+  .btng { background: none; border: 0.5px solid var(--border-mid); border-radius: var(--radius-md); padding: 10px 20px; font-size: 15px; color: var(--text-secondary); cursor: pointer; font-family: var(--font); }
+  .btng:hover { background: var(--bg-secondary); }
+  .blank { display: inline-block; min-width: 80px; border-bottom: 2px solid var(--pink-border); text-align: center; padding: 0 4px; font-weight: 500; color: var(--pink-text); }
+  .optsrow { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 1rem; }
+  .opt { border: 1.5px solid var(--border-mid); background: var(--bg-primary); border-radius: var(--radius-md); padding: 9px 18px; font-size: 15px; cursor: pointer; color: var(--text-primary); transition: all .15s; font-family: var(--font); }
+  .opt:hover:not(.locked) { border-color: var(--pink-border); background: var(--pink-bg); color: var(--pink-text); }
+  .opt.sel { border-color: var(--pink-border); background: var(--pink-bg); color: var(--pink-text); }
+  .opt.ok  { border-color: var(--green-border); background: var(--green-bg); color: var(--green-text); }
+  .opt.bad { border-color: #E24B4A; background: var(--red-bg); color: var(--red-text); }
+  .opt.locked { cursor: default; }
+  .fb { font-size: 14px; padding: 8px 12px; border-radius: var(--radius-md); margin-bottom: .75rem; line-height: 1.5; }
+  .fb.ok  { background: var(--green-bg); color: var(--green-text); }
+  .fb.bad { background: var(--red-bg);   color: var(--red-text); }
+  .group-label { font-size: 12px; font-weight: 500; color: var(--pink-text); text-transform: uppercase; letter-spacing: .07em; margin: 1rem 0 .5rem; }
+  .score-wrap { display: flex; gap: 16px; justify-content: center; margin-bottom: 1.5rem; }
+  .score-circle { width: 90px; height: 90px; border-radius: 50%; border: 3px solid var(--green-border); display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .score-num { font-size: 28px; font-weight: 500; color: var(--green-text); line-height: 1; }
+  .score-lbl { font-size: 11px; color: var(--text-tertiary); }
+  .btn-complete { background: var(--green-border); color: #fff; border: none; border-radius: var(--radius-md); padding: 12px 28px; font-size: 15px; font-weight: 500; cursor: pointer; font-family: var(--font); transition: opacity .15s; display: block; width: 100%; text-align: center; }
+  .btn-complete:hover { opacity: .88; }
+  footer { margin-top: 2rem; font-size: 12px; color: var(--text-tertiary); text-align: center; }
+  @media (max-width: 480px) { .app { padding: 1.25rem; } }
+</style>
+</head>
+<body>
+<div class="lesson-header">
+  <div class="lesson-title-row">
+    <span class="lesson-badge">Lekcija 5b</span>
+    <span class="lesson-name">Vokativ &#x2014; Fraze &middot; Vocative Phrases</span>
+  </div>
+  <span style="font-size:12px;color:var(--text-tertiary)">2 od 3 lekcije o vokativu</span>
+</div>
+<div class="app">
+  <div class="progress-bar" id="pbar"></div>
+  <div id="screens"></div>
+</div>
+<footer>Serbian Language Course &middot; Lekcija 5b &middot; Vokativ &#x2014; Fraze</footer>
+<script>
+const SCREENS=[
+  {id:'intro',   label:'Lekcija 5b \xb7 Lesson 5b'},
+  {id:'family',  label:'Porodica \xb7 Family'},
+  {id:'formal',  label:'Zvanично \xb7 Formal address'},
+  {id:'excl',    label:'Uzvi\u010di \xb7 Exclamations'},
+  {id:'ex1',     label:'Ve\u017eba 1 \xb7 Exercise 1'},
+  {id:'ex2',     label:'Ve\u017eba 2 \xb7 Exercise 2'},
+  {id:'done',    label:'Zavr\u0161eno \xb7 Done'},
+];
+let cur=0;
+let ex1s={answers:{},checked:{}};
+let ex2s={answers:{},checked:{}};
+
+function speak(t,l){
+  if(!window.speechSynthesis)return;
+  window.speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(t);
+  u.lang=l||'sr-RS';u.rate=0.85;
+  window.speechSynthesis.speak(u);
+}
+function spkBtn(t,l){
+  const lang=l||'sr-RS';
+  const safe=t.replace(/'/g,"\\'");
+  return '<button class="spk" onclick="speak(\''+safe+'\',\''+lang+'\')">'
+    +'<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">'
+    +'<path d="M10 3v14M6 6v8M14 5v10M2 8v4M18 7v6"/>'
+    +'</svg>Slu\u0161aj</button>';
+}
+
+// EX1: choose the correct vocative in a real phrase or sentence
+const EX1=[
+  {s:'Dobro jutro, ___, kako ste?',
+   e:'Good morning, Professor, how are you?',
+   opts:['profesore','profesor','profesoru'], correct:0,
+   audio:'Dobro jutro, profesore, kako ste?',
+   expl:'Masculine nouns with titles add <strong>-e</strong> in the vocative: profesor \u2192 <strong>profesore</strong>. Sibilarization does not apply here (r is not k/g/h).'},
+  {s:'___, mo\u017ee\u0161 li mi pomo\u0107i?',
+   e:'Sis, can you help me?',
+   opts:['Sestro','Sestra','Sestre'], correct:0,
+   audio:'Sestro, mo\u017ee\u0161 li mi pomo\u0107i?',
+   expl:'Feminine -a noun: sestra \u2192 <strong>sestro</strong> (vocative). Always -a \u2192 -o for feminine -a nouns.'},
+  {s:'Izvini, ___, gde je Trg republike?',
+   e:'Excuse me, ma\'am, where is Republic Square?',
+   opts:['gospо\u0111o','gospо\u0111a','gospо\u0111i'], correct:0,
+   audio:'Izvini, gospo\u0111o, gde je Trg republike?',
+   expl:'gospо\u0111a (Mrs/ma\'am) is a feminine -a noun: \u2192 <strong>gospо\u0111o</strong>. This is one of the most useful formal vocatives.'},
+  {s:'___, ne budi nervozan!',
+   e:'Dad, don\'t be nervous!',
+   opts:['Tato','Tata','Tati'], correct:0,
+   audio:'Tato, ne budi nervozan!',
+   expl:'tata is a masculine noun ending in -a (a small group including family terms). Like feminine -a nouns it takes <strong>-o</strong>: tata \u2192 <strong>tato</strong>.'},
+  {s:'Bo\u017ee moj, kakva le\u017ea!',
+   e:'My God, what laziness!',
+   opts:['Bo\u017ee','Bog','Boga'], correct:0,
+   audio:'Bo\u017ee moj, kakva le\u017ea!',
+   expl:'Bog (God) has a g-stem: <strong>g \u2192 \u017e</strong> before -e. Bog \u2192 <strong>Bo\u017e-e</strong>. This is a set exclamation learned as a fixed phrase.'},
+  {s:'___, do\u0111i za sto!',
+   e:'Son, come to the table!',
+   opts:['Sine','Sin','Sina'], correct:0,
+   audio:'Sine, do\u0111i za sto!',
+   expl:'sin ends in a consonant: vocative adds <strong>-e</strong> \u2192 <strong>sine</strong>.'},
+];
+
+// EX2: match the nominative title/name to its correct vocative
+const EX2=[
+  {s:'Nominativ: <strong>doktor</strong><br><span style="font-size:13px;color:var(--text-secondary)">doctor (masc.)</span>',
+   e:'Which is the correct vocative?',
+   opts:['doktore','doktor','doktoru'], correct:0,
+   expl:'doktor ends in -r (consonant): vocative adds -e \u2192 <strong>doktore</strong>. No sibilarization \u2014 only k, g, h trigger it.'},
+  {s:'Nominativ: <strong>gospodin</strong><br><span style="font-size:13px;color:var(--text-secondary)">Mr / sir (masc.)</span>',
+   e:'Which is the correct vocative?',
+   opts:['gospodine','gospodin','gospod\xeenu'], correct:0,
+   expl:'gospodin ends in -n (consonant): vocative adds -e \u2192 <strong>gospodine</strong>. The most common formal male address.'},
+  {s:'Nominativ: <strong>prijatelj</strong><br><span style="font-size:13px;color:var(--text-secondary)">friend (masc.)</span>',
+   e:'Which is the correct vocative?',
+   opts:['prijatelju','prijatelj','prijatelja'], correct:0,
+   expl:'Masculine nouns with a soft stem (ending in -lj, -nj, -j) add <strong>-u</strong> instead of -e: prijatelj \u2192 <strong>prijatelju</strong>. This is the soft-stem exception.'},
+  {s:'Nominativ: <strong>\u0107erka</strong><br><span style="font-size:13px;color:var(--text-secondary)">daughter (fem.)</span>',
+   e:'Which is the correct vocative?',
+   opts:['\u0107erko','\u0107erka','\u0107erki'], correct:0,
+   expl:'\u0107erka is a feminine -a noun: \u0107erka \u2192 <strong>\u0107erko</strong>. Regular feminine -a \u2192 -o pattern.'},
+  {s:'Nominativ: <strong>u\u010ditelj</strong><br><span style="font-size:13px;color:var(--text-secondary)">teacher (masc.)</span>',
+   e:'Which is the correct vocative?',
+   opts:['u\u010ditelju','u\u010ditelj','u\u010ditelja'], correct:0,
+   expl:'u\u010ditelj has a soft stem ending in -lj: takes <strong>-u</strong> in vocative \u2192 <strong>u\u010ditelju</strong>. Same pattern as prijatelju.'},
+];
+
+function buildProgress(){
+  document.getElementById('pbar').innerHTML=SCREENS.map((s,i)=>
+    `<div class="pdot ${i<cur?'done':i===cur?'active':''}"></div>`).join('');
+}
+
+function buildScreens(){
+  const c=document.getElementById('screens');c.innerHTML='';
+  const mk=(id,html)=>{
+    const d=document.createElement('div');
+    d.className=`screen ${id===SCREENS[cur].id?'active':''}`;
+    d.id=`sc-${id}`;d.innerHTML=html;c.appendChild(d);
+  };
+
+  mk('intro',`
+    <div class="slabel">${SCREENS[0].label}</div>
+    <div class="stitle">Vokativ u svakodnevnom govoru &middot; Vocative in everyday speech</div>
+    <div class="ibox" style="border-left:3px solid var(--pink-border);">
+      <strong>The vocative is most useful in fixed phrases.</strong><br><br>
+      Rather than building vocative forms from scratch each time, fluent speakers
+      know a core set of address forms by heart &#x2014; family terms, titles, and set exclamations.
+      This lesson focuses on those real-world building blocks.<br><br>
+      <em>Vokativ se naj\u010de\u0161\u0107e koristi u ustaljenim frazama i obra\u0107anjima.</em>
+    </div>
+    <div class="card">
+      <div class="cs"><span class="hl">Mamo</span>, gde si stavila moje klju\u010deve?</div>
+      <div class="ce">Mum, where did you put my keys?</div>
+      <div class="cn">mama \u2192 mamo \u2014 everyday family address</div>
+      ${spkBtn('Mamo, gde si stavila moje klju\u010deve?')}
+    </div>
+    <div class="card">
+      <div class="cs">Dobro jutro, <span class="hl">profesore</span>!</div>
+      <div class="ce">Good morning, Professor!</div>
+      <div class="cn">profesor \u2192 profesore \u2014 formal title address</div>
+      ${spkBtn('Dobro jutro, profesore!')}
+    </div>
+    <div class="card">
+      <div class="cs"><span class="hl">Bo\u017ee moj</span>, kako je vreme lepo!</div>
+      <div class="ce">My God, what beautiful weather!</div>
+      <div class="cn">Bog \u2192 Bo\u017ee \u2014 set exclamation, g\u2192\u017e sibilarization</div>
+      ${spkBtn('Bo\u017ee moj, kako je vreme lepo!')}
+    </div>
+    <div class="navrow"><span></span><button class="btnp" onclick="goNext()">Porodica &#x2192;</button></div>
+  `);
+
+  mk('family',`
+    <div class="slabel">${SCREENS[1].label}</div>
+    <div class="stitle">Porodica &middot; Family address terms</div>
+    <div class="ibox">These are the vocative forms you will use most in daily life.
+    Learn them as ready-made words &#x2014; you do not need to derive them each time.</div>
+    <div class="card">
+      <div class="cs">mama &#x2192; <span class="hl">mamo</span></div>
+      <div class="ce">Mamo, voli te tvoje dete! &mdash; Mum, your child loves you!</div>
+      <div class="cn">fem. -a \u2192 -o</div>
+      ${spkBtn('Mamo, voli te tvoje dete!')}
+    </div>
+    <div class="card">
+      <div class="cs">tata &#x2192; <span class="hl">tato</span></div>
+      <div class="ce">Tato, mo\u017ee\u0161 li mi pomo\u0107i? &mdash; Dad, can you help me?</div>
+      <div class="cn">masc. -a noun \u2192 -o (same as feminine -a pattern)</div>
+      ${spkBtn('Tato, mo\u017ee\u0161 li mi pomo\u0107i?')}
+    </div>
+    <div class="card">
+      <div class="cs">brat &#x2192; <span class="hl">brate</span></div>
+      <div class="ce">Brate, \u0161ta ima? &mdash; Bro, what's up?</div>
+      <div class="cn">masc. consonant stem + -e</div>
+      ${spkBtn('Brate, \u0161ta ima?')}
+    </div>
+    <div class="card">
+      <div class="cs">sestra &#x2192; <span class="hl">sestro</span></div>
+      <div class="ce">Sestro, sre\u0107an ro\u0111endan! &mdash; Sis, happy birthday!</div>
+      <div class="cn">fem. -a \u2192 -o</div>
+      ${spkBtn('Sestro, sre\u0107an ro\u0111endan!')}
+    </div>
+    <div class="card">
+      <div class="cs">sin &#x2192; <span class="hl">sine</span></div>
+      <div class="ce">Sine, pazi na sebe! &mdash; Son, take care of yourself!</div>
+      <div class="cn">masc. consonant stem + -e</div>
+      ${spkBtn('Sine, pazi na sebe!')}
+    </div>
+    <div class="card">
+      <div class="cs">\u0107erka &#x2192; <span class="hl">\u0107erko</span></div>
+      <div class="ce">\u0106erko, bravo! &mdash; Daughter, bravo!</div>
+      <div class="cn">fem. -a \u2192 -o</div>
+      ${spkBtn('\u0106erko, bravo!')}
+    </div>
+    <div class="navrow">
+      <button class="btng" onclick="goPrev()">&#x2190; Nazad</button>
+      <button class="btnp" onclick="goNext()">Zvani\u010dno &#x2192;</button>
+    </div>
+  `);
+
+  mk('formal',`
+    <div class="slabel">${SCREENS[2].label}</div>
+    <div class="stitle">Zvani\u010dno obra\u0107anje &middot; Formal address</div>
+    <div class="ibox">Serbian uses titles in the vocative for formal situations.
+    Note the <strong>soft-stem</strong> exception: nouns whose stem ends in <strong>-lj, -nj, -\u010d</strong> take <strong>-u</strong> instead of -e in the vocative.</div>
+    <div class="card">
+      <div class="cs">gospodin &#x2192; <span class="hl">gospodine</span></div>
+      <div class="ce">Gospodine, izvinite &mdash; Sir, excuse me</div>
+      <div class="cn">masc. consonant stem (-n) + -e</div>
+      ${spkBtn('Gospodine, izvinite.')}
+    </div>
+    <div class="card">
+      <div class="cs">gospо\u0111a &#x2192; <span class="hl">gospо\u0111o</span></div>
+      <div class="ce">Gospо\u0111o, dobro jutro &mdash; Ma'am, good morning</div>
+      <div class="cn">fem. -a \u2192 -o</div>
+      ${spkBtn('Gospo\u0111o, dobro jutro.')}
+    </div>
+    <div class="card">
+      <div class="cs">profesor &#x2192; <span class="hl">profesore</span></div>
+      <div class="ce">Profesore, imam pitanje &mdash; Professor, I have a question</div>
+      <div class="cn">masc. consonant stem (-r) + -e. No sibilarization \u2014 only k/g/h change.</div>
+      ${spkBtn('Profesore, imam pitanje.')}
+    </div>
+    <div class="card">
+      <div class="cs">doktor &#x2192; <span class="hl">doktore</span></div>
+      <div class="ce">Doktore, bo\u0113e me glava &mdash; Doctor, my head hurts</div>
+      <div class="cn">masc. consonant stem (-r) + -e</div>
+      ${spkBtn('Doktore, bo\u0111e me glava.')}
+    </div>
+    <div class="card">
+      <div class="cs">prijatelj &#x2192; <span class="hl">prijatelju</span></div>
+      <div class="ce">Prijatelju, hvala ti! &mdash; Friend, thank you!</div>
+      <div class="cn">Soft stem -lj &#x2192; takes <strong>-u</strong> not -e. Also: u\u010ditelju, kroju (krojač has \u010d-stem)</div>
+      ${spkBtn('Prijatelju, hvala ti!')}
+    </div>
+    <div class="ibox ibox-amber" style="margin-top:.5rem;">
+      <strong>&#x26A0; Soft stem rule</strong> &#x2014; masculine nouns whose stem ends in a palatal consonant
+      (-lj, -nj, -j, -\u010d, -\u0161, -\u017e, -\u0107, -\u0111) take <strong>-u</strong> in the vocative, not -e.
+      The most common examples: <em>prijatelju, u\u010ditelju, mu\u017eu (mu\u017e), kova\u010du (kova\u010d)</em>.
+    </div>
+    <div class="navrow">
+      <button class="btng" onclick="goPrev()">&#x2190; Nazad</button>
+      <button class="btnp" onclick="goNext()">Uzvi\u010di &#x2192;</button>
+    </div>
+  `);
+
+  mk('excl',`
+    <div class="slabel">${SCREENS[3].label}</div>
+    <div class="stitle">Uzvi\u010di i izrazi &middot; Exclamations &amp; set expressions</div>
+    <div class="ibox">The vocative appears in many fixed Serbian exclamations and emotional expressions.
+    Learn these as complete units &#x2014; they are ready to use immediately in speech.</div>
+    <div class="card">
+      <div class="cs"><span class="hl">Bo\u017ee moj</span>!</div>
+      <div class="ce">My God! (surprise, frustration, admiration)</div>
+      <div class="cn">Bog \u2192 Bo\u017ee (g\u2192\u017e sibilarization) + moj (my)</div>
+      ${spkBtn('Bo\u017ee moj!')}
+    </div>
+    <div class="card">
+      <div class="cs"><span class="hl">Majko mila</span>!</div>
+      <div class="ce">Dear mother! (strong surprise or shock)</div>
+      <div class="cn">majka \u2192 majko (fem. -a \u2192 -o) + mila (dear, nom.adj)</div>
+      ${spkBtn('Majko mila!')}
+    </div>
+    <div class="card">
+      <div class="cs">Dobro do\u0161ao, <span class="hl">prijatelju</span>!</div>
+      <div class="ce">Welcome, friend!</div>
+      <div class="cn">prijatelj \u2192 prijatelju (soft stem -lj \u2192 -u)</div>
+      ${spkBtn('Dobro do\u0161ao, prijatelju!')}
+    </div>
+    <div class="card">
+      <div class="cs">Zdravo, <span class="hl">narode</span>!</div>
+      <div class="ce">Hello, people! (informal greeting to a crowd)</div>
+      <div class="cn">narod \u2192 narode (masc. consonant stem + -e)</div>
+      ${spkBtn('Zdravo, narode!')}
+    </div>
+    <div class="card">
+      <div class="cs">Sre\u0107an ro\u0111endan, <span class="hl">drugarice</span>!</div>
+      <div class="ce">Happy birthday, (female) friend / comrade!</div>
+      <div class="cn">drugarica \u2192 drugarice (fem. -ica \u2192 -ice, variant of -a\u2192-e for -ica nouns)</div>
+      ${spkBtn('Sre\u0107an ro\u0111endan, drugarice!')}
+    </div>
+    <div class="ibox ibox-purple" style="margin-top:.5rem;">
+      <strong>Note on -ica nouns:</strong> Feminine nouns ending in <strong>-ica</strong> (drugarica, devojčica, učiteljica)
+      form their vocative with <strong>-ice</strong> rather than -o.
+      This is the one notable exception to the fem. -a \u2192 -o rule.
+    </div>
+    <div class="navrow">
+      <button class="btng" onclick="goPrev()">&#x2190; Nazad</button>
+      <button class="btnp" onclick="goNext()">Ve\u017eba 1 &#x2192;</button>
+    </div>
+  `);
+
+  mk('ex1', buildEx1HTML());
+  mk('ex2', buildEx2HTML());
+
+  const s1=EX1.filter((_,i)=>ex1s.checked[i]===true).length;
+  const s2=EX2.filter((_,i)=>ex2s.checked[i]===true).length;
+  const lastScreen=SCREENS[SCREENS.length-1];
+  mk('done',`
+    <div class="slabel">${lastScreen.label}</div>
+    <div class="stitle">Lekcija 5b zavr\u0161ena &middot; Lesson 5b complete!</div>
+    <div class="score-wrap">
+      <div class="score-circle"><div class="score-num">${s1}/${EX1.length}</div><div class="score-lbl">Ve\u017eba 1</div></div>
+      <div class="score-circle"><div class="score-num">${s2}/${EX2.length}</div><div class="score-lbl">Ve\u017eba 2</div></div>
+    </div>
+    <div class="card">
+      <div class="cs" style="font-size:15px;margin-bottom:8px;">\u0160ta si nau\u010dio/la &middot; What you learned</div>
+      <ul style="padding-left:1.1rem;font-size:14px;color:var(--text-secondary);line-height:2.2;">
+        <li>Family: <strong>mamo, tato, brate, sestro, sine, \u0107erko</strong></li>
+        <li>Formal: <strong>gospodine, gospo\u0111o, profesore, doktore</strong></li>
+        <li>Soft stems (-lj, -nj, palatal) take <strong>-u</strong>: prijatelju, u\u010ditelju</li>
+        <li>-ica nouns take <strong>-ice</strong>: drugarice, u\u010diteljice</li>
+        <li>Set exclamations: <strong>Bo\u017ee moj!, Majko mila!</strong></li>
+      </ul>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:.6rem;margin-top:1.25rem;">
+      <button class="btn-complete" onclick="markAndGoNext()">&#x279C; Slede\u0107a lekcija &mdash; Lekcija 5c &mdash; Vokativ: U re\u010denici</button>
+      <button class="btng" style="width:100%;text-align:center;" onclick="markAndGoHome()">&#x21A9; Vrati se na po\u010detnu &middot; Back to home</button>
+      <button class="btng" style="width:100%;text-align:center;" onclick="restart()">&#x21BA; Ponovi lekciju &middot; Restart</button>
+    </div>
+  `);
+}
+
+function buildEx1HTML(){
+  let h=`<div class="slabel">${SCREENS.find(s=>s.id==='ex1').label}</div>`;
+  h+=`<div class="ibox">Choose the correct vocative form for each sentence. Pay attention to the noun&#x2019;s stem ending.</div>`;
+  EX1.forEach((q,qi)=>{
+    const chk=ex1s.checked[qi]!==undefined;
+    const sel=ex1s.answers[qi];
+    const filled=sel!==undefined?q.opts[sel]:'___';
+    h+=`<div class="card" style="margin-bottom:1rem;">
+      <div style="font-size:17px;color:var(--text-primary);margin-bottom:4px;line-height:1.6;">${q.s.replace('___','<span class="blank">'+filled+'</span>')}</div>
+      <div style="font-size:13px;color:var(--text-secondary);margin-bottom:10px;">${q.e}</div>
+      <div class="optsrow">`;
+    q.opts.forEach((opt,oi)=>{
+      let cls='opt';
+      if(chk){cls+=' locked';if(oi===q.correct)cls+=' ok';else if(oi===sel&&oi!==q.correct)cls+=' bad';}
+      else if(sel===oi)cls+=' sel';
+      h+=`<button class="${cls}" onclick="ex1pick(${qi},${oi})">${opt}</button>`;
+    });
+    h+=`</div>`;
+    if(chk)h+=`<div class="fb ${ex1s.checked[qi]?'ok':'bad'}">${ex1s.checked[qi]?'Ta\u010dno! \u2713':'Neta\u010dno.'} \u2014 ${q.expl}</div>`;
+    h+=`${spkBtn(q.audio||q.s.replace('___',q.opts[q.correct]).replace(/<[^>]+>/g,''))}</div>`;
+  });
+  const allA=EX1.every((_,i)=>ex1s.answers[i]!==undefined);
+  const allC=EX1.every((_,i)=>ex1s.checked[i]!==undefined);
+  h+=`<div class="navrow"><button class="btng" onclick="goPrev()">\u2190 Nazad</button>`;
+  if(!allC)h+=`<button class="btnp" ${allA?'':'disabled'} onclick="checkEx1()">Proveri</button>`;
+  else h+=`<button class="btnp" onclick="goNext()">Ve\u017eba 2 \u2192</button>`;
+  h+=`</div>`;return h;
+}
+
+function buildEx2HTML(){
+  let h=`<div class="slabel">${SCREENS.find(s=>s.id==='ex2').label}</div>`;
+  h+=`<div class="ibox">Given the nominative form and its gender, choose the correct vocative. Watch for soft stems.</div>`;
+  EX2.forEach((q,qi)=>{
+    const chk=ex2s.checked[qi]!==undefined;
+    const sel=ex2s.answers[qi];
+    h+=`<div class="card" style="margin-bottom:1rem;">
+      <div style="font-size:17px;margin-bottom:6px;">${q.s}</div>
+      <div style="font-size:13px;color:var(--text-secondary);margin-bottom:10px;">${q.e}</div>
+      <div class="optsrow">`;
+    q.opts.forEach((opt,oi)=>{
+      let cls='opt';
+      if(chk){cls+=' locked';if(oi===q.correct)cls+=' ok';else if(oi===sel&&oi!==q.correct)cls+=' bad';}
+      else if(sel===oi)cls+=' sel';
+      h+=`<button class="${cls}" onclick="ex2pick(${qi},${oi})">${opt}</button>`;
+    });
+    h+=`</div>`;
+    if(chk)h+=`<div class="fb ${ex2s.checked[qi]?'ok':'bad'}">${ex2s.checked[qi]?'Ta\u010dno! \u2713':'Neta\u010dno.'} \u2014 ${q.expl}</div>`;
+    h+=`</div>`;
+  });
+  const allA=EX2.every((_,i)=>ex2s.answers[i]!==undefined);
+  const allC=EX2.every((_,i)=>ex2s.checked[i]!==undefined);
+  h+=`<div class="navrow"><button class="btng" onclick="goPrev()">\u2190 Nazad</button>`;
+  if(!allC)h+=`<button class="btnp" ${allA?'':'disabled'} onclick="checkEx2()">Proveri</button>`;
+  else h+=`<button class="btnp" onclick="goNext()">Zavr\u0161etak \u2192</button>`;
+  h+=`</div>`;return h;
+}
+
+function ex1pick(qi,oi){if(ex1s.checked[qi]!==undefined)return;ex1s.answers[qi]=oi;refreshEx1();}
+function refreshEx1(){
+  const old=document.getElementById('sc-ex1');if(!old)return;
+  const d=document.createElement('div');
+  d.className=`screen ${SCREENS[cur].id==='ex1'?'active':''}`;
+  d.id='sc-ex1';d.innerHTML=buildEx1HTML();old.replaceWith(d);
+}
+function checkEx1(){EX1.forEach((_,i)=>{if(ex1s.answers[i]!==undefined)ex1s.checked[i]=ex1s.answers[i]===EX1[i].correct;});refreshEx1();}
+function ex2pick(qi,oi){if(ex2s.checked[qi]!==undefined)return;ex2s.answers[qi]=oi;refreshEx2();}
+function refreshEx2(){
+  const old=document.getElementById('sc-ex2');if(!old)return;
+  const d=document.createElement('div');
+  d.className=`screen ${SCREENS[cur].id==='ex2'?'active':''}`;
+  d.id='sc-ex2';d.innerHTML=buildEx2HTML();old.replaceWith(d);
+}
+function checkEx2(){EX2.forEach((_,i)=>{if(ex2s.answers[i]!==undefined)ex2s.checked[i]=ex2s.answers[i]===EX2[i].correct;});refreshEx2();}
+function goNext(){if(cur<SCREENS.length-1){cur++;render();window.scrollTo({top:0,behavior:'smooth'});}}
+function goPrev(){if(cur>0){cur--;render();window.scrollTo({top:0,behavior:'smooth'});}}
+function restart(){cur=0;ex1s={answers:{},checked:{}};ex2s={answers:{},checked:{}};render();}
+function render(){
+  buildScreens();buildProgress();
+  document.querySelectorAll('.screen').forEach(s=>{
+    s.classList.toggle('active',s.id===`sc-${SCREENS[cur].id}`);
+  });
+}
+render();
+
+function markAndGoHome(){
+  try{const p=JSON.parse(localStorage.getItem('serbian_course_progress')||'{}');p['L5b']=true;localStorage.setItem('serbian_course_progress',JSON.stringify(p));}catch(e){}
+  window.location.href='serbian-course-home.html';
+}
+function markAndGoNext(){
+  try{const p=JSON.parse(localStorage.getItem('serbian_course_progress')||'{}');p['L5b']=true;localStorage.setItem('serbian_course_progress',JSON.stringify(p));}catch(e){}
+  window.location.href='serbian-lesson5c-vokativ-recenica.html';
+}
+</script>
+</body>
+</html>

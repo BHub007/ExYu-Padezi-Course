@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Serbian · Lekcija 4c · Akuzativ — Predlozi</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f4f0;
+    --bg-tertiary: #eeedea;
+    --text-primary: #1a1a1a;
+    --text-secondary: #6b6b6b;
+    --text-tertiary: #9b9b9b;
+    --border-light: rgba(0,0,0,0.1);
+    --border-mid: rgba(0,0,0,0.18);
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --blue-bg: #E6F1FB;
+    --blue-text: #0C447C;
+    --blue-border: #378ADD;
+    --ok-bg: #E1F5EE;
+    --ok-text: #0F6E56;
+    --ok-border: #1D9E75;
+    --red-bg: #FCEBEB;
+    --red-text: #A32D2D;
+    --purple-bg: #EEEDFE;
+    --purple-text: #534AB7;
+    --purple-border: #7F77DD;
+    --amber-bg: #FAEEDA;
+    --amber-text: #633806;
+    --amber-border: #BA7517;
+    --green-bg: #EAF3DE;
+    --green-text: #27500A;
+    --green-border: #639922;
+    --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-primary: #1e1e1e; --bg-secondary: #2a2a2a; --bg-tertiary: #333;
+      --text-primary: #f0f0f0; --text-secondary: #a0a0a0; --text-tertiary: #666;
+      --border-light: rgba(255,255,255,0.1); --border-mid: rgba(255,255,255,0.18);
+      --blue-bg: #042C53; --blue-text: #85B7EB; --blue-border: #378ADD;
+      --ok-bg: #04342C; --ok-text: #9FE1CB; --ok-border: #1D9E75;
+      --red-bg: #501313; --red-text: #F09595;
+      --purple-bg: #26215C; --purple-text: #AFA9EC; --purple-border: #7F77DD;
+      --amber-bg: #412402; --amber-text: #FAC775; --amber-border: #BA7517;
+      --green-bg: #173404; --green-text: #C0DD97; --green-border: #639922;
+    }
+  }
+  body { font-family: var(--font); background: var(--bg-tertiary); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 2rem 1rem; }
+  .lesson-header { width: 100%; max-width: 680px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  .lesson-badge { background: var(--blue-bg); color: var(--blue-text); font-size: 12px; font-weight: 500; padding: 4px 12px; border-radius: 20px; }
+  .lesson-name { font-size: 14px; color: var(--text-secondary); }
+  .lesson-series { font-size: 12px; color: var(--text-tertiary); }
+  .app { width: 100%; max-width: 680px; background: var(--bg-primary); border-radius: var(--radius-lg); border: 0.5px solid var(--border-light); padding: 2rem; }
+  .progress-bar { display: flex; gap: 6px; margin-bottom: 1.75rem; }
+  .pdot { height: 5px; flex: 1; border-radius: 10px; background: var(--border-light); transition: background .3s; }
+  .pdot.done { background: var(--blue-border); }
+  .pdot.active { background: var(--blue-border); opacity: .5; }
+  .screen { display: none; }
+  .screen.active { display: block; }
+  .slabel { font-size: 11px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: .09em; margin-bottom: .5rem; }
+  .stitle { font-size: 21px; font-weight: 500; color: var(--text-primary); margin-bottom: 1.25rem; line-height: 1.3; }
+  .card { background: var(--bg-secondary); border: 0.5px solid var(--border-light); border-radius: var(--radius-lg); padding: 1rem 1.25rem; margin-bottom: .75rem; }
+  .cs { font-size: 17px; font-weight: 500; color: var(--text-primary); margin-bottom: 4px; }
+  .ce { font-size: 14px; color: var(--text-secondary); }
+  .cn { font-size: 13px; color: var(--blue-text); margin-top: 6px; }
+  .hl  { background: var(--blue-bg);   color: var(--blue-text);   padding: 1px 6px; border-radius: 4px; font-weight: 500; }
+  .hl2 { background: var(--purple-bg); color: var(--purple-text); padding: 1px 6px; border-radius: 4px; font-weight: 500; }
+  .hl3 { background: var(--amber-bg);  color: var(--amber-text);  padding: 1px 6px; border-radius: 4px; font-weight: 500; }
+  .hl4 { background: var(--green-bg);  color: var(--green-text);  padding: 1px 6px; border-radius: 4px; font-weight: 500; }
+  .spk { display: inline-flex; align-items: center; gap: 6px; background: none; border: 0.5px solid var(--border-mid); border-radius: var(--radius-md); padding: 5px 12px; font-size: 13px; color: var(--text-secondary); cursor: pointer; margin-top: 8px; transition: background .15s; font-family: var(--font); }
+  .spk:hover { background: var(--bg-tertiary); }
+  .spk svg { width: 14px; height: 14px; flex-shrink: 0; }
+  .spk-sm { margin: 0; padding: 3px 8px; }
+  .spk-sm svg { width: 12px; height: 12px; }
+  .ibox { background: var(--bg-secondary); border-left: 3px solid var(--blue-border); border-radius: 0 var(--radius-md) var(--radius-md) 0; padding: .75rem 1rem; margin-bottom: 1rem; font-size: 14px; line-height: 1.7; color: var(--text-secondary); }
+  .ibox strong { color: var(--text-primary); font-weight: 500; }
+  .ibox-amber  { border-left-color: var(--amber-border); }
+  .ibox-purple { border-left-color: var(--purple-border); }
+  .ibox-green  { border-left-color: var(--green-border); }
+  .navrow { display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; }
+  .btnp { background: var(--blue-border); color: #E6F1FB; border: none; border-radius: var(--radius-md); padding: 10px 24px; font-size: 15px; font-weight: 500; cursor: pointer; transition: opacity .15s; font-family: var(--font); }
+  .btnp:hover { opacity: .88; }
+  .btnp:disabled { opacity: .4; cursor: default; }
+  .btng { background: none; border: 0.5px solid var(--border-mid); border-radius: var(--radius-md); padding: 10px 20px; font-size: 15px; color: var(--text-secondary); cursor: pointer; font-family: var(--font); }
+  .btng:hover { background: var(--bg-secondary); }
+  .blank { display: inline-block; min-width: 72px; border-bottom: 2px solid var(--blue-border); text-align: center; padding: 0 4px; font-weight: 500; color: var(--blue-text); }
+  .optsrow { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0; }
+  .opt { border: 1.5px solid var(--border-mid); background: var(--bg-primary); border-radius: var(--radius-md); padding: 9px 18px; font-size: 15px; cursor: pointer; color: var(--text-primary); transition: all .15s; font-family: var(--font); }
+  .opt:hover:not(.locked) { border-color: var(--blue-border); background: var(--blue-bg); color: var(--blue-text); }
+  .opt.sel  { border-color: var(--blue-border); background: var(--blue-bg); color: var(--blue-text); }
+  .opt.ok   { border-color: var(--ok-border);   background: var(--ok-bg);   color: var(--ok-text); }
+  .opt.bad  { border-color: #E24B4A; background: var(--red-bg); color: var(--red-text); }
+  .opt.locked { cursor: default; }
+  .fb { font-size: 14px; padding: 8px 12px; border-radius: var(--radius-md); margin-top: 6px; line-height: 1.5; }
+  .fb.ok  { background: var(--ok-bg);  color: var(--ok-text); }
+  .fb.bad { background: var(--red-bg); color: var(--red-text); }
+  .tbl { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: .75rem; }
+  .tbl th { text-align: left; font-weight: 500; font-size: 11px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: .07em; padding: 6px 10px; border-bottom: 0.5px solid var(--border-light); }
+  .tbl td { padding: 9px 10px; border-bottom: 0.5px solid var(--border-light); color: var(--text-primary); vertical-align: top; }
+  .tbl tr:last-child td { border-bottom: none; }
+  .tbl .dim { color: var(--text-secondary); font-size: 13px; }
+  .tbl .prep { font-weight: 500; color: var(--blue-text); font-size: 16px; }
+  .motion-split { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: .75rem; }
+  .motion-card { border-radius: var(--radius-lg); padding: .9rem 1rem; }
+  .motion-card.moving { background: var(--blue-bg); border: 0.5px solid var(--blue-border); }
+  .motion-card.static { background: var(--amber-bg); border: 0.5px solid var(--amber-border); }
+  .motion-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: .07em; margin-bottom: 4px; }
+  .motion-card.moving .motion-label { color: var(--blue-text); }
+  .motion-card.static .motion-label { color: var(--amber-text); }
+  .motion-q { font-size: 13px; font-style: italic; margin-bottom: 8px; }
+  .motion-card.moving .motion-q { color: var(--blue-text); opacity: .8; }
+  .motion-card.static .motion-q { color: var(--amber-text); opacity: .8; }
+  .motion-ex { font-size: 15px; font-weight: 500; margin-bottom: 3px; }
+  .motion-card.moving .motion-ex { color: var(--blue-text); }
+  .motion-card.static .motion-ex { color: var(--amber-text); }
+  .motion-tr { font-size: 13px; margin-bottom: 8px; }
+  .motion-card.moving .motion-tr { color: var(--blue-text); opacity: .75; }
+  .motion-card.static .motion-tr { color: var(--amber-text); opacity: .75; }
+  .prep-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: .75rem; }
+  .prep-tile { background: var(--bg-secondary); border: 0.5px solid var(--border-light); border-radius: var(--radius-lg); padding: .75rem 1rem; }
+  .prep-word { font-size: 18px; font-weight: 500; color: var(--blue-text); margin-bottom: 2px; }
+  .prep-mean { font-size: 13px; color: var(--text-secondary); margin-bottom: 4px; }
+  .prep-ex { font-size: 13px; color: var(--text-tertiary); font-style: italic; }
+  .score-wrap { display: flex; gap: 16px; justify-content: center; margin-bottom: 1.5rem; }
+  .score-circle { width: 90px; height: 90px; border-radius: 50%; border: 3px solid var(--ok-border); display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .score-num { font-size: 28px; font-weight: 500; color: var(--ok-text); line-height: 1; }
+  .score-lbl { font-size: 11px; color: var(--text-tertiary); }
+  .recap-row { display: flex; align-items: baseline; gap: 10px; padding: 9px 0; border-bottom: 0.5px solid var(--border-light); font-size: 14px; }
+  .recap-row:last-child { border-bottom: none; }
+  .recap-badge { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--text-tertiary); min-width: 52px; flex-shrink: 0; }
+  footer { margin-top: 2rem; font-size: 12px; color: var(--text-tertiary); text-align: center; }
+  @media (max-width: 480px) {
+    .motion-split { grid-template-columns: 1fr; }
+    .prep-grid { grid-template-columns: 1fr 1fr; }
+    .app { padding: 1.25rem; }
+  }
+
+  .home-link {
+    font-size: 13px;
+    color: var(--text-tertiary);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    border-radius: var(--radius-md);
+    border: 0.5px solid var(--border-light);
+    transition: background .15s;
+    cursor: pointer;
+    background: none;
+    font-family: var(--font);
+  }
+  .home-link:hover { background: var(--bg-secondary); color: var(--text-secondary); }
+  .btn-complete {
+    background: var(--green-border);
+    color: var(--green-bg);
+    border: none;
+    border-radius: var(--radius-md);
+    padding: 12px 28px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: var(--font);
+    margin-top: .5rem;
+    transition: opacity .15s;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  .btn-complete:hover { opacity: .88; }
+
+  </style>
+</head>
+<body>
+
+<div class="lesson-header">
+  <div style="display:flex;align-items:center;gap:10px;">
+    <span class="lesson-badge">Lekcija 4c · Lesson 4c</span>
+    <span class="lesson-name">Akuzativ — predlozi</span>
+  </div>
+  <span class="lesson-series">3 od 3 lekcija o akuzativu</span>
+</div>
+
+<div class="app">
+  <div class="progress-bar" id="pbar"></div>
+  <div id="screens"></div>
+</div>
+
+<footer>Serbian Language Course · Lesson 4c · Akuzativ – Prepositions &amp; Motion</footer>
+
+<script>
+const SCREENS=[
+  {id:'intro'},
+  {id:'motion'},
+  {id:'pure'},
+  {id:'ex1'},
+  {id:'ex2'},
+  {id:'done'},
+];
+let cur=0;
+let ex1s={answers:{},checked:{}};
+let ex2s={answers:{},checked:{}};
+
+function speak(t,l){
+  if(!window.speechSynthesis)return;
+  window.speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(t);
+  u.lang=l||'sr-RS'; u.rate=0.85;
+  window.speechSynthesis.speak(u);
+}
+function spkBtn(t,l){
+  return `<button class="spk" onclick="speak('${t.replace(/'/g,"\\'")}','${l||'sr-RS'}')"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M10 3v14M6 6v8M14 5v10M2 8v4M18 7v6"/></svg>Slušaj</button>`;
+}
+function spkBtnSm(t){
+  return `<button class="spk spk-sm" onclick="speak('${t.replace(/'/g,"\\'")}','sr-RS')"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M10 3v14M6 6v8M14 5v10M2 8v4M18 7v6"/></svg></button>`;
+}
+
+// ─── EXERCISE 1 ───────────────────────────────────────────────────────────────
+// Task: choose the correct case after a preposition.
+// Each question gives the preposition + sentence context.
+// Distractor pattern: always nominative (no change) vs. the correct accusative
+// vs. one other case (genitive or locative), so the learner must apply the rule,
+// not just recognise the word.
+// Every sentence uses a different preposition to maximise exposure.
+const EX1=[
+  {
+    prep:'u',
+    hint:'kuda? — motion into',
+    s:'Idem u ___.',
+    e:'I am going to school.',
+    prompt:'škola (fem.)',
+    opts:['školu','škola','školi'],
+    correct:0,
+    expl:'"U" + motion (kuda?) → accusative. škola drops -a and takes -u: škol-u. "Školi" is the locative form — used for static location (where?), not destination.',
+    full:'Idem u školu.'
+  },
+  {
+    prep:'na',
+    hint:'kuda? — motion onto',
+    s:'Stavljam kafu na ___.',
+    e:'I am putting the coffee on the table.',
+    prompt:'sto (masc. inanimate)',
+    opts:['sto','stola','stolu'],
+    correct:0,
+    expl:'"Na" + motion/placement (kuda? gde stavljam?) → accusative. Inanimate masculine nouns are unchanged in accusative: sto → sto. "Stolu" is the locative (on the table, static).',
+    full:'Stavljam kafu na sto.'
+  },
+  {
+    prep:'kroz',
+    hint:'through — always accusative',
+    s:'Hodamo kroz ___.',
+    e:'We are walking through the park.',
+    prompt:'park (masc. inanimate)',
+    opts:['park','parka','parku'],
+    correct:0,
+    expl:'"Kroz" (through) always takes accusative. Inanimate masculine: unchanged. park → park.',
+    full:'Hodamo kroz park.'
+  },
+  {
+    prep:'za',
+    hint:'for / behind — always accusative',
+    s:'Ovo je poklon za ___.',
+    e:'This is a present for my sister.',
+    prompt:'sestra (fem.)',
+    opts:['sestru','sestra','sestri'],
+    correct:0,
+    expl:'"Za" (for, behind, during) always takes accusative. sestra → sestr-u (fem. -a → -u).',
+    full:'Ovo je poklon za sestru.'
+  },
+  {
+    prep:'u',
+    hint:'kuda? — motion into (animate)',
+    s:'Ulazim u sobu i gledam ___.',
+    e:'I enter the room and see my brother.',
+    prompt:'brat (masc. animate)',
+    opts:['brata','brat','bratu'],
+    correct:0,
+    expl:'Direct object of "gledam" (to see) — accusative. Animate masculine takes genitive-like -a form: brat → brat-a.',
+    full:'Ulazim u sobu i gledam brata.'
+  },
+  {
+    prep:'niz',
+    hint:'down along — always accusative',
+    s:'Trčim niz ___.',
+    e:'I am running down the street.',
+    prompt:'ulica (fem.)',
+    opts:['ulicu','ulica','ulici'],
+    correct:0,
+    expl:'"Niz" (down along) always takes accusative. ulica → ulic-u (fem. -a → -u).',
+    full:'Trčim niz ulicu.'
+  },
+  {
+    prep:'uz',
+    hint:'up along / beside — always accusative',
+    s:'Penjemo se uz ___.',
+    e:'We are climbing up the hill.',
+    prompt:'brdo (neuter)',
+    opts:['brdo','brda','brdu'],
+    correct:0,
+    expl:'"Uz" (up along, beside) always takes accusative. Neuter nouns are unchanged in accusative: brdo → brdo.',
+    full:'Penjemo se uz brdo.'
+  },
+  {
+    prep:'na',
+    hint:'kuda? — motion onto (animate)',
+    s:'Čekam te na ___.',
+    e:'I am waiting for you at the station.',
+    prompt:'stanica (fem.)',
+    opts:['stanicu','stanica','stanici'],
+    correct:0,
+    expl:'"Na" + destination (kuda? where am I going/waiting?) → accusative. stanica → stanic-u.',
+    full:'Čekam te na stanicu.'
+  },
+];
+
+// ─── EXERCISE 2 ───────────────────────────────────────────────────────────────
+// Task: motion (accusative) vs. location (locative) — choose the right case.
+// This is the defining skill of this lesson. Every pair uses the same noun and
+// the same preposition; only the sentence meaning (moving vs. static) changes.
+// Context tags make the distinction explicit before the learner answers.
+const EX2=[
+  {
+    context:'Motion — kuda ideš? (where are you going?)',
+    s:'Idem u ___.',
+    e:'I am going to the city.',
+    opts:['grad  (acc. — destination)','gradu  (loc. — static location)'],
+    optVals:['grad','gradu'],
+    correct:0,
+    expl:'Destination, motion → accusative. "Grad" is masculine inanimate and is unchanged in the accusative. Kuda idem? — u grad.',
+    full:'Idem u grad.'
+  },
+  {
+    context:'Static location — gde si? (where are you?)',
+    s:'Živim u ___.',
+    e:'I live in the city.',
+    opts:['gradu  (loc. — static location)','grad  (acc. — destination)'],
+    optVals:['gradu','grad'],
+    correct:0,
+    expl:'Permanent state/location → locative. "Grad" in the locative is "gradu". Gde živim? — u gradu. Note: the locative form -u looks the same as the dative -u for masculine nouns, but the function is entirely different.',
+    full:'Živim u gradu.'
+  },
+  {
+    context:'Motion — kuda ideš? (where are you going?)',
+    s:'Idem na ___.',
+    e:'I am going to the market.',
+    opts:['pijacu  (acc. — destination)','pijaci  (loc. — static location)'],
+    optVals:['pijacu','pijaci'],
+    correct:0,
+    expl:'Destination, motion → accusative. pijaca (fem.) → pijac-u. Kuda idem? — na pijacu.',
+    full:'Idem na pijacu.'
+  },
+  {
+    context:'Static location — gde si? (where are you?)',
+    s:'Kupujem na ___.',
+    e:'I am shopping at the market.',
+    opts:['pijaci  (loc. — static location)','pijacu  (acc. — destination)'],
+    optVals:['pijaci','pijacu'],
+    correct:0,
+    expl:'Action happening at a location (not moving toward it) → locative. pijaca → pijaci. Gde kupujem? — na pijaci.',
+    full:'Kupujem na pijaci.'
+  },
+  {
+    context:'Motion — kuda ideš? (where are you going?)',
+    s:'Vraćam se u ___.',
+    e:'I am returning home.',
+    opts:['kuću  (acc. — destination)','kući  (loc. — static location)'],
+    optVals:['kuću','kući'],
+    correct:0,
+    expl:'"Vraćati se" (to return) describes movement toward a destination → accusative. kuća (fem.) → kuć-u. Kuda se vraćam? — u kuću.',
+    full:'Vraćam se u kuću.'
+  },
+  {
+    context:'Static location — gde si? (where are you?)',
+    s:'Sedim u ___.',
+    e:'I am sitting in the garden.',
+    opts:['bašti  (loc. — static location)','baštu  (acc. — destination)'],
+    optVals:['bašti','baštu'],
+    correct:0,
+    expl:'"Sedeti" (to sit) is a static position, not movement → locative. bašta (fem.) → bašti. Gde sedim? — u bašti.',
+    full:'Sedim u bašti.'
+  },
+];
+
+function buildProgress(){
+  document.getElementById('pbar').innerHTML=SCREENS.map((s,i)=>
+    `<div class="pdot ${i<cur?'done':i===cur?'active':''}"></div>`).join('');
+}
+
+function buildScreens(){
+  const c=document.getElementById('screens');
+  c.innerHTML='';
+  const mk=(id,html)=>{
+    const d=document.createElement('div');
+    d.className=`screen ${id===SCREENS[cur].id?'active':''}`;
+    d.id=`sc-${id}`; d.innerHTML=html; c.appendChild(d);
+  };
+
+  // ── SCREEN 1: Introduction ─────────────────────────────────────────────────
+  mk('intro',`
+    <div class="slabel">Lekcija 4c · Lesson 4c</div>
+    <div class="stitle">Akuzativ uz predloge · Accusative with prepositions</div>
+    <div class="ibox">
+      Prepositions in Serbian do not have a fixed case — they govern different cases depending on meaning. Two types matter for this lesson: <strong>prepositions that always take the accusative</strong>, and <strong>dual-case prepositions</strong> (primarily <em>u</em> and <em>na</em>) that take the accusative for motion and the locative for static location.
+    </div>
+    <div class="card">
+      <div class="cs">Idem <span class="hl">u školu</span>.</div>
+      <div class="ce">I am going to school. → kuda? → u + accusative</div>
+      <div class="cn">škola → školu (fem. acc.) — motion into</div>
+      ${spkBtn('Idem u školu.')}
+    </div>
+    <div class="card">
+      <div class="cs">Hodamo <span class="hl">kroz park</span>.</div>
+      <div class="ce">We are walking through the park. → kroz always takes accusative</div>
+      <div class="cn">park → park (masc. inanimate acc.) — unchanged</div>
+      ${spkBtn('Hodamo kroz park.')}
+    </div>
+    <div class="card">
+      <div class="cs">Ovo je poklon <span class="hl">za sestru</span>.</div>
+      <div class="ce">This is a present for my sister. → za always takes accusative</div>
+      <div class="cn">sestra → sestru (fem. acc.)</div>
+      ${spkBtn('Ovo je poklon za sestru.')}
+    </div>
+    <div class="card">
+      <div class="cs">Trčim <span class="hl">niz ulicu</span>.</div>
+      <div class="ce">I am running down the street. → niz always takes accusative</div>
+      <div class="cn">ulica → ulicu (fem. acc.)</div>
+      ${spkBtn('Trčim niz ulicu.')}
+    </div>
+    <div class="navrow"><span></span><button class="btnp" onclick="goNext()">Dalje · Next →</button></div>
+  `);
+
+  // ── SCREEN 2: The motion vs. location split ────────────────────────────────
+  mk('motion',`
+    <div class="slabel">Ključno pravilo · Key rule</div>
+    <div class="stitle">Kuda? vs. gde? · Motion vs. location</div>
+    <div class="ibox ibox-amber">
+      <strong>The most important rule in this lesson:</strong> the prepositions <em>u</em> and <em>na</em> take two different cases depending on the meaning of the sentence. Motion toward a destination → accusative. Static position at a location → locative. The trigger question is everything.
+    </div>
+    <div class="motion-split">
+      <div class="motion-card moving">
+        <div class="motion-label">Kuda? — motion</div>
+        <div class="motion-q">Where are you going?</div>
+        <div class="motion-ex">u + accusative</div>
+        <div class="motion-tr">Idem u grad.</div>
+        <div class="motion-tr" style="margin-bottom:10px;">I am going to the city.</div>
+        <div class="motion-ex">na + accusative</div>
+        <div class="motion-tr">Idem na pijacu.</div>
+        <div class="motion-tr">I am going to the market.</div>
+      </div>
+      <div class="motion-card static">
+        <div class="motion-label">Gde? — location</div>
+        <div class="motion-q">Where are you (right now)?</div>
+        <div class="motion-ex">u + locative</div>
+        <div class="motion-tr">Živim u gradu.</div>
+        <div class="motion-tr" style="margin-bottom:10px;">I live in the city.</div>
+        <div class="motion-ex">na + locative</div>
+        <div class="motion-tr">Kupujem na pijaci.</div>
+        <div class="motion-tr">I am shopping at the market.</div>
+      </div>
+    </div>
+    <div class="card">
+      <div style="font-size:13px;font-weight:500;color:var(--text-secondary);margin-bottom:10px;">Hear both sentences — same preposition, different meaning and case</div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div>
+          <div style="font-size:15px;">Idem <span class="hl">u školu</span>. <em style="font-size:13px;color:var(--text-secondary);">— kuda? → acc.</em></div>
+          <div style="font-size:13px;color:var(--text-secondary);margin-top:2px;">I am going to school.</div>
+          ${spkBtn('Idem u školu.')}
+        </div>
+        <div style="border-top:0.5px solid var(--border-light);padding-top:10px;">
+          <div style="font-size:15px;">Učim <span class="hl3">u školi</span>. <em style="font-size:13px;color:var(--text-secondary);">— gde? → loc.</em></div>
+          <div style="font-size:13px;color:var(--text-secondary);margin-top:2px;">I study at school.</div>
+          ${spkBtn('Učim u školi.')}
+        </div>
+        <div style="border-top:0.5px solid var(--border-light);padding-top:10px;">
+          <div style="font-size:15px;">Stavljam kafu <span class="hl">na sto</span>. <em style="font-size:13px;color:var(--text-secondary);">— kuda? → acc.</em></div>
+          <div style="font-size:13px;color:var(--text-secondary);margin-top:2px;">I am putting the coffee on the table.</div>
+          ${spkBtn('Stavljam kafu na sto.')}
+        </div>
+        <div style="border-top:0.5px solid var(--border-light);padding-top:10px;">
+          <div style="font-size:15px;">Kafa je <span class="hl3">na stolu</span>. <em style="font-size:13px;color:var(--text-secondary);">— gde? → loc.</em></div>
+          <div style="font-size:13px;color:var(--text-secondary);margin-top:2px;">The coffee is on the table.</div>
+          ${spkBtn('Kafa je na stolu.')}
+        </div>
+      </div>
+    </div>
+    <div class="ibox ibox-purple" style="margin-top:.25rem;">
+      <strong>Memory trick:</strong> verbs of movement (ići, doći, otići, trčati, voziti se, vraćati se…) almost always signal accusative after u/na. Verbs of state (biti, sedeti, živeti, raditi, spavati…) almost always signal locative.
+    </div>
+    <div class="navrow"><button class="btng" onclick="goPrev()">← Nazad</button><button class="btnp" onclick="goNext()">Predlozi · Prepositions →</button></div>
+  `);
+
+  // ── SCREEN 3: Pure accusative prepositions ─────────────────────────────────
+  mk('pure',`
+    <div class="slabel">Predlozi · Prepositions</div>
+    <div class="stitle">Pregled predloga · Preposition overview</div>
+    <div class="ibox ibox-green">
+      <strong>Always accusative</strong> — these prepositions never take any other case. Once you know a preposition is in this group, the case choice is automatic.
+    </div>
+    <div class="prep-grid">
+      <div class="prep-tile">
+        <div class="prep-word">kroz</div>
+        <div class="prep-mean">through</div>
+        <div class="prep-ex">kroz park</div>
+        ${spkBtnSm('Hodamo kroz park.')}
+      </div>
+      <div class="prep-tile">
+        <div class="prep-word">za</div>
+        <div class="prep-mean">for, behind, during</div>
+        <div class="prep-ex">za sestru</div>
+        ${spkBtnSm('Poklon za sestru.')}
+      </div>
+      <div class="prep-tile">
+        <div class="prep-word">niz</div>
+        <div class="prep-mean">down along</div>
+        <div class="prep-ex">niz ulicu</div>
+        ${spkBtnSm('Trčim niz ulicu.')}
+      </div>
+      <div class="prep-tile">
+        <div class="prep-word">uz</div>
+        <div class="prep-mean">up along, beside</div>
+        <div class="prep-ex">uz brdo</div>
+        ${spkBtnSm('Penjemo se uz brdo.')}
+      </div>
+      <div class="prep-tile">
+        <div class="prep-word">po</div>
+        <div class="prep-mean">after (sequence), for (fetch)</div>
+        <div class="prep-ex">po brata</div>
+        ${spkBtnSm('Idem po brata.')}
+      </div>
+      <div class="prep-tile">
+        <div class="prep-word">mimo</div>
+        <div class="prep-mean">past, by</div>
+        <div class="prep-ex">mimo školu</div>
+        ${spkBtnSm('Prolazim mimo školu.')}
+      </div>
+    </div>
+    <div class="ibox ibox-amber" style="margin-top:.25rem;">
+      <strong>⚠ Dual-case prepositions</strong> — <em>u</em> and <em>na</em> take accusative for motion (kuda?) and locative for static location (gde?). This was covered on the previous screen and is the focus of Exercise 2.
+    </div>
+    <table class="tbl" style="margin-top:.5rem;">
+      <thead>
+        <tr><th>Predlog</th><th>+ Akuzativ (kuda?)</th><th>+ Lokativ (gde?)</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="prep">u</td>
+          <td>Idem <span class="hl">u grad</span>. ${spkBtnSm('Idem u grad.')}</td>
+          <td>Živim <span class="hl3">u gradu</span>. ${spkBtnSm('Živim u gradu.')}</td>
+        </tr>
+        <tr>
+          <td class="prep">na</td>
+          <td>Idem <span class="hl">na posao</span>. ${spkBtnSm('Idem na posao.')}</td>
+          <td>Radim <span class="hl3">na poslu</span>. ${spkBtnSm('Radim na poslu.')}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="navrow"><button class="btng" onclick="goPrev()">← Nazad</button><button class="btnp" onclick="goNext()">Vežba 1 →</button></div>
+  `);
+
+  // ── SCREENS 4 & 5: Exercises ───────────────────────────────────────────────
+  mk('ex1', buildEx1HTML());
+  mk('ex2', buildEx2HTML());
+
+  // ── SCREEN 6: Done ─────────────────────────────────────────────────────────
+  const s1=EX1.filter((_,i)=>ex1s.checked[i]===true).length;
+  const s2=EX2.filter((_,i)=>ex2s.checked[i]===true).length;
+  mk('done',`
+    <div class="slabel">Završeno · Lekcija 4c</div>
+    <div class="stitle">Čestitamo! · Congratulations!</div>
+    <div class="score-wrap">
+      <div class="score-circle"><div class="score-num">${s1}/${EX1.length}</div><div class="score-lbl">Vežba 1</div></div>
+      <div class="score-circle"><div class="score-num">${s2}/${EX2.length}</div><div class="score-lbl">Vežba 2</div></div>
+    </div>
+    <div class="card">
+      <div class="cs" style="font-size:15px;margin-bottom:10px;">Šta si naučio/la u svim 3 lekcijama o akuzativu</div>
+      <div style="padding-top:4px;">
+        <div class="recap-row">
+          <span class="recap-badge">4a</span>
+          <span>Noun endings: fem. <strong>-a → -u</strong>; masc. inanimate unchanged; masc. animate <strong>= genitive (-a)</strong>; neuter unchanged</span>
+        </div>
+        <div class="recap-row">
+          <span class="recap-badge">4b</span>
+          <span>Short pronouns (me, te, ga, je, nas, vas, ih) for normal use; long forms (mene, tebe, njega, nju, njih) after prepositions and for emphasis</span>
+        </div>
+        <div class="recap-row">
+          <span class="recap-badge">4c</span>
+          <span><strong>kroz, za, niz, uz, po, mimo</strong> always take accusative. <strong>u / na</strong> + accusative for motion (kuda?), + locative for location (gde?)</span>
+        </div>
+      </div>
+    </div>
+<div style="display:flex;flex-direction:column;gap:.6rem;margin-top:1.25rem;">
+      <button class="btn-complete" onclick="markAndGoNext()">&#x279C; Lekcija 5 — Vokative: the case of direct address. Use it whenever you call out to someone or speak directly to them.</button>
+      <button class="btng" style="width:100%;text-align:center;" onclick="markAndGoHome()">&#x21A9; Vrati se na početnu &middot; Back to home</button>
+      <button class="btng" style="width:100%;text-align:center;" onclick="restart()">&#x21BA; Ponovi lekciju &middot; Restart</button>
+    </div>
+  `);
+}
+
+// ── Exercise builders ──────────────────────────────────────────────────────────
+
+function buildEx1HTML(){
+  let h=`<div class="slabel">Vežba 1 · Exercise 1</div>
+    <div class="stitle">Predlog + akuzativ · Preposition + accusative</div>
+    <div class="ibox">Each sentence contains a preposition that takes the accusative — either always, or because the sentence expresses motion. Choose the correct accusative form of the noun shown.</div>`;
+  EX1.forEach((q,qi)=>{
+    const chk=ex1s.checked[qi]!==undefined;
+    const sel=ex1s.answers[qi];
+    const filled=sel!==undefined ? q.opts[sel] : '___';
+    h+=`<div class="card" style="margin-bottom:1rem;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+        <span style="font-size:14px;font-weight:500;background:var(--blue-bg);color:var(--blue-text);padding:2px 10px;border-radius:20px;">${q.prep}</span>
+        <span style="font-size:12px;color:var(--text-tertiary);">${q.hint}</span>
+      </div>
+      <div style="font-size:17px;color:var(--text-primary);margin-bottom:4px;line-height:1.6;">
+        ${q.s.replace('___',`<span class="blank">${filled}</span>`)}
+      </div>
+      <div style="font-size:13px;color:var(--text-secondary);margin-bottom:2px;">${q.e}</div>
+      <div style="font-size:12px;color:var(--text-tertiary);margin-bottom:8px;">→ <strong>${q.prompt}</strong> in the accusative</div>
+      <div class="optsrow">`;
+    q.opts.forEach((opt,oi)=>{
+      let cls='opt';
+      if(chk){ cls+=' locked'; if(oi===q.correct) cls+=' ok'; else if(oi===sel&&oi!==q.correct) cls+=' bad'; }
+      else if(sel===oi) cls+=' sel';
+      h+=`<button class="${cls}" onclick="ex1pick(${qi},${oi})">${opt}</button>`;
+    });
+    h+=`</div>`;
+    if(chk){
+      h+=`<div class="fb ${ex1s.checked[qi]?'ok':'bad'}">${ex1s.checked[qi]?'Tačno!':'Netačno.'} — ${q.expl}</div>`;
+      if(ex1s.checked[qi]) h+=spkBtn(q.full);
+    }
+    h+=`</div>`;
+  });
+  const allA=EX1.every((_,i)=>ex1s.answers[i]!==undefined);
+  const allC=EX1.every((_,i)=>ex1s.checked[i]!==undefined);
+  h+=`<div class="navrow"><button class="btng" onclick="goPrev()">← Nazad</button>`;
+  if(!allC) h+=`<button class="btnp" ${allA?'':'disabled'} onclick="checkEx1()">Proveri · Check</button>`;
+  else h+=`<button class="btnp" onclick="goNext()">Vežba 2 →</button>`;
+  h+=`</div>`;
+  return h;
+}
+
+function buildEx2HTML(){
+  let h=`<div class="slabel">Vežba 2 · Exercise 2</div>
+    <div class="stitle">Kuda? ili gde? · Motion or location?</div>
+    <div class="ibox">Every sentence uses <em>u</em> or <em>na</em>. Read the context label carefully — it tells you whether the meaning is motion (accusative) or static location (locative). Choose the correct noun form.</div>`;
+  EX2.forEach((q,qi)=>{
+    const chk=ex2s.checked[qi]!==undefined;
+    const sel=ex2s.answers[qi];
+    const filled=sel!==undefined ? q.optVals[sel] : '___';
+    h+=`<div class="card" style="margin-bottom:1rem;">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--blue-text);margin-bottom:6px;">${q.context}</div>
+      <div style="font-size:17px;color:var(--text-primary);margin-bottom:4px;line-height:1.6;">
+        ${q.s.replace('___',`<span class="blank">${filled}</span>`)}
+      </div>
+      <div style="font-size:13px;color:var(--text-secondary);margin-bottom:8px;">${q.e}</div>
+      <div class="optsrow">`;
+    q.opts.forEach((opt,oi)=>{
+      let cls='opt';
+      if(chk){ cls+=' locked'; if(oi===q.correct) cls+=' ok'; else if(oi===sel&&oi!==q.correct) cls+=' bad'; }
+      else if(sel===oi) cls+=' sel';
+      h+=`<button class="${cls}" onclick="ex2pick(${qi},${oi})" style="font-size:14px;">${opt}</button>`;
+    });
+    h+=`</div>`;
+    if(chk){
+      h+=`<div class="fb ${ex2s.checked[qi]?'ok':'bad'}">${ex2s.checked[qi]?'Tačno!':'Netačno.'} — ${q.expl}</div>`;
+      if(ex2s.checked[qi]) h+=spkBtn(q.full);
+    }
+    h+=`</div>`;
+  });
+  const allA=EX2.every((_,i)=>ex2s.answers[i]!==undefined);
+  const allC=EX2.every((_,i)=>ex2s.checked[i]!==undefined);
+  h+=`<div class="navrow"><button class="btng" onclick="goPrev()">← Nazad</button>`;
+  if(!allC) h+=`<button class="btnp" ${allA?'':'disabled'} onclick="checkEx2()">Proveri · Check</button>`;
+  else h+=`<button class="btnp" onclick="goNext()">Završetak →</button>`;
+  h+=`</div>`;
+  return h;
+}
+
+// ── State management ───────────────────────────────────────────────────────────
+function ex1pick(qi,oi){ if(ex1s.checked[qi]!==undefined)return; ex1s.answers[qi]=oi; refreshEx1(); }
+function refreshEx1(){
+  const old=document.getElementById('sc-ex1'); if(!old)return;
+  const d=document.createElement('div');
+  d.className=`screen ${SCREENS[cur].id==='ex1'?'active':''}`;
+  d.id='sc-ex1'; d.innerHTML=buildEx1HTML(); old.replaceWith(d);
+}
+function checkEx1(){
+  EX1.forEach((_,i)=>{ if(ex1s.answers[i]!==undefined) ex1s.checked[i]=ex1s.answers[i]===EX1[i].correct; });
+  refreshEx1();
+}
+function ex2pick(qi,oi){ if(ex2s.checked[qi]!==undefined)return; ex2s.answers[qi]=oi; refreshEx2(); }
+function refreshEx2(){
+  const old=document.getElementById('sc-ex2'); if(!old)return;
+  const d=document.createElement('div');
+  d.className=`screen ${SCREENS[cur].id==='ex2'?'active':''}`;
+  d.id='sc-ex2'; d.innerHTML=buildEx2HTML(); old.replaceWith(d);
+}
+function checkEx2(){
+  EX2.forEach((_,i)=>{ if(ex2s.answers[i]!==undefined) ex2s.checked[i]=ex2s.answers[i]===EX2[i].correct; });
+  refreshEx2();
+}
+function goNext(){ if(cur<SCREENS.length-1){ cur++; render(); window.scrollTo({top:0,behavior:'smooth'}); } }
+function goPrev(){ if(cur>0){ cur--; render(); window.scrollTo({top:0,behavior:'smooth'}); } }
+function restart(){ cur=0; ex1s={answers:{},checked:{}}; ex2s={answers:{},checked:{}}; render(); }
+function render(){
+  buildScreens(); buildProgress();
+  document.querySelectorAll('.screen').forEach(s=>{
+    s.classList.toggle('active', s.id===`sc-${SCREENS[cur].id}`);
+  });
+}
+render();
+
+function markAndGoHome(){
+  try{
+    const p=JSON.parse(localStorage.getItem('serbian_course_progress')||'{}');
+    p['L4c']=true;
+    localStorage.setItem('serbian_course_progress',JSON.stringify(p));
+  }catch(e){}
+  window.location.href='serbian-course-home.html';
+}
+function markAndGoNext(){
+  try{
+    const p=JSON.parse(localStorage.getItem('serbian_course_progress')||'{}');
+    p['L4c']=true;
+    localStorage.setItem('serbian_course_progress',JSON.stringify(p));
+  }catch(e){}
+  window.location.href='serbian-lesson5a-vokativ-imenice.html';
+}
+
+  </script>
+</body>
+</html>

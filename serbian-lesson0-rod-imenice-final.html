@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Serbian · Lekcija 0 · Rod imenice — Noun Gender</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f4f0;
+    --bg-tertiary: #eeedea;
+    --text-primary: #1a1a1a;
+    --text-secondary: #6b6b6b;
+    --text-tertiary: #9b9b9b;
+    --border-light: rgba(0,0,0,0.1);
+    --border-mid: rgba(0,0,0,0.18);
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --purple-bg: #EEEDFE;
+    --purple-text: #534AB7;
+    --purple-border: #7F77DD;
+    --green-bg: #E1F5EE;
+    --green-text: #0F6E56;
+    --green-border: #1D9E75;
+    --red-bg: #FCEBEB;
+    --red-text: #A32D2D;
+    --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-primary: #1e1e1e;
+      --bg-secondary: #2a2a2a;
+      --bg-tertiary: #333;
+      --text-primary: #f0f0f0;
+      --text-secondary: #a0a0a0;
+      --text-tertiary: #666;
+      --border-light: rgba(255,255,255,0.1);
+      --border-mid: rgba(255,255,255,0.18);
+      --purple-bg: #26215C;
+      --purple-text: #AFA9EC;
+      --purple-border: #7F77DD;
+      --green-bg: #04342C;
+      --green-text: #9FE1CB;
+      --green-border: #1D9E75;
+      --red-bg: #501313;
+      --red-text: #F09595;
+    }
+  }
+  body {
+    font-family: var(--font);
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+  }
+  .lesson-header {
+    width: 100%;
+    max-width: 680px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .lesson-title-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .lesson-badge {
+    background: var(--purple-bg);
+    color: var(--purple-text);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+  .lesson-name {
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+  .app {
+    width: 100%;
+    max-width: 680px;
+    background: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    border: 0.5px solid var(--border-light);
+    padding: 2rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .progress-bar { display: flex; gap: 6px; margin-bottom: 1.75rem; }
+  .pdot { height: 5px; flex: 1; border-radius: 10px; background: var(--border-light); transition: background .3s; }
+  .pdot.done { background: var(--green-border); }
+  .pdot.active { background: var(--purple-border); }
+  .screen { display: none; }
+  .screen.active { display: block; }
+  .slabel { font-size: 11px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: .09em; margin-bottom: .5rem; }
+  .stitle { font-size: 21px; font-weight: 500; color: var(--text-primary); margin-bottom: 1.25rem; line-height: 1.3; }
+  .card {
+    background: var(--bg-secondary);
+    border: 0.5px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 1rem 1.25rem;
+    margin-bottom: .75rem;
+  }
+  .cs { font-size: 17px; font-weight: 500; color: var(--text-primary); margin-bottom: 4px; }
+  .ce { font-size: 14px; color: var(--text-secondary); }
+  .cn { font-size: 13px; color: var(--purple-text); margin-top: 6px; }
+  .hl { background: var(--purple-bg); color: var(--purple-text); padding: 1px 5px; border-radius: 4px; font-weight: 500; }
+  .hl2 { background: var(--green-bg); color: var(--green-text); padding: 1px 5px; border-radius: 4px; font-weight: 500; }
+  .spk {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: none; border: 0.5px solid var(--border-mid);
+    border-radius: var(--radius-md); padding: 5px 12px;
+    font-size: 13px; color: var(--text-secondary);
+    cursor: pointer; margin-top: 8px; transition: background .15s;
+    font-family: var(--font);
+  }
+  .spk:hover { background: var(--bg-tertiary); }
+  .spk svg { width: 14px; height: 14px; flex-shrink: 0; }
+  .ibox {
+    background: var(--bg-secondary);
+    border-left: 3px solid var(--purple-border);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    padding: .75rem 1rem;
+    margin-bottom: 1rem;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+  .ibox strong { color: var(--text-primary); font-weight: 500; }
+  .navrow { display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; }
+  .btnp {
+    background: #534AB7; color: #EEEDFE;
+    border: none; border-radius: var(--radius-md);
+    padding: 10px 24px; font-size: 15px; font-weight: 500;
+    cursor: pointer; transition: opacity .15s; font-family: var(--font);
+  }
+  .btnp:hover { opacity: .88; }
+  .btnp:disabled { opacity: .4; cursor: default; }
+  .btng {
+    background: none; border: 0.5px solid var(--border-mid);
+    border-radius: var(--radius-md); padding: 10px 20px;
+    font-size: 15px; color: var(--text-secondary);
+    cursor: pointer; font-family: var(--font);
+  }
+  .btng:hover { background: var(--bg-secondary); }
+  .pair-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: .75rem; }
+  .pair-card {
+    background: var(--bg-secondary); border: 0.5px solid var(--border-light);
+    border-radius: var(--radius-lg); padding: .9rem 1rem;
+  }
+  .pair-label { font-size: 11px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: .07em; margin-bottom: 4px; }
+  .pair-text { font-size: 16px; font-weight: 500; color: var(--text-primary); }
+  .pair-sub { font-size: 13px; color: var(--text-secondary); margin-top: 2px; }
+  .blank { display: inline-block; min-width: 80px; border-bottom: 2px solid var(--purple-border); text-align: center; padding: 0 4px; font-weight: 500; color: var(--purple-text); }
+  .optsrow { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 1rem; }
+  .opt {
+    border: 1.5px solid var(--border-mid); background: var(--bg-primary);
+    border-radius: var(--radius-md); padding: 9px 18px;
+    font-size: 15px; cursor: pointer; color: var(--text-primary);
+    transition: all .15s; font-family: var(--font);
+  }
+  .opt:hover:not(.locked) { border-color: var(--purple-border); background: var(--purple-bg); color: var(--purple-text); }
+  .opt.sel { border-color: var(--purple-border); background: var(--purple-bg); color: var(--purple-text); }
+  .opt.ok { border-color: var(--green-border); background: var(--green-bg); color: var(--green-text); }
+  .opt.bad { border-color: #E24B4A; background: var(--red-bg); color: var(--red-text); }
+  .opt.locked { cursor: default; }
+  .fb { font-size: 14px; padding: 8px 12px; border-radius: var(--radius-md); margin-bottom: .75rem; line-height: 1.5; }
+  .fb.ok { background: var(--green-bg); color: var(--green-text); }
+  .fb.bad { background: var(--red-bg); color: var(--red-text); }
+  .match-wrap { display: grid; grid-template-columns: 1fr 28px 1fr; gap: 10px; align-items: start; }
+  .mcol { display: flex; flex-direction: column; gap: 8px; }
+  .mi {
+    border: 1.5px solid var(--border-mid); border-radius: var(--radius-md);
+    padding: 9px 14px; font-size: 14px; background: var(--bg-primary);
+    cursor: pointer; transition: all .15s; color: var(--text-primary); line-height: 1.4;
+    min-height: 52px; display: flex; flex-direction: column; justify-content: center;
+  }
+  .mi:hover:not(.locked) { border-color: var(--purple-border); background: var(--purple-bg); color: var(--purple-text); }
+  .mi.sel-l { border-color: var(--purple-border); background: var(--purple-bg); color: var(--purple-text); }
+  .mi.ok { border-color: var(--green-border); background: var(--green-bg); color: var(--green-text); cursor: default; }
+  .mi.bad { border-color: #E24B4A; background: var(--red-bg); color: var(--red-text); }
+  .mi.locked { cursor: default; }
+  .arr { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 8px; padding-top: 2px; }
+  .arrline { height: 52px; display: flex; align-items: center; justify-content: center; color: var(--text-tertiary); font-size: 15px; }
+  .score-wrap { display: flex; gap: 16px; justify-content: center; margin-bottom: 1.5rem; }
+  .score-circle {
+    width: 90px; height: 90px; border-radius: 50%;
+    border: 3px solid var(--green-border);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+  }
+  .score-num { font-size: 28px; font-weight: 500; color: var(--green-text); line-height: 1; }
+  .score-lbl { font-size: 11px; color: var(--text-tertiary); }
+  .sub-label { font-size: 14px; color: var(--text-secondary); font-weight: 500; margin-bottom: 1rem; margin-top: .75rem; }
+  footer {
+    margin-top: 2rem;
+    font-size: 12px;
+    color: var(--text-tertiary);
+    text-align: center;
+  }
+  @media (max-width: 480px) {
+    .pair-grid { grid-template-columns: 1fr; }
+    .app { padding: 1.25rem; }
+  }
+
+  .home-link {
+    font-size: 13px; color: var(--text-tertiary); text-decoration: none;
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 4px 10px; border-radius: var(--radius-md);
+    border: 0.5px solid var(--border-light);
+    transition: background .15s; cursor: pointer;
+    background: none; font-family: var(--font);
+  }
+  .home-link:hover { background: var(--bg-secondary); color: var(--text-secondary); }
+  .btn-complete {
+    background: var(--green-border); color: #fff;
+    border: none; border-radius: var(--radius-md);
+    padding: 12px 28px; font-size: 15px; font-weight: 500;
+    cursor: pointer; font-family: var(--font);
+    transition: opacity .15s; display: block;
+    width: 100%; text-align: center;
+  }
+  .btn-complete:hover { opacity: .88; }
+
+  </style>
+</head>
+<body>
+
+<div class="lesson-header">
+  <div class="lesson-title-row">
+    <span class="lesson-badge">Lekcija 0</span>
+    <span class="lesson-name">Rod imenice · Noun Gender</span>
+  </div>
+  <span style="font-size:12px;color:var(--text-tertiary)">Osnova srpskog jezika · Foundation of Serbian</span>
+</div>
+
+<div class="app">
+  <div class="progress-bar" id="pbar"></div>
+  <div id="screens"></div>
+</div>
+
+<footer>Serbian Language Course · Lesson 0 · Rod imenice – Noun Gender</footer>
+
+<script>
+const SCREENS=[
+  {id:'intro',     label:'Lekcija 0 · Lesson 0'},
+  {id:'masc',      label:'Muški rod · Masculine'},
+  {id:'fem',       label:'Ženski rod · Feminine'},
+  {id:'neut',      label:'Srednji rod · Neuter'},
+  {id:'exceptions',label:'Izuzeci · Exceptions'},
+  {id:'ex1a',      label:'Vežba 1 · Exercise 1'},
+  {id:'ex1b',      label:'Vežba 1 · Exercise 1'},
+  {id:'ex2',       label:'Vežba 2 · Exercise 2'},
+  {id:'done',      label:'Završeno · Done'},
+];
+let cur=0;
+let ex1as={answers:{},checked:{}};
+let ex1bs={answers:{},checked:{}};
+let ex2s={answers:{},checked:{}};
+
+function speak(t,l){
+  if(!window.speechSynthesis)return;
+  window.speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(t);
+  u.lang=l||'sr-RS';u.rate=0.85;
+  window.speechSynthesis.speak(u);
+}
+function spkBtn(t){
+  return `<button class="spk" onclick="speak('${t.replace(/'/g,"\\'")}','sr-RS')">
+    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+      <path d="M10 3v14M6 6v8M14 5v10M2 8v4M18 7v6"/>
+    </svg>Slušaj</button>`;
+}
+
+// EX1a — first 5 nouns (regular endings)
+const EX1A=[
+  {s:'grad (city)',     opts:['Muški','Ženski','Srednji'],correct:0, expl:'<strong>Grad</strong> ends in a consonant → <strong>masculine</strong>.'},
+  {s:'žena (woman)',    opts:['Muški','Ženski','Srednji'],correct:1, expl:'<strong>Žena</strong> ends in -a → <strong>feminine</strong>.'},
+  {s:'dete (child)',    opts:['Muški','Ženski','Srednji'],correct:2, expl:'<strong>Dete</strong> ends in -e → <strong>neuter</strong>.'},
+  {s:'selo (village)',  opts:['Muški','Ženski','Srednji'],correct:2, expl:'<strong>Selo</strong> ends in -o → <strong>neuter</strong>.'},
+  {s:'torba (bag)',     opts:['Muški','Ženski','Srednji'],correct:1, expl:'<strong>Torba</strong> ends in -a → <strong>feminine</strong>.'},
+];
+
+// EX1b — next 5 nouns (regular endings)
+const EX1B=[
+  {s:'prozor (window)', opts:['Muški','Ženski','Srednji'],correct:0, expl:'<strong>Prozor</strong> ends in a consonant → <strong>masculine</strong>.'},
+  {s:'more (sea)',      opts:['Muški','Ženski','Srednji'],correct:2, expl:'<strong>More</strong> ends in -e → <strong>neuter</strong>.'},
+  {s:'majka (mother)',  opts:['Muški','Ženski','Srednji'],correct:1, expl:'<strong>Majka</strong> ends in -a → <strong>feminine</strong>.'},
+  {s:'brat (brother)',  opts:['Muški','Ženski','Srednji'],correct:0, expl:'<strong>Brat</strong> ends in a consonant → <strong>masculine</strong>.'},
+  {s:'pismo (letter)',  opts:['Muški','Ženski','Srednji'],correct:2, expl:'<strong>Pismo</strong> ends in -o → <strong>neuter</strong>.'},
+];
+
+// EX2 — exceptions only (4 questions)
+const EX2=[
+  {s:'tata (dad) — koji je rod?',
+    opts:['Muški','Ženski','Srednji'],correct:0,
+    expl:'<strong>Tata</strong> ends in -a but is <strong>masculine</strong> — male biological reference overrides the ending rule. Other examples: <em>deda</em>, <em>vojvoda</em>.'},
+  {s:'noć (night) — koji je rod?',
+    opts:['Muški','Ženski','Srednji'],correct:1,
+    expl:'<strong>Noć</strong> ends in a consonant but is <strong>feminine</strong>. Abstract nouns ending in a soft consonant are often feminine: <em>stvar, reč, ljubav, mladost</em>.'},
+  {s:'stvar (thing) — koji je rod?',
+    opts:['Muški','Ženski','Srednji'],correct:1,
+    expl:'<strong>Stvar</strong> ends in a consonant but is <strong>feminine</strong>. Must be memorized — same group as <em>noć, reč</em>.'},
+  {s:'deda (grandpa) — koji je rod?',
+    opts:['Muški','Ženski','Srednji'],correct:0,
+    expl:'<strong>Deda</strong> ends in -a but is <strong>masculine</strong> — same pattern as <em>tata</em>. Male reference takes priority.'},
+];
+
+function buildProgress(){
+  document.getElementById('pbar').innerHTML=SCREENS.map((s,i)=>
+    `<div class="pdot ${i<cur?'done':i===cur?'active':''}"></div>`).join('');
+}
+
+function buildScreens(){
+  const c=document.getElementById('screens');c.innerHTML='';
+  const mk=(id,html)=>{
+    const d=document.createElement('div');
+    d.className=`screen ${id===SCREENS[cur].id?'active':''}`;
+    d.id=`sc-${id}`;d.innerHTML=html;c.appendChild(d);
+  };
+
+  mk('intro',`
+    <div class="slabel">${SCREENS[0].label}</div>
+    <div class="stitle">Rod imenice · Noun Gender</div>
+    <div class="ibox" style="border-left:3px solid var(--purple-text);padding-left:14px;">
+      <strong>Why gender comes first.</strong><br><br>
+      In Serbian, <strong>every noun has a gender</strong> — masculine, feminine, or neuter. This is not just a label. Gender determines how a noun changes in every case, how pronouns refer to it, and how adjectives and past-tense verbs must agree with it.<br><br>
+      In short: <em>if you do not know the gender of a noun, you cannot correctly use it in any case.</em> That is why we learn gender before everything else.<br><br>
+      <strong>Zašto rod učimo prvi.</strong><br><br>
+      U srpskom, <strong>svaka imenica ima rod</strong> — muški, ženski ili srednji. Rod određuje kako se imenica menja u padežima, kako zamenice upućuju na nju i kako se pridevi i glagoli moraju slagati s njom.<br><br>
+      Ukratko: <em>ako ne znaš rod imenice, ne možeš je ispravno koristiti ni u jednom padežu.</em>
+    </div>
+    <div class="ibox" style="margin-top:.5rem;font-size:13px;color:var(--text-secondary);">
+      <strong>📌 Good news:</strong> The ending of a noun usually tells you its gender. You will learn the rules and their exceptions in this lesson. Gender must be memorized with each new noun — just as you memorize its meaning.
+    </div>
+    <div class="navrow"><span></span><button class="btnp" onclick="goNext()">Muški rod →</button></div>
+  `);
+
+  mk('masc',`
+    <div class="slabel">${SCREENS[1].label}</div>
+    <div class="stitle">Muški rod · Masculine gender</div>
+    <div class="ibox">
+      Most masculine nouns end in a <strong>consonant</strong> in their base (nominative) form. This is the largest gender group in Serbian.
+    </div>
+    <div class="sub-label">Tipični završeci · Typical endings — consonant</div>
+    <div class="pair-grid">
+      <div class="pair-card"><div class="pair-text"><span class="hl">grad</span></div><div class="pair-sub">city</div>${spkBtn('grad')}</div>
+      <div class="pair-card"><div class="pair-text"><span class="hl">pas</span></div><div class="pair-sub">dog</div>${spkBtn('pas')}</div>
+      <div class="pair-card"><div class="pair-text"><span class="hl">brat</span></div><div class="pair-sub">brother</div>${spkBtn('brat')}</div>
+      <div class="pair-card"><div class="pair-text"><span class="hl">prozor</span></div><div class="pair-sub">window</div>${spkBtn('prozor')}</div>
+      <div class="pair-card"><div class="pair-text"><span class="hl">sto</span></div><div class="pair-sub">table</div>${spkBtn('sto')}</div>
+      <div class="pair-card"><div class="pair-text"><span class="hl">jezik</span></div><div class="pair-sub">language / tongue</div>${spkBtn('jezik')}</div>
+    </div>
+    <div class="ibox" style="margin-top:.75rem;">
+      <strong>Pattern to remember:</strong> If the noun ends in a consonant and is not a known exception, assume it is <strong>masculine</strong>. Most male person names follow this pattern: <em>Marko, Ivan, Petar.</em>
+    </div>
+    <div class="navrow">
+      <button class="btng" onclick="goPrev()">← Nazad</button>
+      <button class="btnp" onclick="goNext()">Ženski rod →</button>
+    </div>
+  `);
+
+  mk('fem',`
+    <div class="slabel">${SCREENS[2].label}</div>
+    <div class="stitle">Ženski rod · Feminine gender</div>
+    <div class="ibox">
+      Most feminine nouns end in <strong>-a</strong>. This is the most reliable ending rule in Serbian. Most female names also end in -a: <em>Ana, Maja, Jelena.</em>
+    </div>
+    <div class="sub-label">Tipični završetak · Typical ending — <strong>-a</strong></div>
+    <div class="pair-grid">
+      <div class="pair-card"><div class="pair-text"><span class="hl2">žena</span></div><div class="pair-sub">woman</div>${spkBtn('žena')}</div>
+      <div class="pair-card"><div class="pair-text"><span class="hl2">knjiga</span></div><div class="pair-sub">book</div>${spkBtn('knjiga')}</div>
+      <div class="pair-card"><div class="pair-text"><span class="hl2">majka</span></div><div class="pair-sub">mother</div>${spkBtn('majka')}</div>
+      <div class="pair-card"><div class="pair-text"><span class="hl2">torba</span></div><div class="pair-sub">bag</div>${spkBtn('torba')}</div>
+      <div class="pair-card"><div class="pair-text"><span class="hl2">reka</span></div><div class="pair-sub">river</div>${spkBtn('reka')}</div>
+      <div class="pair-card"><div class="pair-text"><span class="hl2">sestra</span></div><div class="pair-sub">sister</div>${spkBtn('sestra')}</div>
+    </div>
+    <div class="ibox" style="margin-top:.75rem;background:rgba(255,190,0,.07);border-left:3px solid #f5a623;">
+      <strong>⚠ Watch out:</strong> Some feminine nouns end in a <strong>consonant</strong>, not -a. These are exceptions you must memorize: <em>noć</em> (night), <em>stvar</em> (thing), <em>reč</em> (word), <em>ljubav</em> (love). You will see these on the Exceptions screen.
+    </div>
+    <div class="navrow">
+      <button class="btng" onclick="goPrev()">← Nazad</button>
+      <button class="btnp" onclick="goNext()">Srednji rod →</button>
+    </div>
+  `);
+
+  mk('neut',`
+    <div class="slabel">${SCREENS[3].label}</div>
+    <div class="stitle">Srednji rod · Neuter gender</div>
+    <div class="ibox">
+      Neuter nouns end in <strong>-o</strong> or <strong>-e</strong>. This is the smallest gender group. The ending is very consistent — almost no exceptions.
+    </div>
+    <div class="sub-label">Završetak <strong>-o</strong></div>
+    <div class="pair-grid">
+      <div class="pair-card"><div class="pair-text"><span class="hl">selo</span></div><div class="pair-sub">village</div>${spkBtn('selo')}</div>
+      <div class="pair-card"><div class="pair-text"><span class="hl">pismo</span></div><div class="pair-sub">letter</div>${spkBtn('pismo')}</div>
+      <div class="pair-card"><div class="pair-text"><span class="hl">mleko</span></div><div class="pair-sub">milk</div>${spkBtn('mleko')}</div>
+    </div>
+    <div class="sub-label" style="margin-top:.75rem;">Završetak <strong>-e</strong></div>
+    <div class="pair-grid">
+      <div class="pair-card"><div class="pair-text"><span class="hl">dete</span></div><div class="pair-sub">child</div>${spkBtn('dete')}</div>
+      <div class="pair-card"><div class="pair-text"><span class="hl">more</span></div><div class="pair-sub">sea</div>${spkBtn('more')}</div>
+      <div class="pair-card"><div class="pair-text"><span class="hl">sunce</span></div><div class="pair-sub">sun</div>${spkBtn('sunce')}</div>
+    </div>
+    <div class="ibox" style="margin-top:.75rem;">
+      <strong>Quick check:</strong> Does it end in -o or -e? Almost certainly <strong>neuter</strong>. Note: <em>dete</em> (child) is neuter even though it refers to a person.
+    </div>
+    <div class="navrow">
+      <button class="btng" onclick="goPrev()">← Nazad</button>
+      <button class="btnp" onclick="goNext()">Izuzeci →</button>
+    </div>
+  `);
+
+  mk('exceptions',`
+    <div class="slabel">${SCREENS[4].label}</div>
+    <div class="stitle">Izuzeci · Exceptions</div>
+    <div class="ibox">
+      The ending rules work most of the time — but Serbian has two important exception types you will encounter early. Knowing them now prevents confusion later.
+    </div>
+    <div class="sub-label">Izuzetak 1 — Masculine nouns ending in <strong>-a</strong></div>
+    <div class="ibox" style="font-size:13.5px;">Some masculine nouns end in -a because they refer to <strong>male persons</strong>. Biological reference takes priority over the ending rule.</div>
+    <div class="pair-grid">
+      <div class="pair-card"><div class="pair-text"><span class="hl">tata</span></div><div class="pair-sub">dad — masculine</div>${spkBtn('tata')}</div>
+      <div class="pair-card"><div class="pair-text"><span class="hl">deda</span></div><div class="pair-sub">grandpa — masculine</div>${spkBtn('deda')}</div>
+      <div class="pair-card"><div class="pair-text"><span class="hl">sudija</span></div><div class="pair-sub">judge — masculine</div>${spkBtn('sudija')}</div>
+      <div class="pair-card"><div class="pair-text"><span class="hl">vojvoda</span></div><div class="pair-sub">duke — masculine</div>${spkBtn('vojvoda')}</div>
+    </div>
+    <div class="sub-label" style="margin-top:.9rem;">Izuzetak 2 — Feminine nouns ending in a <strong>consonant</strong></div>
+    <div class="ibox" style="font-size:13.5px;">A group of feminine nouns ends in a consonant, not -a. These are mostly abstract nouns and must be <strong>memorized individually</strong>.</div>
+    <div class="pair-grid">
+      <div class="pair-card"><div class="pair-text"><span class="hl2">noć</span></div><div class="pair-sub">night — feminine</div>${spkBtn('noć')}</div>
+      <div class="pair-card"><div class="pair-text"><span class="hl2">stvar</span></div><div class="pair-sub">thing — feminine</div>${spkBtn('stvar')}</div>
+      <div class="pair-card"><div class="pair-text"><span class="hl2">reč</span></div><div class="pair-sub">word — feminine</div>${spkBtn('reč')}</div>
+      <div class="pair-card"><div class="pair-text"><span class="hl2">ljubav</span></div><div class="pair-sub">love — feminine</div>${spkBtn('ljubav')}</div>
+    </div>
+    <div class="ibox" style="margin-top:.75rem;background:rgba(255,190,0,.07);border-left:3px solid #f5a623;">
+      <strong>Strategija · Strategy:</strong> When you learn a new noun, always learn its gender alongside its meaning. Not just <em>"noć = night"</em> but <em>"noć = night (ž)"</em>.
+    </div>
+    <div class="navrow">
+      <button class="btng" onclick="goPrev()">← Nazad</button>
+      <button class="btnp" onclick="goNext()">Vežba 1 →</button>
+    </div>
+  `);
+
+  mk('ex1a', buildEx1aHTML());
+  mk('ex1b', buildEx1bHTML());
+  mk('ex2',  buildEx2HTML());
+
+  const s1a=EX1A.filter((_,i)=>ex1as.checked[i]===true).length;
+  const s1b=EX1B.filter((_,i)=>ex1bs.checked[i]===true).length;
+  const s2=EX2.filter((_,i)=>ex2s.checked[i]===true).length;
+  mk('done',`
+    <div class="slabel">${SCREENS[8].label}</div>
+    <div class="stitle">Lekcija 0 završena · Lesson 0 complete!</div>
+    <div class="score-wrap">
+      <div class="score-circle"><div class="score-num">${s1a}/${EX1A.length}</div><div class="score-lbl">Vežba 1a</div></div>
+      <div class="score-circle"><div class="score-num">${s1b}/${EX1B.length}</div><div class="score-lbl">Vežba 1b</div></div>
+      <div class="score-circle"><div class="score-num">${s2}/${EX2.length}</div><div class="score-lbl">Vežba 2</div></div>
+    </div>
+    <div class="card">
+      <div class="cs" style="font-size:15px;margin-bottom:8px;">Šta si naučio/la · What you learned</div>
+      <ul style="padding-left:1.1rem;font-size:14px;color:var(--text-secondary);line-height:2.2;">
+        <li>Serbian nouns have <strong>three genders</strong>: masculine, feminine, neuter</li>
+        <li>Consonant ending → usually <strong>masculine</strong></li>
+        <li>-a ending → usually <strong>feminine</strong></li>
+        <li>-o / -e ending → <strong>neuter</strong></li>
+        <li>Exceptions: masculine nouns ending in -a (<em>tata, deda</em>)</li>
+        <li>Exceptions: feminine nouns ending in consonant (<em>noć, stvar, reč</em>)</li>
+        <li>Always <strong>memorize gender</strong> together with a noun's meaning</li>
+      </ul>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:.6rem;margin-top:1.25rem;">
+      <button class="btn-complete" onclick="markAndGoNext()">&#x279C; Sledeća lekcija &mdash; Lekcija 1a — Nominativ: Imenica</button>
+      <button class="btn-complete" onclick="markAndGoHome()">&#x21A9; Vrati se na početnu &middot; Back to home</button>
+      <button class="btng" style="width:100%;text-align:center;" onclick="restart()">&#x21BA; Ponovi lekciju &middot; Restart</button>
+    </div>
+  `);
+}
+
+function buildExHTML(questions, state, screenId, label, prevFn, nextFn, checkFn, pickFn){
+  let h=`<div class="slabel">${label}</div>
+    <div class="stitle">Koji je rod? · What is the gender?</div>
+    <div class="ibox">Identify the gender of each noun using the ending rules you learned.</div>`;
+  questions.forEach((q,qi)=>{
+    const chk=state.checked[qi]!==undefined;
+    const sel=state.answers[qi];
+    h+=`<div class="card" style="margin-bottom:.85rem;">
+      <div style="font-size:19px;font-weight:500;color:var(--text-primary);margin-bottom:10px;">${q.s}</div>
+      <div class="optsrow">`;
+    q.opts.forEach((opt,oi)=>{
+      let cls='opt';
+      if(chk){cls+=' locked';if(oi===q.correct)cls+=' ok';else if(oi===sel&&oi!==q.correct)cls+=' bad';}
+      else if(sel===oi)cls+=' sel';
+      h+=`<button class="${cls}" onclick="${pickFn}(${qi},${oi})">${opt}</button>`;
+    });
+    h+=`</div>`;
+    if(chk)h+=`<div class="fb ${state.checked[qi]?'ok':'bad'}">${state.checked[qi]?'Tačno! ✓':'Netačno.'} ${q.expl}</div>`;
+    h+=`</div>`;
+  });
+  const allA=questions.every((_,i)=>state.answers[i]!==undefined);
+  const allC=questions.every((_,i)=>state.checked[i]!==undefined);
+  h+=`<div class="navrow"><button class="btng" onclick="${prevFn}()">← Nazad</button>`;
+  if(!allC)h+=`<button class="btnp" ${allA?'':'disabled'} onclick="${checkFn}()">Proveri</button>`;
+  else h+=`<button class="btnp" onclick="${nextFn}()">Dalje →</button>`;
+  h+=`</div>`;
+  return h;
+}
+
+function buildEx1aHTML(){
+  return buildExHTML(EX1A,ex1as,'ex1a','Vežba 1 (1/2) · Exercise 1','goPrev','goNext','checkEx1a','ex1apick');
+}
+function buildEx1bHTML(){
+  return buildExHTML(EX1B,ex1bs,'ex1b','Vežba 1 (2/2) · Exercise 1','goPrev','goNext','checkEx1b','ex1bpick');
+}
+
+function buildEx2HTML(){
+  let h=`<div class="slabel">${SCREENS[7].label}</div>
+    <div class="stitle">Izuzeci · Exceptions practice</div>
+    <div class="ibox">These nouns break the usual ending rules. Use what you learned on the Exceptions screen to identify their gender correctly.</div>`;
+  EX2.forEach((q,qi)=>{
+    const chk=ex2s.checked[qi]!==undefined;
+    const sel=ex2s.answers[qi];
+    h+=`<div class="card" style="margin-bottom:.85rem;">
+      <div style="font-size:17px;font-weight:500;color:var(--text-primary);margin-bottom:10px;">${q.s}</div>
+      <div class="optsrow">`;
+    q.opts.forEach((opt,oi)=>{
+      let cls='opt';
+      if(chk){cls+=' locked';if(oi===q.correct)cls+=' ok';else if(oi===sel&&oi!==q.correct)cls+=' bad';}
+      else if(sel===oi)cls+=' sel';
+      h+=`<button class="${cls}" onclick="ex2pick(${qi},${oi})">${opt}</button>`;
+    });
+    h+=`</div>`;
+    if(chk)h+=`<div class="fb ${ex2s.checked[qi]?'ok':'bad'}">${ex2s.checked[qi]?'Tačno! ✓':'Netačno.'} ${q.expl}</div>`;
+    h+=`</div>`;
+  });
+  const allA=EX2.every((_,i)=>ex2s.answers[i]!==undefined);
+  const allC=EX2.every((_,i)=>ex2s.checked[i]!==undefined);
+  h+=`<div class="navrow"><button class="btng" onclick="goPrev()">← Nazad</button>`;
+  if(!allC)h+=`<button class="btnp" ${allA?'':'disabled'} onclick="checkEx2()">Proveri</button>`;
+  else h+=`<button class="btnp" onclick="goNext()">Završetak →</button>`;
+  h+=`</div>`;return h;
+}
+
+function ex1apick(qi,oi){if(ex1as.checked[qi]!==undefined)return;ex1as.answers[qi]=oi;refreshEx1a();}
+function refreshEx1a(){refresh('ex1a',buildEx1aHTML,5);}
+function checkEx1a(){EX1A.forEach((_,i)=>{if(ex1as.answers[i]!==undefined)ex1as.checked[i]=ex1as.answers[i]===EX1A[i].correct;});window.scrollTo({top:0,behavior:'smooth'});refreshEx1a();}
+
+function ex1bpick(qi,oi){if(ex1bs.checked[qi]!==undefined)return;ex1bs.answers[qi]=oi;window.scrollTo({top:0,behavior:'smooth'});refreshEx1b();}
+function refreshEx1b(){refresh('ex1b',buildEx1bHTML,6);}
+function checkEx1b(){EX1B.forEach((_,i)=>{if(ex1bs.answers[i]!==undefined)ex1bs.checked[i]=ex1bs.answers[i]===EX1B[i].correct;});refreshEx1b();}
+
+function ex2pick(qi,oi){if(ex2s.checked[qi]!==undefined)return;ex2s.answers[qi]=oi;window.scrollTo({top:0,behavior:'smooth'});refreshEx2();}
+function refreshEx2(){refresh('ex2',buildEx2HTML,7);}
+function checkEx2(){EX2.forEach((_,i)=>{if(ex2s.answers[i]!==undefined)ex2s.checked[i]=ex2s.answers[i]===EX2[i].correct;});window.scrollTo({top:0,behavior:'smooth'});refreshEx2();}
+
+function refresh(id,buildFn,screenIdx){
+  const old=document.getElementById(`sc-${id}`);if(!old)return;
+  const d=document.createElement('div');
+  d.className=`screen ${cur===screenIdx?'active':''}`;
+  d.id=`sc-${id}`;d.innerHTML=buildFn();old.replaceWith(d);
+}
+
+function goNext(){if(cur<SCREENS.length-1){cur++;render();window.scrollTo({top:0,behavior:'smooth'});}}
+function goPrev(){if(cur>0){cur--;render();window.scrollTo({top:0,behavior:'smooth'});}}
+function restart(){cur=0;ex1as={answers:{},checked:{}};ex1bs={answers:{},checked:{}};ex2s={answers:{},checked:{}};render();}
+function render(){
+  buildScreens();buildProgress();
+  document.querySelectorAll('.screen').forEach(s=>{s.classList.toggle('active',s.id===`sc-${SCREENS[cur].id}`); });
+}
+render();
+
+function markAndGoHome(){
+  try{
+    const p=JSON.parse(localStorage.getItem('serbian_course_progress')||'{}');
+    p['L0']=true;
+    localStorage.setItem('serbian_course_progress',JSON.stringify(p));
+  }catch(e){}
+  window.location.href='serbian-course-home.html';
+}
+
+function markAndGoNext(){
+  try{
+    const p=JSON.parse(localStorage.getItem('serbian_course_progress')||'{}');
+    p['L0']=true;
+    localStorage.setItem('serbian_course_progress',JSON.stringify(p));
+  }catch(e){}
+  window.location.href='serbian-lesson1a-nominativ-imenice.html';
+}
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Serbian · Lekcija 2b · Genitive Pronouns</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f4f0;
+    --bg-tertiary: #eeedea;
+    --text-primary: #1a1a1a;
+    --text-secondary: #6b6b6b;
+    --text-tertiary: #9b9b9b;
+    --border-light: rgba(0,0,0,0.1);
+    --border-mid: rgba(0,0,0,0.18);
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --coral-bg: #FAECE7;
+    --coral-text: #993C1D;
+    --coral-border: #D85A30;
+    --coral-dark: #712B13;
+    --purple-bg: #EEEDFE;
+    --purple-text: #534AB7;
+    --purple-border: #7F77DD;
+    --green-bg: #E1F5EE;
+    --green-text: #0F6E56;
+    --green-border: #1D9E75;
+    --blue-bg: #EEEDFE;
+    --blue-text: #534AB7;
+    --red-bg: #FCEBEB;
+    --red-text: #A32D2D;
+    --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-primary: #1e1e1e;
+      --bg-secondary: #2a2a2a;
+      --bg-tertiary: #333;
+      --text-primary: #f0f0f0;
+      --text-secondary: #a0a0a0;
+      --text-tertiary: #666;
+      --border-light: rgba(255,255,255,0.1);
+      --border-mid: rgba(255,255,255,0.18);
+      --coral-bg: #4A1B0C;
+      --coral-text: #F0997B;
+      --coral-border: #D85A30;
+      --coral-dark: #F5C4B3;
+      --purple-bg: #26215C;
+      --purple-text: #AFA9EC;
+      --purple-border: #7F77DD;
+      --green-bg: #04342C;
+      --green-text: #9FE1CB;
+      --green-border: #1D9E75;
+      --red-bg: #501313;
+      --red-text: #F09595;
+    }
+  }
+  body {
+    font-family: var(--font);
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+  }
+  .lesson-header {
+    width: 100%;
+    max-width: 680px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .lesson-title-row { display: flex; align-items: center; gap: 12px; }
+  .lesson-badge {
+    background: var(--coral-bg);
+    color: var(--coral-text);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+  .lesson-name { font-size: 14px; color: var(--text-secondary); }
+  .app {
+    width: 100%;
+    max-width: 680px;
+    background: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    border: 0.5px solid var(--border-light);
+    padding: 2rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .progress-bar { display: flex; gap: 6px; margin-bottom: 1.75rem; }
+  .pdot { height: 5px; flex: 1; border-radius: 10px; background: var(--border-light); transition: background .3s; }
+  .pdot.done { background: var(--green-border); }
+  .pdot.active { background: var(--coral-border); }
+  .screen { display: none; }
+  .screen.active { display: block; }
+  .slabel { font-size: 11px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: .09em; margin-bottom: .5rem; }
+  .stitle { font-size: 21px; font-weight: 500; color: var(--text-primary); margin-bottom: 1.25rem; line-height: 1.3; }
+  .card {
+    background: var(--bg-secondary);
+    border: 0.5px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 1rem 1.25rem;
+    margin-bottom: .75rem;
+  }
+  .cs { font-size: 17px; font-weight: 500; color: var(--text-primary); margin-bottom: 4px; }
+  .ce { font-size: 14px; color: var(--text-secondary); }
+  .cn { font-size: 13px; color: var(--coral-text); margin-top: 6px; }
+  .hl  { background: var(--coral-bg);  color: var(--coral-text);  padding: 1px 5px; border-radius: 4px; font-weight: 500; }
+  .hl2 { background: var(--green-bg);  color: var(--green-text);  padding: 1px 5px; border-radius: 4px; font-weight: 500; }
+  .hl3 { background: var(--purple-bg); color: var(--purple-text); padding: 1px 5px; border-radius: 4px; font-weight: 500; }
+  .spk {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: none; border: 0.5px solid var(--border-mid);
+    border-radius: var(--radius-md); padding: 5px 12px;
+    font-size: 13px; color: var(--text-secondary);
+    cursor: pointer; margin-top: 8px; transition: background .15s;
+    font-family: var(--font);
+  }
+  .spk:hover { background: var(--bg-tertiary); }
+  .spk svg { width: 14px; height: 14px; flex-shrink: 0; }
+  .ibox {
+    background: var(--bg-secondary);
+    border-left: 3px solid var(--coral-border);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    padding: .75rem 1rem;
+    margin-bottom: 1rem;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+  .ibox-purple { border-left-color: var(--purple-border); }
+  .ibox strong { color: var(--text-primary); font-weight: 500; }
+  .navrow { display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; }
+  .btnp {
+    background: var(--coral-border); color: var(--coral-bg);
+    border: none; border-radius: var(--radius-md);
+    padding: 10px 24px; font-size: 15px; font-weight: 500;
+    cursor: pointer; transition: opacity .15s; font-family: var(--font);
+  }
+  .btnp:hover { opacity: .88; }
+  .btnp:disabled { opacity: .4; cursor: default; }
+  .btng {
+    background: none; border: 0.5px solid var(--border-mid);
+    border-radius: var(--radius-md); padding: 10px 20px;
+    font-size: 15px; color: var(--text-secondary);
+    cursor: pointer; font-family: var(--font);
+  }
+  .btng:hover { background: var(--bg-secondary); }
+  .blank { display: inline-block; min-width: 80px; border-bottom: 2px solid var(--coral-border); text-align: center; padding: 0 4px; font-weight: 500; color: var(--coral-text); }
+  .optsrow { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 1rem; }
+  .opt {
+    border: 1.5px solid var(--border-mid); background: var(--bg-primary);
+    border-radius: var(--radius-md); padding: 9px 18px;
+    font-size: 15px; cursor: pointer; color: var(--text-primary);
+    transition: all .15s; font-family: var(--font);
+  }
+  .opt:hover:not(.locked) { border-color: var(--coral-border); background: var(--coral-bg); color: var(--coral-text); }
+  .opt.sel { border-color: var(--coral-border); background: var(--coral-bg); color: var(--coral-text); }
+  .opt.ok  { border-color: var(--green-border); background: var(--green-bg); color: var(--green-text); }
+  .opt.bad { border-color: #E24B4A; background: var(--red-bg); color: var(--red-text); }
+  .opt.locked { cursor: default; }
+  .fb { font-size: 14px; padding: 8px 12px; border-radius: var(--radius-md); margin-bottom: .75rem; line-height: 1.5; }
+  .fb.ok  { background: var(--green-bg); color: var(--green-text); }
+  .fb.bad { background: var(--red-bg);   color: var(--red-text); }
+  .match-wrap { display: grid; grid-template-columns: 1fr 28px 1fr; gap: 10px; align-items: start; }
+  .mcol { display: flex; flex-direction: column; gap: 8px; }
+  .mi {
+    border: 1.5px solid var(--border-mid); border-radius: var(--radius-md);
+    padding: 9px 14px; font-size: 14px; background: var(--bg-primary);
+    cursor: pointer; transition: all .15s; color: var(--text-primary);
+    line-height: 1.4; min-height: 52px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .mi:hover:not(.locked) { border-color: var(--coral-border); background: var(--coral-bg); color: var(--coral-text); }
+  .mi.sel-l  { border-color: var(--coral-border); background: var(--coral-bg); color: var(--coral-text); }
+  .mi.ok     { border-color: var(--green-border); background: var(--green-bg); color: var(--green-text); cursor: default; }
+  .mi.bad    { border-color: #E24B4A; background: var(--red-bg); color: var(--red-text); }
+  .mi.locked { cursor: default; }
+  .arr { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 8px; }
+  .arrline { height: 52px; display: flex; align-items: center; justify-content: center; color: var(--text-tertiary); font-size: 15px; }
+  .tbl { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: .75rem; }
+  .tbl th { text-align: left; font-weight: 500; font-size: 12px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: .06em; padding: 6px 10px; border-bottom: 0.5px solid var(--border-light); }
+  .tbl td { padding: 9px 10px; border-bottom: 0.5px solid var(--border-light); color: var(--text-primary); }
+  .tbl tr:last-child td { border-bottom: none; }
+  .tbl .dim { color: var(--text-secondary); }
+  .prep-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 8px; }
+  .prep-card { background: var(--bg-tertiary); border-radius: var(--radius-md); padding: 8px; text-align: center; }
+  .prep-word { font-weight: 500; font-size: 15px; color: var(--text-primary); }
+  .prep-mean { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+  .use-label { font-size: 13px; font-weight: 500; color: var(--coral-text); margin-bottom: 8px; text-transform: uppercase; letter-spacing: .05em; }
+  .score-wrap { display: flex; gap: 16px; justify-content: center; margin-bottom: 1.5rem; }
+  .score-circle {
+    width: 90px; height: 90px; border-radius: 50%;
+    border: 3px solid var(--green-border);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+  }
+  .score-num { font-size: 28px; font-weight: 500; color: var(--green-text); line-height: 1; }
+  .score-lbl { font-size: 11px; color: var(--text-tertiary); }
+  footer { margin-top: 2rem; font-size: 12px; color: var(--text-tertiary); text-align: center; }
+  @media (max-width: 480px) {
+    .prep-grid { grid-template-columns: repeat(2,1fr); }
+    .app { padding: 1.25rem; }
+  }
+
+  
+  .home-link {
+    font-size: 13px; color: var(--text-tertiary); text-decoration: none;
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 4px 10px; border-radius: var(--radius-md);
+    border: 0.5px solid var(--border-light);
+    transition: background .15s; cursor: pointer;
+    background: none; font-family: var(--font);
+  }
+  .home-link:hover { background: var(--bg-secondary); color: var(--text-secondary); }
+  .btn-complete {
+    background: var(--green-border); color: #fff;
+    border: none; border-radius: var(--radius-md);
+    padding: 12px 28px; font-size: 15px; font-weight: 500;
+    cursor: pointer; font-family: var(--font);
+    transition: opacity .15s; display: block;
+    width: 100%; text-align: center;
+  }
+  .btn-complete:hover { opacity: .88; }
+
+  </style>
+</head>
+<body>
+<div class="lesson-header">
+  <div class="lesson-title-row">
+    <span class="lesson-badge">Lekcija 2b</span>
+    <span class="lesson-name">Genitiv — Zamenice · Genitive Pronouns</span>
+  </div>
+  <span style="font-size:12px;color:var(--text-tertiary)">2 od 3 lekcije o genitivu</span>
+</div>
+<div class="app">
+  <div class="progress-bar" id="pbar"></div>
+  <div id="screens"></div>
+</div>
+<footer>Serbian Language Course · Lekcija 2b · Genitive Pronouns</footer>
+<script>
+const SCREENS=[
+  {id:'intro',  label:'Lekcija 2b · Lesson 2b'},
+  {id:'table',  label:'Tabela · Pronoun table'},
+  {id:'short',  label:'Kratki oblici · Short forms'},
+  {id:'ex1',    label:'Vezba 1 · Exercise 1'},
+  {id:'ex2',    label:'Vezba 2 · Exercise 2'},
+  {id:'done',   label:'Zavrseno · Done'},
+];
+let cur=0;
+let ex1s={answers:{},checked:{}};
+let ex2s={answers:{},checked:{}};
+
+function speak(t,l){
+  if(!window.speechSynthesis)return;
+  window.speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(t);
+  u.lang=l||'sr-RS';u.rate=0.85;
+  window.speechSynthesis.speak(u);
+}
+function spkBtn(t,l){
+  const lang = l || 'sr-RS';
+  const safe = t.replace(/'/g,"\\'");
+  return '<button class="spk" onclick="speak(\'' + safe + '\',\'' + lang + '\')">'
+    + '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">'
+    + '<path d="M10 3v14M6 6v8M14 5v10M2 8v4M18 7v6"/>'
+    + '</svg>Slušaj</button>';
+}
+
+const EX1=[
+  {s:'Nema ___ kod kuce.',     e:'She is not at home.',
+   opts:['nje','je','ona'],    correct:0, audio:'Nema nje.',
+   expl:'Genitive of <em>ona</em> &#x2192; <strong>nje</strong> (long form). Short form is <em>je</em>. <em>Ona</em> is nominative.'},
+  {s:'Bez ___ je dosadno.',    e:'Without them it is boring.',
+   opts:['njih','ih','oni'],   correct:0, audio:'Bez njih je dosadno.',
+   expl:'After preposition <em>bez</em>, only the long form is used: <strong>njih</strong>. Short form <em>ih</em> cannot follow a preposition.'},
+  {s:'Sestra ___ je lepa.',    e:'His sister is beautiful.',
+   opts:['njega','ga','on'],   correct:0, audio:'sestra njega',
+   expl:'Possession uses the long genitive form: <em>on</em> &#x2192; <strong>njega</strong>. Short <em>ga</em> is not used for possession here.'},
+  {s:'Nema ___ na listi.',     e:'I am not on the list.',
+   opts:['mene','mi','ja'],    correct:0, audio:'Nema mene.',
+   expl:'Genitive of <em>ja</em> &#x2192; <strong>mene</strong>. <em>Mi</em> is dative. <em>Ja</em> is nominative.'},
+  {s:'Dolazim od ___.',        e:'I am coming from you (pl.).',
+   opts:['vas','vi','vama'],   correct:0, audio:'Dolazim od vas.',
+   expl:'After preposition <em>od</em>, use genitive: <em>vi</em> &#x2192; <strong>vas</strong>.'},
+];
+
+const EX2=[
+  {s:'Original: <em>Nema Ane.</em><br>Replace Ana with a pronoun.',
+   e:'Ana is not here.',
+   opts:['Nema nje.','Nema je.','Nema joj.'], correct:0,
+   expl:'Genitive of Ana (feminine) &#x2192; <strong>nje</strong> long form. Both nje and je are used in speech; long form is the safest answer.'},
+  {s:'Original: <em>Ku&#263;a Marka je velika.</em><br>Replace Marko with a pronoun.',
+   e:'His house is big.',
+   opts:['Ku&#263;a njega je velika.','Ku&#263;a ga je velika.','Ku&#263;a mu je velika.'], correct:0,
+   expl:'Possession uses long genitive form: Marko (masc.) &#x2192; <strong>njega</strong>.'},
+  {s:'Original: <em>Bez dece je tiho.</em><br>Replace deca with a pronoun.',
+   e:'Without children it is quiet.',
+   opts:['Bez njih je tiho.','Bez ih je tiho.','Bez njima je tiho.'], correct:0,
+   expl:'After a preposition, always use the long form: <strong>njih</strong>. Short form <em>ih</em> cannot follow a preposition.'},
+  {s:'Original: <em>Nema Petra i Ane.</em><br>Replace both names with a pronoun.',
+   e:'They are not here.',
+   opts:['Nema njih.','Nema ih.','Nema oni.'], correct:0,
+   expl:'Mixed group in genitive plural &#x2192; <strong>njih</strong> (long form preferred after nema).'},
+];
+
+function buildProgress(){
+  document.getElementById('pbar').innerHTML=SCREENS.map((s,i)=>
+    `<div class="pdot ${i<cur?'done':i===cur?'active':''}"></div>`).join('');
+}
+
+function buildScreens(){
+  const c=document.getElementById('screens');c.innerHTML='';
+  const mk=(id,html)=>{
+    const d=document.createElement('div');
+    d.className=`screen ${id===SCREENS[cur].id?'active':''}`;
+    d.id=`sc-${id}`;d.innerHTML=html;c.appendChild(d);
+  };
+
+
+  mk('intro',`
+    <div class="slabel">${SCREENS[0].label}</div>
+    <div class="stitle">Genitiv &#x2014; Zamenice · Genitive Pronouns</div>
+    <div class="ibox" style="border-left:3px solid var(--coral-border);padding-left:14px;">
+      <strong>Pronouns in the genitive replace genitive nouns.</strong><br><br>
+      In Lesson 2a you learned genitive noun forms. Here you replace those nouns with pronouns.
+      Serbian genitive pronouns come in <strong>two forms</strong>: long and short.<br><br>
+      <strong>&#x26A0; Critical rule:</strong> After a preposition, you must <strong>always</strong>
+      use the <strong>long form</strong>.
+      Short forms can only appear without a preposition, usually close to the verb.
+    </div>
+    <div class="card">
+      <div class="cs">Nema <span class="hl">Ane</span>. &#x2192; Nema <span class="hl2">nje</span>.</div>
+      <div class="ce">Ana is not here. &#x2192; She is not here.</div>
+      <div class="cn">Ana &#x2192; nje (genitive pronoun, feminine)</div>
+      ${spkBtn('Nema nje.')}
+    </div>
+    <div class="card">
+      <div class="cs">Bez <span class="hl">Marka</span>. &#x2192; Bez <span class="hl2">njega</span>.</div>
+      <div class="ce">Without Marko. &#x2192; Without him.</div>
+      <div class="cn">After preposition &#x2192; long form only: njega</div>
+      ${spkBtn('Bez njega.')}
+    </div>
+    <div class="navrow"><span></span><button class="btnp" onclick="goNext()">Tabela &#x2192;</button></div>
+  `);
+
+  mk('table',`
+    <div class="slabel">${SCREENS[1].label}</div>
+    <div class="stitle">Genitivne zamenice · Genitive pronouns</div>
+    <div class="ibox">Serbian has both <strong>long (nagla&#353;eni)</strong> and <strong>short (nenagla&#353;eni)</strong> forms.
+    Use long forms after prepositions and for emphasis.
+    Use short forms as unstressed clitics close to the verb.</div>
+    <table class="tbl">
+      <thead><tr><th>Nominativ</th><th>Genitiv dugi</th><th>Genitiv kratki</th><th>English</th></tr></thead>
+      <tbody>
+        <tr><td>ja</td><td><strong>mene</strong></td><td><strong>me</strong></td><td>me / of me</td></tr>
+        <tr><td>ti</td><td><strong>tebe</strong></td><td><strong>te</strong></td><td>you / of you</td></tr>
+        <tr><td>on</td><td><strong>njega</strong></td><td><strong>ga</strong></td><td>him / of him</td></tr>
+        <tr><td>ona</td><td><strong>nje</strong></td><td><strong>je</strong></td><td>her / of her</td></tr>
+        <tr><td>ono</td><td><strong>njega</strong></td><td><strong>ga</strong></td><td>it / of it</td></tr>
+        <tr><td>mi</td><td><strong>nas</strong></td><td>&#x2014;</td><td>us / of us</td></tr>
+        <tr><td>vi</td><td><strong>vas</strong></td><td>&#x2014;</td><td>you pl. / of you</td></tr>
+        <tr><td>oni / one</td><td><strong>njih</strong></td><td><strong>ih</strong></td><td>them / of them</td></tr>
+      </tbody>
+    </table>
+    <div class="ibox" style="margin-top:.75rem;background:rgba(255,190,0,.07);border-left:3px solid #f5a623;">
+      <strong>&#x26A0; Note:</strong> Mi and vi have no short genitive form &#x2014; always use <strong>nas / vas</strong>.
+    </div>
+    <div class="navrow">
+      <button class="btng" onclick="goPrev()">&#x2190; Nazad</button>
+      <button class="btnp" onclick="goNext()">Kratki oblici &#x2192;</button>
+    </div>
+  `);
+
+  mk('short',`
+    <div class="slabel">${SCREENS[2].label}</div>
+    <div class="stitle">Kratki oblici · Short form rules</div>
+    <div class="ibox">The short form rule is simple but important:<br><br>
+    <strong>After a preposition &#x2192; always long form.</strong><br>
+    <strong>Without a preposition &#x2192; short form preferred in speech.</strong></div>
+    <div class="card">
+      <div class="cs">Bez <span class="hl">njega</span></div>
+      <div class="ce">Without him &#x2014; &#x2713; long form after preposition</div>
+      <div class="cn">bez + genitive &#x2192; long form: njega</div>
+      ${spkBtn('Bez njega.')}
+    </div>
+    <div class="card">
+      <div class="cs">Nema <span class="hl2">ga</span>.</div>
+      <div class="ce">He is not here. &#x2014; &#x2713; short form without preposition</div>
+      <div class="cn">nema + genitive &#x2192; short form: ga</div>
+      ${spkBtn('Nema ga.')}
+    </div>
+    <div class="card">
+      <div class="cs">Od <span class="hl">nje</span></div>
+      <div class="ce">From her &#x2014; &#x2713; long form after preposition</div>
+      <div class="cn">od + genitive &#x2192; long form: nje</div>
+      ${spkBtn('Od nje.')}
+    </div>
+    <div class="card">
+      <div class="cs">Nema <span class="hl2">je</span>.</div>
+      <div class="ce">She is not here. &#x2014; &#x2713; short form without preposition</div>
+      <div class="cn">nema + genitive &#x2192; short form: je</div>
+      ${spkBtn('Nema je.')}
+    </div>
+    <div class="ibox" style="margin-top:.75rem;background:rgba(255,190,0,.07);border-left:3px solid #f5a623;">
+      <strong>&#x2717; Never:</strong> <em>Bez ga / Bez je / Bez ih</em> &#x2014;
+      short forms cannot follow prepositions. This is the most common learner mistake.
+    </div>
+    <div class="navrow">
+      <button class="btng" onclick="goPrev()">&#x2190; Nazad</button>
+      <button class="btnp" onclick="goNext()">Ve&#382;ba 1 &#x2192;</button>
+    </div>
+  `);
+
+  mk('ex1', buildEx1HTML());
+  mk('ex2', buildEx2HTML());
+
+
+
+  const s1=EX1.filter((_,i)=>ex1s.checked[i]===true).length;
+  const s2=EX2.filter((_,i)=>ex2s.checked[i]===true).length;
+  const lastScreen=SCREENS[SCREENS.length-1];
+  mk('done',`
+    <div class="slabel">${lastScreen.label}</div>
+    <div class="stitle">Lekcija 2b završena · Lekcija 2b complete!</div>
+    <div class="score-wrap">
+      <div class="score-circle"><div class="score-num">${s1}/${EX1.length}</div><div class="score-lbl">Vežba 1</div></div>
+      <div class="score-circle"><div class="score-num">${s2}/${EX2.length}</div><div class="score-lbl">Vežba 2</div></div>
+    </div>
+    <div class="card">
+      <div class="cs" style="font-size:15px;margin-bottom:8px;">Šta si naučio/la · What you learned</div>
+      <ul style="padding-left:1.1rem;font-size:14px;color:var(--text-secondary);line-height:2.2;">
+        <li>Genitive pronouns: <strong>mene/me, tebe/te, njega/ga, nje/je, nas, vas, njih/ih</strong></li>
+        <li>Two forms: <strong>long (nagla&#353;eni)</strong> and <strong>short (nenagla&#353;eni)</strong></li>
+        <li>After a preposition &#x2192; <strong>always long form</strong></li>
+        <li>Short forms go close to the verb, never directly after a preposition</li>
+      </ul>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:.6rem;margin-top:1.25rem;">
+      <button class="btn-complete" onclick="markAndGoNext()">&#x279C; Sledeća lekcija &mdash; Lekcija 2c — Genitiv: Predlozi</button>
+      <button class="btng" style="width:100%;text-align:center;" onclick="markAndGoHome()">&#x21A9; Vrati se na početnu &middot; Back to home</button>
+      <button class="btng" style="width:100%;text-align:center;" onclick="restart()">&#x21BA; Ponovi lekciju &middot; Restart</button>
+    </div>
+  `);
+}
+
+function buildEx1HTML(){
+  let h=`<div class="slabel">${SCREENS.find(s=>s.id==='ex1').label}</div>`;
+  h+=`<div class="ibox">Pick the correct answer. Each question has one right answer.</div>`;
+  EX1.forEach((q,qi)=>{
+    const chk=ex1s.checked[qi]!==undefined;
+    const sel=ex1s.answers[qi];
+    const filled=sel!==undefined?q.opts[sel]:'___';
+    h+=`<div class="card" style="margin-bottom:1rem;">
+      <div style="font-size:17px;color:var(--text-primary);margin-bottom:4px;line-height:1.6;">${q.s.replace('___','<span class="blank">' + filled + '</span>')}</div>
+      <div style="font-size:13px;color:var(--text-secondary);margin-bottom:10px;">${q.e}</div>
+      <div class="optsrow">`;
+    q.opts.forEach((opt,oi)=>{
+      let cls='opt';
+      if(chk){cls+=' locked';if(oi===q.correct)cls+=' ok';else if(oi===sel&&oi!==q.correct)cls+=' bad';}
+      else if(sel===oi)cls+=' sel';
+      h+=`<button class="${cls}" onclick="ex1pick(${qi},${oi})">${opt}</button>`;
+    });
+    h+=`</div>`;
+    if(chk)h+=`<div class="fb ${ex1s.checked[qi]?'ok':'bad'}">${ex1s.checked[qi]?'Tačno! ✓':'Netačno.'} — ${q.expl}</div>`;
+    h+=`${spkBtn(q.audio||q.s.replace('___',q.opts[q.correct]).replace(/<[^>]+>/g,''))}</div>`;
+  });
+  const allA=EX1.every((_,i)=>ex1s.answers[i]!==undefined);
+  const allC=EX1.every((_,i)=>ex1s.checked[i]!==undefined);
+  h+=`<div class="navrow"><button class="btng" onclick="goPrev()">← Nazad</button>`;
+  if(!allC)h+=`<button class="btnp" ${allA?'':'disabled'} onclick="checkEx1()">Proveri</button>`;
+  else h+=`<button class="btnp" onclick="goNext()">Vežba 2 →</button>`;
+  h+=`</div>`;return h;
+}
+
+function buildEx2HTML(){
+  let h=`<div class="slabel">${SCREENS.find(s=>s.id==='ex2').label}</div>`;
+  h+=`<div class="ibox">Pick the correct answer for each item.</div>`;
+  EX2.forEach((q,qi)=>{
+    const chk=ex2s.checked[qi]!==undefined;
+    const sel=ex2s.answers[qi];
+    h+=`<div class="card" style="margin-bottom:1rem;">
+      <div style="font-size:17px;margin-bottom:6px;">${q.s}</div>
+      <div style="font-size:13px;color:var(--text-secondary);margin-bottom:10px;">${q.e}</div>
+      <div class="optsrow">`;
+    q.opts.forEach((opt,oi)=>{
+      let cls='opt';
+      if(chk){cls+=' locked';if(oi===q.correct)cls+=' ok';else if(oi===sel&&oi!==q.correct)cls+=' bad';}
+      else if(sel===oi)cls+=' sel';
+      h+=`<button class="${cls}" onclick="ex2pick(${qi},${oi})">${opt}</button>`;
+    });
+    h+=`</div>`;
+    if(chk)h+=`<div class="fb ${ex2s.checked[qi]?'ok':'bad'}">${ex2s.checked[qi]?'Tačno! ✓':'Netačno.'} — ${q.expl}</div>`;
+    h+=`</div>`;
+  });
+  const allA=EX2.every((_,i)=>ex2s.answers[i]!==undefined);
+  const allC=EX2.every((_,i)=>ex2s.checked[i]!==undefined);
+  h+=`<div class="navrow"><button class="btng" onclick="goPrev()">← Nazad</button>`;
+  if(!allC)h+=`<button class="btnp" ${allA?'':'disabled'} onclick="checkEx2()">Proveri</button>`;
+  else h+=`<button class="btnp" onclick="goNext()">Završetak →</button>`;
+  h+=`</div>`;return h;
+}
+
+function ex1pick(qi,oi){
+  if(ex1s.checked[qi]!==undefined)return;
+  ex1s.answers[qi]=oi;refreshEx1();
+}
+function refreshEx1(){
+  const old=document.getElementById('sc-ex1');if(!old)return;
+  const d=document.createElement('div');
+  d.className=`screen ${SCREENS[cur].id==='ex1'?'active':''}`;
+  d.id='sc-ex1';d.innerHTML=buildEx1HTML();old.replaceWith(d);
+}
+function checkEx1(){
+  EX1.forEach((_,i)=>{if(ex1s.answers[i]!==undefined)ex1s.checked[i]=ex1s.answers[i]===EX1[i].correct;});
+  refreshEx1();
+}
+function ex2pick(qi,oi){
+  if(ex2s.checked[qi]!==undefined)return;
+  ex2s.answers[qi]=oi;refreshEx2();
+}
+function refreshEx2(){
+  const old=document.getElementById('sc-ex2');if(!old)return;
+  const d=document.createElement('div');
+  d.className=`screen ${SCREENS[cur].id==='ex2'?'active':''}`;
+  d.id='sc-ex2';d.innerHTML=buildEx2HTML();old.replaceWith(d);
+}
+function checkEx2(){
+  EX2.forEach((_,i)=>{if(ex2s.answers[i]!==undefined)ex2s.checked[i]=ex2s.answers[i]===EX2[i].correct;});
+  refreshEx2();
+}
+function goNext(){if(cur<SCREENS.length-1){cur++;render();window.scrollTo({top:0,behavior:'smooth'});}}
+function goPrev(){if(cur>0){cur--;render();window.scrollTo({top:0,behavior:'smooth'});}}
+function restart(){cur=0;ex1s={answers:{},checked:{}};ex2s={answers:{},checked:{}};render();}
+function render(){
+  buildScreens();buildProgress();
+  document.querySelectorAll('.screen').forEach(s=>{
+    s.classList.toggle('active',s.id===`sc-${SCREENS[cur].id}`);
+  });
+}
+render();
+
+function markAndGoHome(){
+  try{const p=JSON.parse(localStorage.getItem('serbian_course_progress')||'{}');p['L2b']=true;localStorage.setItem('serbian_course_progress',JSON.stringify(p));}catch(e){}
+  window.location.href='serbian-course-home.html';
+}
+function markAndGoNext(){
+  try{const p=JSON.parse(localStorage.getItem('serbian_course_progress')||'{}');p['L2b']=true;localStorage.setItem('serbian_course_progress',JSON.stringify(p));}catch(e){}
+  window.location.href='serbian-lesson2c-genitiv-predlozi.html';
+}
+</script>
+</body>
+</html>

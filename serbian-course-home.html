@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serbian Language Course · Početna strana</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg-primary:    #ffffff;
+      --bg-secondary:  #f5f4f0;
+      --bg-tertiary:   #eeedea;
+      --text-primary:  #1a1a1a;
+      --text-secondary:#6b6b6b;
+      --text-tertiary: #9b9b9b;
+      --border-light:  rgba(0,0,0,0.1);
+      --border-mid:    rgba(0,0,0,0.18);
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --coral-bg:     #FAECE7;
+      --coral-text:   #993C1D;
+      --coral-border: #D85A30;
+      --purple-bg:    #EEEDFE;
+      --purple-text:  #534AB7;
+      --purple-border:#7F77DD;
+      --green-bg:     #E1F5EE;
+      --green-text:   #0F6E56;
+      --green-border: #1D9E75;
+      --blue-bg:      #E8F4FD;
+      --blue-text:    #1A5A8A;
+      --blue-border:  #3A8FC4;
+      --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-primary:    #1e1e1e;
+        --bg-secondary:  #2a2a2a;
+        --bg-tertiary:   #333;
+        --text-primary:  #f0f0f0;
+        --text-secondary:#a0a0a0;
+        --text-tertiary: #666;
+        --border-light:  rgba(255,255,255,0.1);
+        --border-mid:    rgba(255,255,255,0.18);
+        --coral-bg:      #4A1B0C;
+        --coral-text:    #F0997B;
+        --coral-border:  #D85A30;
+        --purple-bg:     #26215C;
+        --purple-text:   #AFA9EC;
+        --purple-border: #7F77DD;
+        --green-bg:      #04342C;
+        --green-text:    #9FE1CB;
+        --green-border:  #1D9E75;
+        --blue-bg:       #0D2E44;
+        --blue-text:     #7BBFEA;
+        --blue-border:   #3A8FC4;
+      }
+    }
+    body {
+      font-family: var(--font);
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      padding: 2rem 1rem 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      width: 100%;
+      max-width: 680px;
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--coral-bg);
+      color: var(--coral-text);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: .75rem;
+      letter-spacing: .04em;
+    }
+    .hero h1 {
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--text-primary);
+      line-height: 1.25;
+      margin-bottom: .5rem;
+    }
+    .hero p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1.25rem;
+    }
+    .stat { text-align: center; }
+    .stat-num { font-size: 22px; font-weight: 500; color: var(--coral-text); }
+    .stat-lbl { font-size: 12px; color: var(--text-tertiary); margin-top: 2px; }
+
+    /* ── PROGRESS BANNER ── */
+    /* ── WELCOME TAGLINE ── */
+    .hero-tagline {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-top: .5rem;
+      margin-bottom: 0;
+      line-height: 1.6;
+    }
+
+    /* ── CTA BUTTONS ── */
+    .cta-row {
+      width: 100%;
+      max-width: 680px;
+      display: flex;
+      gap: .75rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .btn-start, .btn-continue {
+      flex: 1;
+      padding: .85rem 1.25rem;
+      border: none;
+      border-radius: var(--radius-md);
+      font-size: 15px; color: #fffff
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity .15s, transform .1s;
+    }
+    .btn-start:active, .btn-continue:active { transform: scale(.97); }
+    .btn-start {
+	background: var(--coral-bg, #e8572a);
+      color: var(--coral-text);
+    }
+    .btn-continue {
+      background: var(--coral-bg, #e8572a);
+      color: var(--coral-text);
+    }
+.btn-start:hover,
+.btn-continue:hover {
+  background: var(--bg-secondary);
+}
+
+    .btn-restart-all {
+      flex: 0 0 auto;
+      padding: .85rem 1rem;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      background: transparent;
+      font-size: 13px;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: background .15s;
+    }
+    .btn-restart-all:hover { background: var(--bg-secondary); }
+
+    /* ── STATUS DOT PULSE ON DONE ── */
+    .status-dot.done {
+      background: #4caf7d;
+      box-shadow: 0 0 0 3px rgba(76,175,125,.18);
+    }
+
+    .progress-banner {
+      width: 100%;
+      max-width: 680px;
+      background: var(--bg-primary);
+      border: 0.5px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.25rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .pb-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: .5rem; }
+    .pb-label { font-size: 13px; color: var(--text-secondary); }
+    .pb-pct   { font-size: 13px; font-weight: 500; color: var(--green-text); }
+    .pb-track {
+      height: 6px;
+      background: var(--border-light);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .pb-fill {
+      height: 100%;
+      background: var(--green-border);
+      border-radius: 10px;
+      transition: width .5s ease;
+    }
+
+    /* ── SECTION HEADER ── */
+    .section-header {
+      width: 100%;
+      max-width: 680px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: .75rem;
+      margin-top: .25rem;
+    }
+    .section-badge {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: 20px;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .sb-coral  { background: var(--coral-bg);  color: var(--coral-text); }
+    .sb-purple { background: var(--purple-bg); color: var(--purple-text); }
+    .sb-green  { background: var(--green-bg);  color: var(--green-text); }
+    .sb-blue   { background: var(--blue-bg);   color: var(--blue-text); }
+    .sb-grey   { background: var(--bg-secondary); color: var(--text-secondary); }
+    .section-title { font-size: 16px; font-weight: 500; color: var(--text-primary); }
+    .section-sub   { font-size: 13px; color: var(--text-tertiary); margin-left: auto; }
+
+    /* ── LESSON CARD ── */
+    .lesson-group {
+      width: 100%;
+      max-width: 680px;
+      background: var(--bg-primary);
+      border: 0.5px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .lesson-row {
+      display: flex;
+      align-items: center;
+      padding: .875rem 1.25rem;
+      border-bottom: 0.5px solid var(--border-light);
+      gap: 14px;
+      text-decoration: none;
+      color: inherit;
+      transition: background .15s;
+      cursor: pointer;
+    }
+    .lesson-row:last-child { border-bottom: none; }
+    .lesson-row:hover:not(.locked) { background: var(--bg-secondary); }
+    .lesson-row.locked { cursor: default; opacity: .45; }
+    .lesson-icon {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .li-coral  { background: var(--coral-bg); }
+    .li-purple { background: var(--purple-bg); }
+    .li-green  { background: var(--green-bg); }
+    .li-blue   { background: var(--blue-bg); }
+    .li-grey   { background: var(--bg-secondary); }
+    .lesson-info { flex: 1; min-width: 0; }
+    .lesson-num  { font-size: 11px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: .07em; margin-bottom: 2px; }
+    .lesson-name { font-size: 15px; font-weight: 500; color: var(--text-primary); }
+    .lesson-desc { font-size: 13px; color: var(--text-secondary); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .lesson-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .status-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--border-mid);
+      flex-shrink: 0;
+    }
+    .status-dot.done    { background: var(--green-border); }
+    .status-dot.current { background: var(--coral-border); }
+    .lesson-arrow { font-size: 16px; color: var(--text-tertiary); }
+    .locked-tag {
+      font-size: 11px;
+      color: var(--text-tertiary);
+      background: var(--bg-secondary);
+      padding: 3px 8px;
+      border-radius: 10px;
+    }
+
+    /* ── COMING SOON GROUP ── */
+    .coming-group {
+      width: 100%;
+      max-width: 680px;
+      background: var(--bg-primary);
+      border: 0.5px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      opacity: .55;
+    }
+    .coming-row {
+      display: flex;
+      align-items: center;
+      padding: .875rem 1.25rem;
+      border-bottom: 0.5px solid var(--border-light);
+      gap: 14px;
+    }
+    .coming-row:last-child { border-bottom: none; }
+
+    /* ── FOOTER ── */
+    footer {
+      margin-top: 3rem;
+      font-size: 12px;
+      color: var(--text-tertiary);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge">Srpski jezik · Serbian Language</div>
+    <h1>Srpska gramatika<br>Serbian Grammar Course</h1>
+    <p>Interaktivni kurs srpskog jezika za engleski govorna područja.<br>
+       Interactive Serbian grammar for English speakers.</p>
+    <p class="hero-tagline">Nauči srpske padeže onako kako tvoj mozak zaista uči &mdash;<br>jedan pojam, jedna lekcija, jedan korak.</p>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num" id="stat-done">0</div>
+        <div class="stat-lbl">Completed</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">21</div>
+        <div class="stat-lbl">Available</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">7</div>
+        <div class="stat-lbl">Cases</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OVERALL PROGRESS -->
+  <div class="progress-banner">
+    <div class="pb-row">
+      <span class="pb-label" id="pb-label">Ukupan napredak · Overall progress</span>
+      <span class="pb-pct" id="pct-label">0%</span>
+    </div>
+    <div class="pb-track"><div class="pb-fill" id="pb-fill" style="width:0%"></div></div>
+  </div>
+
+  <!-- CTA BUTTONS -->
+  <div class="cta-row" id="cta-row">
+    <button class="btn-start" id="btn-start" onclick="startCourse()" style="display:none">
+      &#x25B6; Po&#x010d;ni &middot; Start Here
+    </button>
+    <button class="btn-continue" id="btn-continue" onclick="continueCourse()" style="display:none">
+      &#x25B6; Nastavi &middot; Continue
+    </button>
+    <button class="btn-restart-all" id="btn-restart-all" onclick="restartAll()" style="display:none">
+      &#x21BA; Po&#x010d;ni iznova &middot; Start Over
+    </button>
+  </div>
+
+  <!-- LESSON 0: ROD -->
+  <div class="section-header">
+    <span class="section-badge sb-purple">Osnova · Foundation</span>
+    <span class="section-title">Rod · Gender</span>
+  </div>
+  <div class="lesson-group">
+    <div class="lesson-row" id="row-L0" onclick="open_lesson('L0')">
+      <div class="lesson-icon li-purple">&#x1F3B4;</div>
+      <div class="lesson-info">
+        <div class="lesson-num">Lekcija 0</div>
+        <div class="lesson-name">Rod imenice · Noun Gender</div>
+        <div class="lesson-desc">Muški, ženski, srednji rod &mdash; pravila i izuzeci</div>
+      </div>
+      <div class="lesson-right">
+        <div class="status-dot" id="dot-L0"></div>
+        <span class="lesson-arrow">&#x203A;</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- LESSON 1: NOMINATIV -->
+  <div class="section-header">
+    <span class="section-badge sb-purple">Padež 1</span>
+    <span class="section-title">Nominativ · Nominative</span>
+    <span class="section-sub">Ko? Šta?</span>
+  </div>
+  <div class="lesson-group">
+    <div class="lesson-row" id="row-L1a" onclick="open_lesson('L1a')">
+      <div class="lesson-icon li-purple">&#x1F4D6;</div>
+      <div class="lesson-info">
+        <div class="lesson-num">Lekcija 1a</div>
+        <div class="lesson-name">Imenice · Nouns</div>
+        <div class="lesson-desc">Subjekat rečenice &mdash; osnovni oblik imenice</div>
+      </div>
+      <div class="lesson-right">
+        <div class="status-dot" id="dot-L1a"></div>
+        <span class="lesson-arrow">&#x203A;</span>
+      </div>
+    </div>
+    <div class="lesson-row" id="row-L1b" onclick="open_lesson('L1b')">
+      <div class="lesson-icon li-purple">&#x1F4AC;</div>
+      <div class="lesson-info">
+        <div class="lesson-num">Lekcija 1b</div>
+        <div class="lesson-name">Zamenice · Pronouns</div>
+        <div class="lesson-desc">Ja, ti, on, ona, ono, mi, vi, oni, one</div>
+      </div>
+      <div class="lesson-right">
+        <div class="status-dot" id="dot-L1b"></div>
+        <span class="lesson-arrow">&#x203A;</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- LESSON 2: GENITIV -->
+  <div class="section-header">
+    <span class="section-badge sb-coral">Padež 2</span>
+    <span class="section-title">Genitiv · Genitive</span>
+    <span class="section-sub">Koga? Čega?</span>
+  </div>
+  <div class="lesson-group">
+    <div class="lesson-row" id="row-L2a" onclick="open_lesson('L2a')">
+      <div class="lesson-icon li-coral">&#x1F4D6;</div>
+      <div class="lesson-info">
+        <div class="lesson-num">Lekcija 2a</div>
+        <div class="lesson-name">Imenice · Nouns</div>
+        <div class="lesson-desc">Posedovanje, odsustvo, količina</div>
+      </div>
+      <div class="lesson-right">
+        <div class="status-dot" id="dot-L2a"></div>
+        <span class="lesson-arrow">&#x203A;</span>
+      </div>
+    </div>
+    <div class="lesson-row" id="row-L2b" onclick="open_lesson('L2b')">
+      <div class="lesson-icon li-coral">&#x1F4AC;</div>
+      <div class="lesson-info">
+        <div class="lesson-num">Lekcija 2b</div>
+        <div class="lesson-name">Zamenice · Pronouns</div>
+        <div class="lesson-desc">Mene/me, njega/ga, nje/je &mdash; dugi i kratki oblici</div>
+      </div>
+      <div class="lesson-right">
+        <div class="status-dot" id="dot-L2b"></div>
+        <span class="lesson-arrow">&#x203A;</span>
+      </div>
+    </div>
+    <div class="lesson-row" id="row-L2c" onclick="open_lesson('L2c')">
+      <div class="lesson-icon li-coral">&#x1F517;</div>
+      <div class="lesson-info">
+        <div class="lesson-num">Lekcija 2c</div>
+        <div class="lesson-name">Predlozi · Prepositions</div>
+        <div class="lesson-desc">Do, od, iz, kod, bez, posle, zbog, pored&hellip;</div>
+      </div>
+      <div class="lesson-right">
+        <div class="status-dot" id="dot-L2c"></div>
+        <span class="lesson-arrow">&#x203A;</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- LESSON 3: DATIV -->
+  <div class="section-header">
+    <span class="section-badge sb-green">Padež 3</span>
+    <span class="section-title">Dativ · Dative</span>
+    <span class="section-sub">Kome? Čemu?</span>
+  </div>
+  <div class="lesson-group">
+    <div class="lesson-row" id="row-L3a" onclick="open_lesson('L3a')">
+      <div class="lesson-icon li-green">&#x1F4D6;</div>
+      <div class="lesson-info">
+        <div class="lesson-num">Lekcija 3a</div>
+        <div class="lesson-name">Imenice · Nouns</div>
+        <div class="lesson-desc">Indirektni objekat &mdash; davati, govoriti, pisati</div>
+      </div>
+      <div class="lesson-right">
+        <div class="status-dot" id="dot-L3a"></div>
+        <span class="lesson-arrow">&#x203A;</span>
+      </div>
+    </div>
+    <div class="lesson-row" id="row-L3b" onclick="open_lesson('L3b')">
+      <div class="lesson-icon li-green">&#x1F4AC;</div>
+      <div class="lesson-info">
+        <div class="lesson-num">Lekcija 3b</div>
+        <div class="lesson-name">Zamenice · Pronouns</div>
+        <div class="lesson-desc">Meni/mi, njemu/mu, njoj/joj &mdash; dugi i kratki oblici</div>
+      </div>
+      <div class="lesson-right">
+        <div class="status-dot" id="dot-L3b"></div>
+        <span class="lesson-arrow">&#x203A;</span>
+      </div>
+    </div>
+    <div class="lesson-row" id="row-L3c" onclick="open_lesson('L3c')">
+      <div class="lesson-icon li-green">&#x1F517;</div>
+      <div class="lesson-info">
+        <div class="lesson-num">Lekcija 3c</div>
+        <div class="lesson-name">Predlozi · Prepositions</div>
+        <div class="lesson-desc">K/ka, prema, zahvaljujući, nasuprot</div>
+      </div>
+      <div class="lesson-right">
+        <div class="status-dot" id="dot-L3c"></div>
+        <span class="lesson-arrow">&#x203A;</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- LESSON 4: AKUZATIV -->
+  <div class="section-header">
+    <span class="section-badge sb-blue">Padež 4</span>
+    <span class="section-title">Akuzativ · Accusative</span>
+    <span class="section-sub">Koga? Šta? Kuda?</span>
+  </div>
+  <div class="lesson-group">
+    <div class="lesson-row" id="row-L4a" onclick="open_lesson('L4a')">
+      <div class="lesson-icon li-blue">&#x1F4D6;</div>
+      <div class="lesson-info">
+        <div class="lesson-num">Lekcija 4a</div>
+        <div class="lesson-name">Imenice · Nouns</div>
+        <div class="lesson-desc">Direktni objekat &mdash; živost muških imenica</div>
+      </div>
+      <div class="lesson-right">
+        <div class="status-dot" id="dot-L4a"></div>
+        <span class="lesson-arrow">&#x203A;</span>
+      </div>
+    </div>
+    <div class="lesson-row" id="row-L4b" onclick="open_lesson('L4b')">
+      <div class="lesson-icon li-blue">&#x1F4AC;</div>
+      <div class="lesson-info">
+        <div class="lesson-num">Lekcija 4b</div>
+        <div class="lesson-name">Zamenice · Pronouns</div>
+        <div class="lesson-desc">Njega/ga, nju/je &mdash; akuzativ vs dativ</div>
+      </div>
+      <div class="lesson-right">
+        <div class="status-dot" id="dot-L4b"></div>
+        <span class="lesson-arrow">&#x203A;</span>
+      </div>
+    </div>
+    <div class="lesson-row" id="row-L4c" onclick="open_lesson('L4c')">
+      <div class="lesson-icon li-blue">&#x1F517;</div>
+      <div class="lesson-info">
+        <div class="lesson-num">Lekcija 4c</div>
+        <div class="lesson-name">Predlozi · Prepositions</div>
+        <div class="lesson-desc">U, na (kretanje) &mdash; kroz, za, niz, uz</div>
+      </div>
+      <div class="lesson-right">
+        <div class="status-dot" id="dot-L4c"></div>
+        <span class="lesson-arrow">&#x203A;</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- LESSON 5: VOKATIV -->
+  <div class="section-header">
+    <span class="section-badge sb-purple">Padež 5</span>
+    <span class="section-title">Vokativ · Vocative</span>
+    <span class="section-sub">Direktno obraćanje!</span>
+  </div>
+  <div class="lesson-group">
+    <div class="lesson-row" id="row-L5a" onclick="open_lesson('L5a')">
+      <div class="lesson-icon li-purple">&#x1F4D6;</div>
+      <div class="lesson-info">
+        <div class="lesson-num">Lekcija 5a</div>
+        <div class="lesson-name">Imenice · Nouns</div>
+        <div class="lesson-desc">Nastavci vokativa — Marko! Sestro! Profesore!</div>
+      </div>
+      <div class="lesson-right">
+        <div class="status-dot" id="dot-L5a"></div>
+        <span class="lesson-arrow">&#x203A;</span>
+      </div>
+    </div>
+    <div class="lesson-row" id="row-L5b" onclick="open_lesson('L5b')">
+      <div class="lesson-icon li-purple">&#x1F4AC;</div>
+      <div class="lesson-info">
+        <div class="lesson-num">Lekcija 5b</div>
+        <div class="lesson-name">Fraze · Phrases</div>
+        <div class="lesson-desc">Svakodnevne fraze — Gospođo! Druže! Bože!</div>
+      </div>
+      <div class="lesson-right">
+        <div class="status-dot" id="dot-L5b"></div>
+        <span class="lesson-arrow">&#x203A;</span>
+      </div>
+    </div>
+    <div class="lesson-row" id="row-L5c" onclick="open_lesson('L5c')">
+      <div class="lesson-icon li-purple">&#x270D;</div>
+      <div class="lesson-info">
+        <div class="lesson-num">Lekcija 5c</div>
+        <div class="lesson-name">Rečenice · Sentences</div>
+        <div class="lesson-desc">Vokativ u kontekstu — rečenice i dijalozi</div>
+      </div>
+      <div class="lesson-right">
+        <div class="status-dot" id="dot-L5c"></div>
+        <span class="lesson-arrow">&#x203A;</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- LESSON 6: INSTRUMENTAL -->
+  <div class="section-header">
+    <span class="section-badge sb-coral">Padež 6</span>
+    <span class="section-title">Instrumental · Instrumental</span>
+    <span class="section-sub">Čime? Kime?</span>
+  </div>
+  <div class="lesson-group">
+    <div class="lesson-row" id="row-L6a" onclick="open_lesson('L6a')">
+      <div class="lesson-icon li-coral">&#x1F4D6;</div>
+      <div class="lesson-info">
+        <div class="lesson-num">Lekcija 6a</div>
+        <div class="lesson-name">Imenice · Nouns</div>
+        <div class="lesson-desc">Društvo, sredstvo, identitet — sa sestrom, pišem olovkom</div>
+      </div>
+      <div class="lesson-right">
+        <div class="status-dot" id="dot-L6a"></div>
+        <span class="lesson-arrow">&#x203A;</span>
+      </div>
+    </div>
+    <div class="lesson-row" id="row-L6b" onclick="open_lesson('L6b')">
+      <div class="lesson-icon li-coral">&#x1F4AC;</div>
+      <div class="lesson-info">
+        <div class="lesson-num">Lekcija 6b</div>
+        <div class="lesson-name">Zamenice · Pronouns</div>
+        <div class="lesson-desc">Mnom, tobom, njim, njom, nama, vama, njima</div>
+      </div>
+      <div class="lesson-right">
+        <div class="status-dot" id="dot-L6b"></div>
+        <span class="lesson-arrow">&#x203A;</span>
+      </div>
+    </div>
+    <div class="lesson-row" id="row-L6c" onclick="open_lesson('L6c')">
+      <div class="lesson-icon li-coral">&#x1F517;</div>
+      <div class="lesson-info">
+        <div class="lesson-num">Lekcija 6c</div>
+        <div class="lesson-name">Predlozi · Prepositions</div>
+        <div class="lesson-desc">Sa, nad, pod, pred, za, među — položaj i društvo</div>
+      </div>
+      <div class="lesson-right">
+        <div class="status-dot" id="dot-L6c"></div>
+        <span class="lesson-arrow">&#x203A;</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- LESSON 7: LOKATIV -->
+  <div class="section-header">
+    <span class="section-badge sb-green">Padež 7</span>
+    <span class="section-title">Lokativ · Locative</span>
+    <span class="section-sub">Gde? O čemu?</span>
+  </div>
+  <div class="lesson-group">
+    <div class="lesson-row" id="row-L7a" onclick="open_lesson('L7a')">
+      <div class="lesson-icon li-green">&#x1F4D6;</div>
+      <div class="lesson-info">
+        <div class="lesson-num">Lekcija 7a</div>
+        <div class="lesson-name">Imenice · Nouns</div>
+        <div class="lesson-desc">Mesto, tema, vreme — u gradu, o poslu, u januaru</div>
+      </div>
+      <div class="lesson-right">
+        <div class="status-dot" id="dot-L7a"></div>
+        <span class="lesson-arrow">&#x203A;</span>
+      </div>
+    </div>
+    <div class="lesson-row" id="row-L7b" onclick="open_lesson('L7b')">
+      <div class="lesson-icon li-green">&#x1F4AC;</div>
+      <div class="lesson-info">
+        <div class="lesson-num">Lekcija 7b</div>
+        <div class="lesson-name">Zamenice · Pronouns</div>
+        <div class="lesson-desc">Meni, tebi, njemu, njoj — isti oblici kao dativ</div>
+      </div>
+      <div class="lesson-right">
+        <div class="status-dot" id="dot-L7b"></div>
+        <span class="lesson-arrow">&#x203A;</span>
+      </div>
+    </div>
+    <div class="lesson-row" id="row-L7c" onclick="open_lesson('L7c')">
+      <div class="lesson-icon li-green">&#x1F517;</div>
+      <div class="lesson-info">
+        <div class="lesson-num">Lekcija 7c</div>
+        <div class="lesson-name">Predlozi · Prepositions</div>
+        <div class="lesson-desc">U, na, o, po, pri — statično mesto vs. kretanje</div>
+      </div>
+      <div class="lesson-right">
+        <div class="status-dot" id="dot-L7c"></div>
+        <span class="lesson-arrow">&#x203A;</span>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    Srpski jezik &mdash; Interaktivni kurs &nbsp;&middot;&nbsp; Serbian Language Course
+  </footer>
+
+  <script>
+    // ── LESSON FILE MAP ────────────────────────────────────────────
+    const LESSONS = {
+      L0:  'serbian-lesson0-rod-imenice-final.html',
+      L1a: 'serbian-lesson1a-nominativ-imenice.html',
+      L1b: 'serbian-lesson1b-nominativ-zamenice.html',
+      L2a: 'serbian-lesson2a-genitiv-imenice.html',
+      L2b: 'serbian-lesson2b-genitiv-zamenice.html',
+      L2c: 'serbian-lesson2c-genitiv-predlozi.html',
+      L3a: 'serbian-lesson3a-dativ-imenice.html',
+      L3b: 'serbian-lesson3b-dativ-zamenice.html',
+      L3c: 'serbian-lesson3c-dativ-predlozi.html',
+      L4a: 'serbian-lesson4a-akuzativ-imenice.html',
+      L4b: 'serbian-lesson4b-akuzativ-zamenice.html',
+      L4c: 'serbian-lesson4c-akuzativ-predlozi.html',
+      L5a: 'serbian-lesson5a-vokativ-imenice.html',
+      L5b: 'serbian-lesson5b-vokativ-fraze.html',
+      L5c: 'serbian-lesson5c-vokativ-recenica.html',
+      L6a: 'serbian-lesson6a-instrumental-imenice.html',
+      L6b: 'serbian-lesson6b-instrumental-zamenice.html',
+      L6c: 'serbian-lesson6c-instrumental-predlozi.html',
+      L7a: 'serbian-lesson7a-lokativ-imenice.html',
+      L7b: 'serbian-lesson7b-lokativ-zamenice.html',
+      L7c: 'serbian-lesson7c-lokativ-predlozi.html',
+    };
+    const LESSON_KEYS = Object.keys(LESSONS);
+    const TOTAL = LESSON_KEYS.length;
+
+    // ── LOCALSTORAGE PROGRESS ─────────────────────────────────────
+    const STORAGE_KEY = 'serbian_course_progress';
+
+    function getProgress() {
+      try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
+      catch(e) { return {}; }
+    }
+
+    function markDone(key) {
+      const p = getProgress();
+      p[key] = true;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(p));
+    }
+
+    // ── RENDER STATUS DOTS & PROGRESS BAR ─────────────────────────
+    function renderProgress() {
+      const p = getProgress();
+      let doneCount = 0;
+      LESSON_KEYS.forEach(key => {
+        const dot = document.getElementById('dot-' + key);
+        if (!dot) return;
+        if (p[key]) { dot.classList.add('done'); doneCount++; }
+        else { dot.classList.remove('done'); }
+      });
+      document.getElementById('stat-done').textContent = doneCount;
+      const pct = Math.round((doneCount / TOTAL) * 100);
+      document.getElementById('pb-fill').style.width = pct + '%';
+      document.getElementById('pct-label').textContent = pct + '%';
+
+      // ── CTA BUTTONS ────────────────────────────────────────────
+      const btnStart    = document.getElementById('btn-start');
+      const btnContinue = document.getElementById('btn-continue');
+      const btnRestart  = document.getElementById('btn-restart-all');
+
+      if (doneCount === 0) {
+        // New user — show only Start Here
+        btnStart.style.display    = 'block';
+        btnContinue.style.display = 'none';
+        btnRestart.style.display  = 'none';
+      } else if (doneCount === TOTAL) {
+        // All done — show Start Over only
+        btnStart.style.display    = 'none';
+        btnContinue.style.display = 'none';
+        btnRestart.style.display  = 'block';
+        btnRestart.textContent    = '✓ Kurs završen! Počni iznova · Course complete! Restart';
+      } else {
+        // In progress — show Continue + subtle Start Over
+        btnStart.style.display    = 'none';
+        btnContinue.style.display = 'block';
+        btnRestart.style.display  = 'block';
+        // Update Continue label with next lesson name
+        const nextKey = LESSON_KEYS.find(k => !p[k]);
+        if (nextKey) {
+          const nextFile = LESSONS[nextKey];
+          const nextLabel = nextKey.replace('L', 'Lekcija ');
+          btnContinue.innerHTML = '▶ Nastavi &middot; Continue &mdash; <span style="font-weight:400;opacity:.85">' + nextLabel + '</span>';
+        }
+      }
+    }
+
+    function startCourse() {
+      window.location.href = LESSONS[LESSON_KEYS[0]];
+    }
+
+    function continueCourse() {
+      const p = getProgress();
+      const nextKey = LESSON_KEYS.find(k => !p[k]);
+      if (nextKey && LESSONS[nextKey]) window.location.href = LESSONS[nextKey];
+    }
+
+    function restartAll() {
+      if (!confirm('Obrisati sav napredak? · Clear all progress?')) return;
+      localStorage.removeItem(STORAGE_KEY);
+      renderProgress();
+    }
+
+    // ── OPEN LESSON ───────────────────────────────────────────────
+    function open_lesson(key) {
+      const row = document.getElementById('row-' + key);
+      if (row && row.classList.contains('locked')) return;
+      const file = LESSONS[key];
+      if (file) window.location.href = file;
+    }
+
+    // ── MARK COMPLETE BUTTON (optional, injected by lessons) ──────
+    // Lessons can call: window.opener && window.opener.markDone && window.opener.markDone('L2a')
+    // OR the home page checks sessionStorage on focus return.
+    window.addEventListener('focus', renderProgress);
+
+    // ── INIT ──────────────────────────────────────────────────────
+    renderProgress();
+  </script>
+</body>
+</html>

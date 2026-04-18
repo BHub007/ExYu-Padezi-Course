@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serbian · Lekcija 6b · Instrumental Pronouns</title>
+  <style>
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f4f0;
+    --bg-tertiary: #eeedea;
+    --text-primary: #1a1a1a;
+    --text-secondary: #6b6b6b;
+    --text-tertiary: #9b9b9b;
+    --border-light: rgba(0,0,0,0.1);
+    --border-mid: rgba(0,0,0,0.18);
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --coral-bg: #FAECE7;
+    --coral-text: #993C1D;
+    --coral-border: #D85A30;
+    --coral-dark: #712B13;
+    --purple-bg: #EEEDFE;
+    --purple-text: #534AB7;
+    --purple-border: #7F77DD;
+    --green-bg: #E1F5EE;
+    --green-text: #0F6E56;
+    --green-border: #1D9E75;
+    --blue-bg: #EEEDFE;
+    --blue-text: #534AB7;
+    --red-bg: #FCEBEB;
+    --red-text: #A32D2D;
+    --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-primary: #1e1e1e;
+      --bg-secondary: #2a2a2a;
+      --bg-tertiary: #333;
+      --text-primary: #f0f0f0;
+      --text-secondary: #a0a0a0;
+      --text-tertiary: #666;
+      --border-light: rgba(255,255,255,0.1);
+      --border-mid: rgba(255,255,255,0.18);
+      --coral-bg: #4A1B0C;
+      --coral-text: #F0997B;
+      --coral-border: #D85A30;
+      --coral-dark: #F5C4B3;
+      --purple-bg: #26215C;
+      --purple-text: #AFA9EC;
+      --purple-border: #7F77DD;
+      --green-bg: #04342C;
+      --green-text: #9FE1CB;
+      --green-border: #1D9E75;
+      --red-bg: #501313;
+      --red-text: #F09595;
+    }
+  }
+  body {
+    font-family: var(--font);
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+  }
+  .lesson-header {
+    width: 100%;
+    max-width: 680px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .lesson-title-row { display: flex; align-items: center; gap: 12px; }
+  .lesson-badge {
+    background: var(--coral-bg);
+    color: var(--coral-text);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+  .lesson-name { font-size: 14px; color: var(--text-secondary); }
+  .app {
+    width: 100%;
+    max-width: 680px;
+    background: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    border: 0.5px solid var(--border-light);
+    padding: 2rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .progress-bar { display: flex; gap: 6px; margin-bottom: 1.75rem; }
+  .pdot { height: 5px; flex: 1; border-radius: 10px; background: var(--border-light); transition: background .3s; }
+  .pdot.done { background: var(--green-border); }
+  .pdot.active { background: var(--coral-border); }
+  .screen { display: none; }
+  .screen.active { display: block; }
+  .slabel { font-size: 11px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: .09em; margin-bottom: .5rem; }
+  .stitle { font-size: 21px; font-weight: 500; color: var(--text-primary); margin-bottom: 1.25rem; line-height: 1.3; }
+  .card {
+    background: var(--bg-secondary);
+    border: 0.5px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 1rem 1.25rem;
+    margin-bottom: .75rem;
+  }
+  .cs { font-size: 17px; font-weight: 500; color: var(--text-primary); margin-bottom: 4px; }
+  .ce { font-size: 14px; color: var(--text-secondary); }
+  .cn { font-size: 13px; color: var(--coral-text); margin-top: 6px; }
+  .hl  { background: var(--coral-bg);  color: var(--coral-text);  padding: 1px 5px; border-radius: 4px; font-weight: 500; }
+  .hl2 { background: var(--green-bg);  color: var(--green-text);  padding: 1px 5px; border-radius: 4px; font-weight: 500; }
+  .hl3 { background: var(--purple-bg); color: var(--purple-text); padding: 1px 5px; border-radius: 4px; font-weight: 500; }
+  .spk {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: none; border: 0.5px solid var(--border-mid);
+    border-radius: var(--radius-md); padding: 5px 12px;
+    font-size: 13px; color: var(--text-secondary);
+    cursor: pointer; margin-top: 8px; transition: background .15s;
+    font-family: var(--font);
+  }
+  .spk:hover { background: var(--bg-tertiary); }
+  .spk svg { width: 14px; height: 14px; flex-shrink: 0; }
+  .ibox {
+    background: var(--bg-secondary);
+    border-left: 3px solid var(--coral-border);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    padding: .75rem 1rem;
+    margin-bottom: 1rem;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+  .ibox-purple { border-left-color: var(--purple-border); }
+  .ibox strong { color: var(--text-primary); font-weight: 500; }
+  .navrow { display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; }
+  .btnp {
+    background: var(--coral-border); color: var(--coral-bg);
+    border: none; border-radius: var(--radius-md);
+    padding: 10px 24px; font-size: 15px; font-weight: 500;
+    cursor: pointer; transition: opacity .15s; font-family: var(--font);
+  }
+  .btnp:hover { opacity: .88; }
+  .btnp:disabled { opacity: .4; cursor: default; }
+  .btng {
+    background: none; border: 0.5px solid var(--border-mid);
+    border-radius: var(--radius-md); padding: 10px 20px;
+    font-size: 15px; color: var(--text-secondary);
+    cursor: pointer; font-family: var(--font);
+  }
+  .btng:hover { background: var(--bg-secondary); }
+  .blank { display: inline-block; min-width: 80px; border-bottom: 2px solid var(--coral-border); text-align: center; padding: 0 4px; font-weight: 500; color: var(--coral-text); }
+  .optsrow { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 1rem; }
+  .opt {
+    border: 1.5px solid var(--border-mid); background: var(--bg-primary);
+    border-radius: var(--radius-md); padding: 9px 18px;
+    font-size: 15px; cursor: pointer; color: var(--text-primary);
+    transition: all .15s; font-family: var(--font);
+  }
+  .opt:hover:not(.locked) { border-color: var(--coral-border); background: var(--coral-bg); color: var(--coral-text); }
+  .opt.sel { border-color: var(--coral-border); background: var(--coral-bg); color: var(--coral-text); }
+  .opt.ok  { border-color: var(--green-border); background: var(--green-bg); color: var(--green-text); }
+  .opt.bad { border-color: #E24B4A; background: var(--red-bg); color: var(--red-text); }
+  .opt.locked { cursor: default; }
+  .fb { font-size: 14px; padding: 8px 12px; border-radius: var(--radius-md); margin-bottom: .75rem; line-height: 1.5; }
+  .fb.ok  { background: var(--green-bg); color: var(--green-text); }
+  .fb.bad { background: var(--red-bg);   color: var(--red-text); }
+  .match-wrap { display: grid; grid-template-columns: 1fr 28px 1fr; gap: 10px; align-items: start; }
+  .mcol { display: flex; flex-direction: column; gap: 8px; }
+  .mi {
+    border: 1.5px solid var(--border-mid); border-radius: var(--radius-md);
+    padding: 9px 14px; font-size: 14px; background: var(--bg-primary);
+    cursor: pointer; transition: all .15s; color: var(--text-primary);
+    line-height: 1.4; min-height: 52px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .mi:hover:not(.locked) { border-color: var(--coral-border); background: var(--coral-bg); color: var(--coral-text); }
+  .mi.sel-l  { border-color: var(--coral-border); background: var(--coral-bg); color: var(--coral-text); }
+  .mi.ok     { border-color: var(--green-border); background: var(--green-bg); color: var(--green-text); cursor: default; }
+  .mi.bad    { border-color: #E24B4A; background: var(--red-bg); color: var(--red-text); }
+  .mi.locked { cursor: default; }
+  .arr { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 8px; }
+  .arrline { height: 52px; display: flex; align-items: center; justify-content: center; color: var(--text-tertiary); font-size: 15px; }
+  .tbl { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: .75rem; }
+  .tbl th { text-align: left; font-weight: 500; font-size: 12px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: .06em; padding: 6px 10px; border-bottom: 0.5px solid var(--border-light); }
+  .tbl td { padding: 9px 10px; border-bottom: 0.5px solid var(--border-light); color: var(--text-primary); }
+  .tbl tr:last-child td { border-bottom: none; }
+  .tbl .dim { color: var(--text-secondary); }
+  .prep-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 8px; }
+  .prep-card { background: var(--bg-tertiary); border-radius: var(--radius-md); padding: 8px; text-align: center; }
+  .prep-word { font-weight: 500; font-size: 15px; color: var(--text-primary); }
+  .prep-mean { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+  .use-label { font-size: 13px; font-weight: 500; color: var(--coral-text); margin-bottom: 8px; text-transform: uppercase; letter-spacing: .05em; }
+  .score-wrap { display: flex; gap: 16px; justify-content: center; margin-bottom: 1.5rem; }
+  .score-circle {
+    width: 90px; height: 90px; border-radius: 50%;
+    border: 3px solid var(--green-border);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+  }
+  .score-num { font-size: 28px; font-weight: 500; color: var(--green-text); line-height: 1; }
+  .score-lbl { font-size: 11px; color: var(--text-tertiary); }
+  footer { margin-top: 2rem; font-size: 12px; color: var(--text-tertiary); text-align: center; }
+  @media (max-width: 480px) {
+    .prep-grid { grid-template-columns: repeat(2,1fr); }
+    .app { padding: 1.25rem; }
+  }
+
+  
+  .home-link {
+    font-size: 13px; color: var(--text-tertiary); text-decoration: none;
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 4px 10px; border-radius: var(--radius-md);
+    border: 0.5px solid var(--border-light);
+    transition: background .15s; cursor: pointer;
+    background: none; font-family: var(--font);
+  }
+  .home-link:hover { background: var(--bg-secondary); color: var(--text-secondary); }
+  .btn-complete {
+    background: var(--green-border); color: #fff;
+    border: none; border-radius: var(--radius-md);
+    padding: 12px 28px; font-size: 15px; font-weight: 500;
+    cursor: pointer; font-family: var(--font);
+    transition: opacity .15s; display: block;
+    width: 100%; text-align: center;
+  }
+  .btn-complete:hover { opacity: .88; }
+
+  
+  .home-link {
+    font-size:13px;color:var(--text-tertiary);text-decoration:none;
+    display:inline-flex;align-items:center;gap:4px;
+    padding:4px 10px;border-radius:var(--radius-md);
+    border:0.5px solid var(--border-light);
+    transition:background .15s;cursor:pointer;
+    background:none;font-family:var(--font);
+  }
+  .home-link:hover{background:var(--bg-secondary);color:var(--text-secondary);}
+  .btn-complete{
+    background:var(--green-border);color:#fff;
+    border:none;border-radius:var(--radius-md);
+    padding:12px 28px;font-size:15px;font-weight:500;
+    cursor:pointer;font-family:var(--font);
+    transition:opacity .15s;display:block;
+    width:100%;text-align:center;
+  }
+  .btn-complete:hover{opacity:.88;}
+  </style>
+</head>
+<body>
+<div class="lesson-header">
+  <div class="lesson-title-row">
+    <span class="lesson-badge">Lekcija 6b</span>
+    <span class="lesson-name">Instrumental — Zamenice &middot; Instrumental Pronouns</span>
+  </div>
+  <a class="home-link" href="serbian-course-home.html">&#x2190; Kurs</a>
+</div>
+<div class="app">
+  <div class="progress-bar" id="pbar"></div>
+  <div id="screens"></div>
+</div>
+<footer>Serbian Language Course &middot; Lekcija 6b &middot; Instrumental Pronouns</footer>
+<script>
+const SCREENS=[
+  {id:'intro', label:'Lekcija 6b · Lesson 6b'},
+  {id:'table', label:'Tabela · Table'},
+  {id:'long-short', label:'Dugi i kratki · Long and short'},
+  {id:'ex1', label:'Vežba 1 · Exercise 1'},
+  {id:'ex2', label:'Vežba 2 · Exercise 2'},
+  {id:'done', label:'Završeno · Done'},
+];
+let cur=0;
+let ex1s={answers:{},checked:{}};
+let ex2s={answers:{},checked:{}};
+
+function speak(t,l){
+  if(!window.speechSynthesis)return;
+  window.speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(t);
+  u.lang=l||'sr-RS';u.rate=0.85;
+  window.speechSynthesis.speak(u);
+}
+function spkBtn(t,l){
+  const lang = l || 'sr-RS';
+  const safe = t.replace(/'/g,"\\'");
+  return '<button class="spk" onclick="speak(\'' + safe + '\',\'' + lang + '\')">'
+    + '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">'
+    + '<path d="M10 3v14M6 6v8M14 5v10M2 8v4M18 7v6"/>'
+    + '</svg>Slušaj · Listen</button>';
+}
+
+const EX1=[
+  {s:'Došao je sa ___.', e:'He came with me.',
+   opts:['mnom', 'mene', 'meni'], correct:0, audio:'Došao je sa mnom.',
+   expl:'Sa + instrumental: ja → <strong>mnom</strong>. Note the unusual form — not <em>menom</em>.'},
+  {s:'Razgovaram sa ___.', e:'I am talking with you (sg.).',
+   opts:['tobom', 'tebe', 'tebi'], correct:0, audio:'Razgovaram sa tobom.',
+   expl:'Ti → instrumental <strong>tobom</strong>. Sa tobom = with you.'},
+  {s:'Putuje sa ___.', e:'She travels with him.',
+   opts:['njim', 'njega', 'njemu'], correct:0, audio:'Putuje sa njim.',
+   expl:'On → instrumental <strong>njim</strong> (or njime). Sa njim = with him.'},
+  {s:'Sedi sa ___.', e:'He sits with her.',
+   opts:['njom', 'nje', 'njoj'], correct:0, audio:'Sedi sa njom.',
+   expl:'Ona → instrumental <strong>njom</strong> (or njome). Sa njom = with her.'},
+  {s:'Radimo sa ___.', e:'We work with them.',
+   opts:['njima', 'njih', 'njima'], correct:0, audio:'Radimo sa njima.',
+   expl:'Oni/one/ona → instrumental <strong>njima</strong>. Sa njima = with them.'}
+];
+
+const EX2=[
+  {s:'Došla je sa mnom u grad.', e:'She came with me to the city.',
+   opts:['mnom = instrumental ja', 'mene = genitiv ja', 'meni = dativ ja'], correct:0,
+   expl:'<strong>Mnom</strong> is the instrumental of <em>ja</em>. After <em>sa</em>, always use instrumental.'},
+  {s:'Razgovarali smo sa njima.', e:'We talked with them.',
+   opts:['njima = instrumental oni', 'njima = dativ oni', 'oba su tačna'], correct:2,
+   expl:'<strong>Njima</strong> is both dative AND instrumental plural. Context determines which: after <em>sa</em> it is instrumental.'},
+  {s:'Piše se sobom — reflection on oneself', e:'Sobom = with oneself (reflexive instrumental)',
+   opts:['reflexivna zamenica', 'lična zamenica', 'prisvojna zamenica'], correct:0,
+   expl:'<strong>Sobom</strong> is the reflexive pronoun in instrumental. It refers back to the subject regardless of person.'},
+  {s:'Ide sa tobom ili sa njom?', e:'Is he going with you or with her?',
+   opts:['tobom=ti, njom=ona', 'tobom=ti, njom=ona (oba instrumental)', 'tobom=genitiv, njom=dativ'], correct:1,
+   expl:'Both <strong>tobom</strong> (ti) and <strong>njom</strong> (ona) are instrumental forms after <em>sa</em>.'}
+];
+
+function buildProgress(){
+  document.getElementById('pbar').innerHTML=SCREENS.map((s,i)=>
+    '<div class="pdot '+(i<cur?'done':i===cur?'active':'')+'" title="'+(s.label||'')+'"></div>').join('');
+}
+function buildScreens(){
+  const c=document.getElementById('screens');c.innerHTML='';
+  const mk=(id,html)=>{
+    const d=document.createElement('div');
+    d.className='screen '+(id===SCREENS[cur].id?'active':'');
+    d.id='sc-'+id;d.innerHTML=html;c.appendChild(d);
+  };
+  buildAllScreens(mk);
+}
+function buildEx1HTML(){
+  let h='<div class="slabel">'+SCREENS.find(s=>s.id==='ex1').label+'</div>';
+  h+='<div class="ibox">Izaberi tačan instrumental. Pick the correct instrumental form.</div>';
+  EX1.forEach((q,qi)=>{
+    const chk=ex1s.checked[qi]!==undefined;
+    const sel=ex1s.answers[qi];
+    const filled=sel!==undefined?q.opts[sel]:'___';
+    h+='<div class="card" style="margin-bottom:1rem;">'
+      +'<div style="font-size:17px;color:var(--text-primary);margin-bottom:4px;line-height:1.6;">'
+      +q.s.replace('___','<span class="blank">'+filled+'</span>')+'</div>'
+      +'<div style="font-size:13px;color:var(--text-secondary);margin-bottom:10px;">'+q.e+'</div>'
+      +'<div class="optsrow">';
+    q.opts.forEach((opt,oi)=>{
+      let cls='opt';
+      if(chk){cls+=' locked';if(oi===q.correct)cls+=' ok';else if(oi===sel&&oi!==q.correct)cls+=' bad';}
+      else if(sel===oi)cls+=' sel';
+      h+='<button class="'+cls+'" onclick="ex1pick('+qi+','+oi+')">'+opt+'</button>';
+    });
+    h+='</div>';
+    if(chk)h+='<div class="fb '+(ex1s.checked[qi]?'ok':'bad')+'">'+(ex1s.checked[qi]?'Tačno! ✓':'Netačno.')+' — '+q.expl+'</div>';
+    h+=spkBtn(q.audio||q.s.replace('___',q.opts[q.correct]).replace(/<[^>]+>/g,''))+'</div>';
+  });
+  const allA=EX1.every((_,i)=>ex1s.answers[i]!==undefined);
+  const allC=EX1.every((_,i)=>ex1s.checked[i]!==undefined);
+  h+='<div class="navrow"><button class="btng" onclick="goPrev()">← Nazad</button>';
+  if(!allC)h+='<button class="btnp" '+(allA?'':'disabled')+' onclick="checkEx1()">Proveri</button>';
+  else h+='<button class="btnp" onclick="goNext()">Vežba 2 →</button>';
+  h+='</div>';return h;
+}
+function buildEx2HTML(){
+  let h='<div class="slabel">'+SCREENS.find(s=>s.id==='ex2').label+'</div>';
+  h+='<div class="ibox">Prepoznaj upotrebu instrumentala. Identify the use of the instrumental.</div>';
+  EX2.forEach((q,qi)=>{
+    const chk=ex2s.checked[qi]!==undefined;
+    const sel=ex2s.answers[qi];
+    h+='<div class="card" style="margin-bottom:1rem;">'
+      +'<div class="cs">'+q.s+'</div>'
+      +'<div class="ce">'+q.e+'</div>'
+      +'<div class="optsrow" style="margin-top:10px;">';
+    q.opts.forEach((opt,oi)=>{
+      let cls='opt';
+      if(chk){cls+=' locked';if(oi===q.correct)cls+=' ok';else if(oi===sel&&oi!==q.correct)cls+=' bad';}
+      else if(sel===oi)cls+=' sel';
+      h+='<button class="'+cls+'" onclick="ex2pick('+qi+','+oi+')">'+opt+'</button>';
+    });
+    h+='</div>';
+    if(chk)h+='<div class="fb '+(ex2s.checked[qi]?'ok':'bad')+'">'+(ex2s.checked[qi]?'Tačno! ✓':'Netačno.')+' — '+q.expl+'</div>';
+    h+='</div>';
+  });
+  const allA=EX2.every((_,i)=>ex2s.answers[i]!==undefined);
+  const allC=EX2.every((_,i)=>ex2s.checked[i]!==undefined);
+  h+='<div class="navrow"><button class="btng" onclick="goPrev()">← Nazad</button>';
+  if(!allC)h+='<button class="btnp" '+(allA?'':'disabled')+' onclick="checkEx2()">Proveri</button>';
+  else h+='<button class="btnp" onclick="goNext()">Završetak →</button>';
+  h+='</div>';return h;
+}
+
+function buildAllScreens(mk){
+  mk('intro',
+    '<div class="slabel">'+SCREENS[0].label+'</div>'
+    +'<div class="stitle">Instrumental — Zamenice &middot; Instrumental Pronouns</div>'
+    +'<div class="ibox" style="border-left:3px solid var(--coral-border);">'
+    +'<strong>Zamenice u instrumentalu</strong><br><br>'
+    +'Personal pronouns in Serbian have <strong>only long forms</strong> in the instrumental — there are no short/clitic forms. '
+    +'This makes the instrumental pronoun table simpler than genitive or dative.<br><br>'
+    +'The most important: <strong>mnom</strong> (with me) — it looks unusual but is always this form after <em>sa</em>. '
+    +'Also note: <strong>njim/njime</strong> and <strong>njom/njome</strong> are interchangeable.'
+    +'</div>'
+    +'<div class="card"><div class="cs">Došao je sa <span class="hl">mnom</span>.</div>'
+    +'<div class="ce">He came with me.</div>'
+    +'<div class="cn">ja → <strong>mnom</strong> (instrumental)</div>'
+    +spkBtn('Došao je sa mnom.')+'</div>'
+    +'<div class="card"><div class="cs">Putuje sa <span class="hl">njom</span>.</div>'
+    +'<div class="ce">He travels with her.</div>'
+    +'<div class="cn">ona → <strong>njom</strong> (instrumental)</div>'
+    +spkBtn('Putuje sa njom.')+'</div>'
+    +'<div class="navrow"><span></span><button class="btnp" onclick="goNext()">Tabela →</button></div>'
+  );
+
+  mk('table',
+    '<div class="slabel">'+SCREENS[1].label+'</div>'
+    +'<div class="stitle">Tabela &middot; Instrumental Pronoun Table</div>'
+    +'<div class="ibox">All instrumental pronoun forms. Remember: <strong>no short forms exist</strong> in the instrumental.</div>'
+    +'<table class="tbl">'
+    +'<thead><tr><th>Nominativ</th><th>Instrumental</th><th>English</th></tr></thead>'
+    +'<tbody>'
+    +'<tr><td>ja</td><td><strong>mnom</strong></td><td>with me</td></tr>'
+    +'<tr><td>ti</td><td><strong>tobom</strong></td><td>with you (sg.)</td></tr>'
+    +'<tr><td>on</td><td><strong>njim / njime</strong></td><td>with him</td></tr>'
+    +'<tr><td>ona</td><td><strong>njom / njome</strong></td><td>with her</td></tr>'
+    +'<tr><td>ono</td><td><strong>njim / njime</strong></td><td>with it</td></tr>'
+    +'<tr><td>mi</td><td><strong>nama</strong></td><td>with us</td></tr>'
+    +'<tr><td>vi</td><td><strong>vama</strong></td><td>with you (pl.)</td></tr>'
+    +'<tr><td>oni/one/ona</td><td><strong>njima</strong></td><td>with them</td></tr>'
+    +'<tr><td class="dim">sebe (refl.)</td><td><strong>sobom</strong></td><td>with oneself</td></tr>'
+    +'</tbody></table>'
+    +'<div class="card">'
+    +'<div class="cs">Ide sa <span class="hl">nama</span> i sa <span class="hl2">vama</span>.</div>'
+    +'<div class="ce">She goes with us and with you (pl.).</div>'
+    +spkBtn('Ide sa nama i sa vama.')+'</div>'
+    +'<div class="navrow">'
+    +'<button class="btng" onclick="goPrev()">&#x2190; Nazad</button>'
+    +'<button class="btnp" onclick="goNext()">Dugi i kratki →</button></div>'
+  );
+
+  mk('long-short',
+    '<div class="slabel">'+SCREENS[2].label+'</div>'
+    +'<div class="stitle">Instrumental vs. Dativ &middot; A Key Difference</div>'
+    +'<div class="ibox ibox-purple"><strong>Njima, nama, vama</strong> appear in BOTH dative and instrumental. '
+    +'The context — especially the preposition — tells you which case it is:<br><br>'
+    +'&bull; After <strong>sa</strong> → instrumental (companionship)<br>'
+    +'&bull; After <strong>ka, prema</strong> → dative<br>'
+    +'&bull; As indirect object (giving, saying, sending) → dative</div>'
+    +'<div class="card">'
+    +'<div class="cs">Govorim <span class="hl3">njima</span>. — <em>dativ</em></div>'
+    +'<div class="ce">I am speaking to them.</div>'
+    +'<div class="cn">indirect object → dative</div>'
+    +spkBtn('Govorim njima.')+'</div>'
+    +'<div class="card">'
+    +'<div class="cs">Idem sa <span class="hl2">njima</span>. — <em>instrumental</em></div>'
+    +'<div class="ce">I am going with them.</div>'
+    +'<div class="cn">sa + companion → instrumental</div>'
+    +spkBtn('Idem sa njima.')+'</div>'
+    +'<div class="ibox" style="margin-top:.5rem;">'
+    +'<strong>Tip:</strong> When you see <em>sa</em> + pronoun, it is <strong>always instrumental</strong>. '
+    +'When you see a pronoun before a verb meaning give/say/send, it is <strong>dative</strong>.</div>'
+    +'<div class="navrow">'
+    +'<button class="btng" onclick="goPrev()">&#x2190; Nazad</button>'
+    +'<button class="btnp" onclick="goNext()">Vežba 1 →</button></div>'
+  );
+
+  const s1=EX1.filter((_,i)=>ex1s.checked[i]===true).length;
+  const s2=EX2.filter((_,i)=>ex2s.checked[i]===true).length;
+  mk('ex1',buildEx1HTML());
+  mk('ex2',buildEx2HTML());
+  mk('done',
+    '<div class="slabel">'+SCREENS[SCREENS.length-1].label+'</div>'
+    +'<div class="stitle">Lekcija 6b završena &middot; Lekcija 6b complete!</div>'
+    +'<div class="score-wrap">'
+    +'<div class="score-circle"><div class="score-num">'+s1+'/'+EX1.length+'</div><div class="score-lbl">Vežba 1</div></div>'
+    +'<div class="score-circle"><div class="score-num">'+s2+'/'+EX2.length+'</div><div class="score-lbl">Vežba 2</div></div>'
+    +'</div>'
+    +'<div class="card"><div class="cs" style="font-size:15px;margin-bottom:8px;">Šta si naučio/la &middot; What you learned</div>'
+    +'<ul style="padding-left:1.1rem;font-size:14px;color:var(--text-secondary);line-height:2.2;">'
+    +'<li>Instrumental pronouns have <strong>no short forms</strong> — only long forms exist</li><li>ja → <strong>mnom</strong>, ti → <strong>tobom</strong>, on → <strong>njim/njime</strong>, ona → <strong>njom/njome</strong></li><li>mi → <strong>nama</strong>, vi → <strong>vama</strong>, oni → <strong>njima</strong></li><li><strong>Njima/nama/vama</strong> are identical in dative and instrumental — context decides</li><li>Reflexive: sebe → <strong>sobom</strong></li>'
+    +'</ul></div>'
+    +'<div style="display:flex;flex-direction:column;gap:.6rem;margin-top:1.25rem;"><button class="btn-complete" onclick="markAndGoNext()">&#x279C; Slede&#263;a lekcija &mdash; Lekcija 6c — Instrumental: Predlozi</button><button class="btng" style="width:100%;text-align:center;" onclick="markAndGoHome()">&#x21A9; Vrati se na po&#269;etnu &middot; Back to home</button><button class="btng" style="width:100%;text-align:center;" onclick="restart()">&#x21BA; Ponovi lekciju &middot; Restart</button></div>'
+  );
+}
+
+function goNext(){if(cur<SCREENS.length-1){cur++;render();window.scrollTo({top:0,behavior:'smooth'});}}
+function goPrev(){if(cur>0){cur--;render();window.scrollTo({top:0,behavior:'smooth'});}}
+function restart(){cur=0;ex1s={answers:{},checked:{}};ex2s={answers:{},checked:{}};render();}
+function render(){
+  buildScreens();buildProgress();
+  document.querySelectorAll('.screen').forEach(s=>{
+    s.classList.toggle('active',s.id==='sc-'+SCREENS[cur].id);
+  });
+}
+function ex1pick(qi,oi){if(ex1s.checked[qi]!==undefined)return;ex1s.answers[qi]=oi;const d=document.getElementById('sc-ex1');if(d)d.innerHTML=buildEx1HTML();}
+function ex2pick(qi,oi){if(ex2s.checked[qi]!==undefined)return;ex2s.answers[qi]=oi;const d=document.getElementById('sc-ex2');if(d)d.innerHTML=buildEx2HTML();}
+function checkEx1(){EX1.forEach((_,i)=>{if(ex1s.answers[i]!==undefined)ex1s.checked[i]=(ex1s.answers[i]===EX1[i].correct);});const d=document.getElementById('sc-ex1');if(d)d.innerHTML=buildEx1HTML();}
+function checkEx2(){EX2.forEach((_,i)=>{if(ex2s.answers[i]!==undefined)ex2s.checked[i]=(ex2s.answers[i]===EX2[i].correct);});const d=document.getElementById('sc-ex2');if(d)d.innerHTML=buildEx2HTML();}
+render();
+
+function markAndGoHome(){
+  try{const p=JSON.parse(localStorage.getItem('serbian_course_progress')||'{}');p['L6b']=true;localStorage.setItem('serbian_course_progress',JSON.stringify(p));}catch(e){}
+  window.location.href='serbian-course-home.html';
+}
+function markAndGoNext(){
+  try{const p=JSON.parse(localStorage.getItem('serbian_course_progress')||'{}');p['L6b']=true;localStorage.setItem('serbian_course_progress',JSON.stringify(p));}catch(e){}
+  window.location.href='serbian-lesson6c-instrumental-predlozi.html';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Serbian · Lekcija 4b · Akuzativ — Zamenice</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f4f0;
+    --bg-tertiary: #eeedea;
+    --text-primary: #1a1a1a;
+    --text-secondary: #6b6b6b;
+    --text-tertiary: #9b9b9b;
+    --border-light: rgba(0,0,0,0.1);
+    --border-mid: rgba(0,0,0,0.18);
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --blue-bg: #E6F1FB;
+    --blue-text: #0C447C;
+    --blue-border: #378ADD;
+    --green-bg: #EAF3DE;
+    --green-text: #27500A;
+    --green-border: #639922;
+    --ok-bg: #E1F5EE;
+    --ok-text: #0F6E56;
+    --ok-border: #1D9E75;
+    --red-bg: #FCEBEB;
+    --red-text: #A32D2D;
+    --purple-bg: #EEEDFE;
+    --purple-text: #534AB7;
+    --purple-border: #7F77DD;
+    --amber-bg: #FAEEDA;
+    --amber-text: #633806;
+    --amber-border: #BA7517;
+    --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-primary: #1e1e1e; --bg-secondary: #2a2a2a; --bg-tertiary: #333;
+      --text-primary: #f0f0f0; --text-secondary: #a0a0a0; --text-tertiary: #666;
+      --border-light: rgba(255,255,255,0.1); --border-mid: rgba(255,255,255,0.18);
+      --blue-bg: #042C53; --blue-text: #85B7EB; --blue-border: #378ADD;
+      --ok-bg: #04342C; --ok-text: #9FE1CB; --ok-border: #1D9E75;
+      --red-bg: #501313; --red-text: #F09595;
+      --purple-bg: #26215C; --purple-text: #AFA9EC; --purple-border: #7F77DD;
+      --amber-bg: #412402; --amber-text: #FAC775; --amber-border: #BA7517;
+    }
+  }
+  body { font-family: var(--font); background: var(--bg-tertiary); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 2rem 1rem; }
+  .lesson-header { width: 100%; max-width: 680px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  .lesson-badge { background: var(--blue-bg); color: var(--blue-text); font-size: 12px; font-weight: 500; padding: 4px 12px; border-radius: 20px; }
+  .lesson-name { font-size: 14px; color: var(--text-secondary); }
+  .lesson-series { font-size: 12px; color: var(--text-tertiary); }
+  .app { width: 100%; max-width: 680px; background: var(--bg-primary); border-radius: var(--radius-lg); border: 0.5px solid var(--border-light); padding: 2rem; }
+  .progress-bar { display: flex; gap: 6px; margin-bottom: 1.75rem; }
+  .pdot { height: 5px; flex: 1; border-radius: 10px; background: var(--border-light); transition: background .3s; }
+  .pdot.done { background: var(--blue-border); }
+  .pdot.active { background: var(--blue-border); opacity: .5; }
+  .screen { display: none; }
+  .screen.active { display: block; }
+  .slabel { font-size: 11px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: .09em; margin-bottom: .5rem; }
+  .stitle { font-size: 21px; font-weight: 500; color: var(--text-primary); margin-bottom: 1.25rem; line-height: 1.3; }
+  .card { background: var(--bg-secondary); border: 0.5px solid var(--border-light); border-radius: var(--radius-lg); padding: 1rem 1.25rem; margin-bottom: .75rem; }
+  .cs { font-size: 17px; font-weight: 500; color: var(--text-primary); margin-bottom: 4px; }
+  .ce { font-size: 14px; color: var(--text-secondary); }
+  .cn { font-size: 13px; color: var(--blue-text); margin-top: 6px; }
+  .hl  { background: var(--blue-bg);   color: var(--blue-text);   padding: 1px 6px; border-radius: 4px; font-weight: 500; }
+  .hl2 { background: var(--purple-bg); color: var(--purple-text); padding: 1px 6px; border-radius: 4px; font-weight: 500; }
+  .hl3 { background: var(--amber-bg);  color: var(--amber-text);  padding: 1px 6px; border-radius: 4px; font-weight: 500; }
+  .spk { display: inline-flex; align-items: center; gap: 6px; background: none; border: 0.5px solid var(--border-mid); border-radius: var(--radius-md); padding: 5px 12px; font-size: 13px; color: var(--text-secondary); cursor: pointer; margin-top: 8px; transition: background .15s; font-family: var(--font); }
+  .spk:hover { background: var(--bg-tertiary); }
+  .spk svg { width: 14px; height: 14px; flex-shrink: 0; }
+  .spk-sm { margin: 0; padding: 3px 8px; }
+  .spk-sm svg { width: 12px; height: 12px; }
+  .ibox { background: var(--bg-secondary); border-left: 3px solid var(--blue-border); border-radius: 0 var(--radius-md) var(--radius-md) 0; padding: .75rem 1rem; margin-bottom: 1rem; font-size: 14px; line-height: 1.7; color: var(--text-secondary); }
+  .ibox strong { color: var(--text-primary); font-weight: 500; }
+  .ibox-amber  { border-left-color: var(--amber-border); }
+  .ibox-purple { border-left-color: var(--purple-border); }
+  .navrow { display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; }
+  .btnp { background: var(--blue-border); color: #E6F1FB; border: none; border-radius: var(--radius-md); padding: 10px 24px; font-size: 15px; font-weight: 500; cursor: pointer; transition: opacity .15s; font-family: var(--font); }
+  .btnp:hover { opacity: .88; }
+  .btnp:disabled { opacity: .4; cursor: default; }
+  .btng { background: none; border: 0.5px solid var(--border-mid); border-radius: var(--radius-md); padding: 10px 20px; font-size: 15px; color: var(--text-secondary); cursor: pointer; font-family: var(--font); }
+  .btng:hover { background: var(--bg-secondary); }
+  .blank { display: inline-block; min-width: 56px; border-bottom: 2px solid var(--blue-border); text-align: center; padding: 0 4px; font-weight: 500; color: var(--blue-text); }
+  .optsrow { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0; }
+  .opt { border: 1.5px solid var(--border-mid); background: var(--bg-primary); border-radius: var(--radius-md); padding: 9px 18px; font-size: 15px; cursor: pointer; color: var(--text-primary); transition: all .15s; font-family: var(--font); }
+  .opt:hover:not(.locked) { border-color: var(--blue-border); background: var(--blue-bg); color: var(--blue-text); }
+  .opt.sel  { border-color: var(--blue-border); background: var(--blue-bg); color: var(--blue-text); }
+  .opt.ok   { border-color: var(--ok-border);   background: var(--ok-bg);   color: var(--ok-text); }
+  .opt.bad  { border-color: #E24B4A; background: var(--red-bg); color: var(--red-text); }
+  .opt.locked { cursor: default; }
+  .fb { font-size: 14px; padding: 8px 12px; border-radius: var(--radius-md); margin-top: 6px; line-height: 1.5; }
+  .fb.ok  { background: var(--ok-bg);  color: var(--ok-text); }
+  .fb.bad { background: var(--red-bg); color: var(--red-text); }
+  .tbl { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: .75rem; }
+  .tbl th { text-align: left; font-weight: 500; font-size: 11px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: .07em; padding: 6px 10px; border-bottom: 0.5px solid var(--border-light); }
+  .tbl td { padding: 9px 10px; border-bottom: 0.5px solid var(--border-light); color: var(--text-primary); vertical-align: top; }
+  .tbl tr:last-child td { border-bottom: none; }
+  .tbl .dim { color: var(--text-secondary); font-size: 13px; }
+  .tbl .pron { font-weight: 500; color: var(--blue-text); font-size: 15px; }
+  .tbl .long { color: var(--text-secondary); font-size: 14px; }
+  .before-after { display: grid; grid-template-columns: 1fr 28px 1fr; gap: 8px; align-items: center; margin-bottom: .75rem; }
+  .ba-card { background: var(--bg-secondary); border: 0.5px solid var(--border-light); border-radius: var(--radius-lg); padding: .8rem 1rem; }
+  .ba-label { font-size: 11px; text-transform: uppercase; letter-spacing: .07em; margin-bottom: 4px; }
+  .ba-text { font-size: 15px; font-weight: 500; color: var(--text-primary); }
+  .ba-arrow { text-align: center; color: var(--text-tertiary); font-size: 18px; }
+  .danger-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: .75rem; }
+  .danger-card { border-radius: var(--radius-lg); padding: .85rem 1rem; }
+  .danger-card.acc { background: var(--blue-bg); border: 0.5px solid var(--blue-border); }
+  .danger-card.dat { background: var(--amber-bg); border: 0.5px solid var(--amber-border); }
+  .danger-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: .07em; margin-bottom: 6px; }
+  .danger-card.acc .danger-label { color: var(--blue-text); }
+  .danger-card.dat .danger-label { color: var(--amber-text); }
+  .danger-pair { font-size: 15px; font-weight: 500; margin-bottom: 2px; }
+  .danger-card.acc .danger-pair { color: var(--blue-text); }
+  .danger-card.dat .danger-pair { color: var(--amber-text); }
+  .danger-sub { font-size: 12px; opacity: .8; margin-bottom: 6px; }
+  .danger-card.acc .danger-sub { color: var(--blue-text); }
+  .danger-card.dat .danger-sub { color: var(--amber-text); }
+  .score-wrap { display: flex; gap: 16px; justify-content: center; margin-bottom: 1.5rem; }
+  .score-circle { width: 90px; height: 90px; border-radius: 50%; border: 3px solid var(--ok-border); display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .score-num { font-size: 28px; font-weight: 500; color: var(--ok-text); line-height: 1; }
+  .score-lbl { font-size: 11px; color: var(--text-tertiary); }
+  footer { margin-top: 2rem; font-size: 12px; color: var(--text-tertiary); text-align: center; }
+  @media (max-width: 480px) {
+    .before-after { grid-template-columns: 1fr 18px 1fr; gap: 6px; }
+    .danger-grid { grid-template-columns: 1fr; }
+    .app { padding: 1.25rem; }
+  }
+
+  .home-link {
+    font-size: 13px;
+    color: var(--text-tertiary);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    border-radius: var(--radius-md);
+    border: 0.5px solid var(--border-light);
+    transition: background .15s;
+    cursor: pointer;
+    background: none;
+    font-family: var(--font);
+  }
+  .home-link:hover { background: var(--bg-secondary); color: var(--text-secondary); }
+  .btn-complete {
+    background: var(--green-border);
+    color: var(--green-bg);
+    border: none;
+    border-radius: var(--radius-md);
+    padding: 12px 28px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: var(--font);
+    margin-top: .5rem;
+    transition: opacity .15s;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  .btn-complete:hover { opacity: .88; }
+
+  </style>
+</head>
+<body>
+
+<div class="lesson-header">
+  <div style="display:flex;align-items:center;gap:10px;">
+    <span class="lesson-badge">Lekcija 4b · Lesson 4b</span>
+    <span class="lesson-name">Akuzativ — zamenice</span>
+  </div>
+  <span class="lesson-series">2 od 3 lekcija o akuzativu</span>
+</div>
+
+<div class="app">
+  <div class="progress-bar" id="pbar"></div>
+  <div id="screens"></div>
+</div>
+
+<footer>Serbian Language Course · Lesson 4b · Akuzativ – Pronouns</footer>
+
+<script>
+const SCREENS=[
+  {id:'intro'},
+  {id:'long-short'},
+  {id:'table'},
+  {id:'danger'},
+  {id:'ex1'},
+  {id:'ex2'},
+  {id:'done'},
+];
+let cur=0;
+let ex1s={answers:{},checked:{}};
+let ex2s={answers:{},checked:{}};
+
+function speak(t,l){
+  if(!window.speechSynthesis)return;
+  window.speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(t);
+  u.lang=l||'sr-RS'; u.rate=0.85;
+  window.speechSynthesis.speak(u);
+}
+function spkBtn(t,l){
+  const esc=t.replace(/'/g,"\\'");
+  return `<button class="spk" onclick="speak('${esc}','${l||'sr-RS'}')"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M10 3v14M6 6v8M14 5v10M2 8v4M18 7v6"/></svg>Slušaj</button>`;
+}
+function spkBtnSm(t,l){
+  const esc=t.replace(/'/g,"\\'");
+  return `<button class="spk spk-sm" onclick="speak('${esc}','${l||'sr-RS'}')"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M10 3v14M6 6v8M14 5v10M2 8v4M18 7v6"/></svg></button>`;
+}
+
+// ─── EX 1 ────────────────────────────────────────────────────────────────────
+// Task: noun → pronoun replacement. The full source sentence is shown with the
+// direct object underlined. Three rewritten options are given; learner picks
+// the one with the correct short accusative pronoun.
+// Distractors are always the dative pronoun for the same person (the classic
+// confusion) and a nominative pronoun (another common slip).
+const EX1=[
+  {
+    noun:'Vidim <u>Marka</u> svaki dan.',
+    eng:'I see Marko every day.',
+    q:'Replace "Marka" with the correct accusative pronoun.',
+    opts:[
+      'Vidim ga svaki dan.',
+      'Vidim mu svaki dan.',
+      'Vidim on svaki dan.'
+    ],
+    correct:0,
+    expl:'"Marka" is masculine animate accusative → short form <strong>ga</strong>. "Mu" is the dative short form (to him) — wrong case entirely. "On" is the nominative — never used as an object.',
+    full:'Vidim ga svaki dan.'
+  },
+  {
+    noun:'Volim <u>sestru</u> jako mnogo.',
+    eng:'I love my sister very much.',
+    q:'Replace "sestru" with the correct accusative pronoun.',
+    opts:[
+      'Volim je jako mnogo.',
+      'Volim joj jako mnogo.',
+      'Volim ona jako mnogo.'
+    ],
+    correct:0,
+    expl:'"Sestru" is feminine accusative → short form <strong>je</strong>. "Joj" is the dative short form (to her) — wrong case. "Ona" is nominative.',
+    full:'Volim je jako mnogo.'
+  },
+  {
+    noun:'Čekam <u>prijatelje</u> ispred škole.',
+    eng:'I am waiting for my friends in front of the school.',
+    q:'Replace "prijatelje" with the correct accusative pronoun.',
+    opts:[
+      'Čekam ih ispred škole.',
+      'Čekam im ispred škole.',
+      'Čekam oni ispred škole.'
+    ],
+    correct:0,
+    expl:'"Prijatelje" is plural animate accusative → short form <strong>ih</strong>. "Im" is the dative plural short form — wrong case. "Oni" is nominative plural.',
+    full:'Čekam ih ispred škole.'
+  },
+  {
+    noun:'Zovem <u>mamu</u> na telefon.',
+    eng:'I am calling my mother on the phone.',
+    q:'Replace "mamu" with the correct accusative pronoun.',
+    opts:[
+      'Zovem je na telefon.',
+      'Zovem joj na telefon.',
+      'Zovem ona na telefon.'
+    ],
+    correct:0,
+    expl:'"Mamu" is feminine accusative → short form <strong>je</strong>. "Joj" is dative (to her). "Ona" is nominative.',
+    full:'Zovem je na telefon.'
+  },
+  {
+    noun:'Gledam <u>film</u> svake večeri.',
+    eng:'I watch the film every evening.',
+    q:'Replace "film" with the correct accusative pronoun.',
+    opts:[
+      'Gledam ga svake večeri.',
+      'Gledam mu svake večeri.',
+      'Gledam on svake večeri.'
+    ],
+    correct:0,
+    expl:'"Film" is masculine inanimate accusative → short form <strong>ga</strong>. Inanimate masculine nouns also use "ga", same form as animate. "Mu" is dative, "on" is nominative.',
+    full:'Gledam ga svake večeri.'
+  },
+];
+
+// ─── EX 2 ────────────────────────────────────────────────────────────────────
+// Task: short vs long form — choose which fits the context.
+// Context tags drive the rule: normal sentence → short; emphatic contrast →
+// long; after preposition → long.
+const EX2=[
+  {
+    context:'Normal sentence — no emphasis.',
+    s:'Vidim ___ svaki dan.',
+    e:'I see him every day.',
+    opts:['ga','njega'],
+    correct:0,
+    expl:'In an unstressed mid-sentence position the short form <strong>ga</strong> is correct. "Njega" is reserved for emphasis or after prepositions.',
+    full:'Vidim ga svaki dan.'
+  },
+  {
+    context:'Emphatic contrast — stress on the pronoun.',
+    s:'___ sam pozvao, a ne tebe.',
+    e:'I invited him, not you.',
+    opts:['Njega','Ga'],
+    correct:0,
+    expl:'Short clitics cannot open a sentence and cannot carry sentence stress. In a contrast that emphasises who was invited, the long form <strong>Njega</strong> is required. "Ga" cannot begin a sentence.',
+    full:'Njega sam pozvao, a ne tebe.'
+  },
+  {
+    context:'After a preposition.',
+    s:'Čekam na ___ ceo sat.',
+    e:'I have been waiting for her for a whole hour.',
+    opts:['nju','je'],
+    correct:0,
+    expl:'After preposition "na", Serbian requires the long form. <strong>Nju</strong> is the long accusative for "ona". "Je" is the short clitic form — it cannot follow a preposition.',
+    full:'Čekam na nju ceo sat.'
+  },
+  {
+    context:'After a preposition.',
+    s:'Kupio sam to za ___.',
+    e:'I bought that for them.',
+    opts:['njih','ih'],
+    correct:0,
+    expl:'After preposition "za", always use the long form. <strong>Njih</strong> is the long accusative for "oni/one". "Ih" is the short clitic — cannot follow a preposition.',
+    full:'Kupio sam to za njih.'
+  },
+  {
+    context:'Normal sentence — short form position.',
+    s:'Mama ___ voli svim srcem.',
+    e:'Mom loves them with all her heart.',
+    opts:['ih','njih'],
+    correct:0,
+    expl:'No preposition, no special emphasis — the short form <strong>ih</strong> is correct in mid-sentence position. "Njih" would only be used to contrast or for stress.',
+    full:'Mama ih voli svim srcem.'
+  },
+  {
+    context:'After a preposition.',
+    s:'Pričao je o ___.',
+    e:'He was talking about you (singular).',
+    opts:['tebi','te'],
+    correct:0,
+    expl:'After preposition "o", use the long form. <strong>Tebi</strong> is the long accusative of "ti". "Te" is the short clitic — it cannot follow a preposition.',
+    full:'Pričao je o tebi.'
+  },
+];
+
+function buildProgress(){
+  document.getElementById('pbar').innerHTML=SCREENS.map((s,i)=>
+    `<div class="pdot ${i<cur?'done':i===cur?'active':''}"></div>`).join('');
+}
+
+function buildScreens(){
+  const c=document.getElementById('screens');
+  c.innerHTML='';
+  const mk=(id,html)=>{
+    const d=document.createElement('div');
+    d.className=`screen ${id===SCREENS[cur].id?'active':''}`;
+    d.id=`sc-${id}`; d.innerHTML=html; c.appendChild(d);
+  };
+
+  // ── SCREEN 1: Introduction ─────────────────────────────────────────────────
+  mk('intro',`
+    <div class="slabel">Lekcija 4b · Lesson 4b</div>
+    <div class="stitle">Zamenice u akuzativu · Accusative pronouns</div>
+    <div class="ibox">
+      In Lesson 4a we saw that direct objects take the accusative case. Instead of repeating the noun every time, Serbian uses accusative pronouns. Like dative pronouns, each one has a <em>short (clitic) form</em> for everyday use and a <em>long (emphatic) form</em> for special positions.
+    </div>
+    <div class="card">
+      <div class="cs">Vidim <span class="hl">Marka</span>. → Vidim <span class="hl">ga</span>.</div>
+      <div class="ce">I see Marko. → I see him.</div>
+      <div class="cn">Marka (masc. animate acc.) → short pronoun ga</div>
+      ${spkBtn('Vidim ga.')}
+    </div>
+    <div class="card">
+      <div class="cs">Volim <span class="hl">sestru</span>. → Volim <span class="hl">je</span>.</div>
+      <div class="ce">I love my sister. → I love her.</div>
+      <div class="cn">sestru (fem. acc.) → short pronoun je</div>
+      ${spkBtn('Volim je.')}
+    </div>
+    <div class="card">
+      <div class="cs">Gledam <span class="hl">film</span>. → Gledam <span class="hl">ga</span>.</div>
+      <div class="ce">I watch the film. → I watch it.</div>
+      <div class="cn">film (masc. inanimate acc.) → short pronoun ga — same form as animate masculine</div>
+      ${spkBtn('Gledam ga.')}
+    </div>
+    <div class="card">
+      <div class="cs">Čitam <span class="hl">knjige</span>. → Čitam <span class="hl">ih</span>.</div>
+      <div class="ce">I read the books. → I read them.</div>
+      <div class="cn">knjige (plural acc.) → short pronoun ih</div>
+      ${spkBtn('Čitam ih.')}
+    </div>
+    <div class="navrow"><span></span><button class="btnp" onclick="goNext()">Dalje →</button></div>
+  `);
+
+  // ── SCREEN 2: Short vs long forms ─────────────────────────────────────────
+  mk('long-short',`
+    <div class="slabel">Kratki i dugi oblici · Short and long forms</div>
+    <div class="stitle">Dva oblika iste zamenice · Two forms of each pronoun</div>
+    <div class="ibox ibox-amber">
+      Accusative pronouns share the same two-form system as dative pronouns. The <strong>short (clitic) form</strong> is used in normal sentences — it attaches to the nearest stressed word and cannot start a sentence or follow a preposition. The <strong>long (emphatic) form</strong> is used for contrast, emphasis, and always after prepositions.
+    </div>
+
+    <div class="before-after">
+      <div class="ba-card">
+        <div class="ba-label" style="color:var(--blue-text);">Short form — normal position</div>
+        <div class="ba-text">Vidim <span class="hl">ga</span> svaki dan.</div>
+        <div style="font-size:13px;color:var(--text-secondary);margin-top:4px;">I see him every day.</div>
+        ${spkBtn('Vidim ga svaki dan.')}
+      </div>
+      <div class="ba-arrow">→</div>
+      <div class="ba-card">
+        <div class="ba-label" style="color:var(--amber-text);">Long form — emphasis / contrast</div>
+        <div class="ba-text"><span class="hl3">Njega</span> vidim, a ne tebe.</div>
+        <div style="font-size:13px;color:var(--text-secondary);margin-top:4px;">I see <em>him</em>, not you.</div>
+        ${spkBtn('Njega vidim, a ne tebe.')}
+      </div>
+    </div>
+
+    <div class="before-after">
+      <div class="ba-card">
+        <div class="ba-label" style="color:var(--blue-text);">Short form — normal position</div>
+        <div class="ba-text">Volim <span class="hl">je</span> jako mnogo.</div>
+        <div style="font-size:13px;color:var(--text-secondary);margin-top:4px;">I love her very much.</div>
+        ${spkBtn('Volim je jako mnogo.')}
+      </div>
+      <div class="ba-arrow">→</div>
+      <div class="ba-card">
+        <div class="ba-label" style="color:var(--amber-text);">Long form — after preposition</div>
+        <div class="ba-text">Čekam na <span class="hl3">nju</span>.</div>
+        <div style="font-size:13px;color:var(--text-secondary);margin-top:4px;">I am waiting for her.</div>
+        ${spkBtn('Čekam na nju.')}
+      </div>
+    </div>
+
+    <div class="ibox ibox-purple" style="margin-top:.25rem;">
+      <strong>Rule of thumb:</strong> after any preposition → always long form. Normal sentence, no special stress → short form. Short clitics can never open a sentence.
+    </div>
+    <div class="navrow"><button class="btng" onclick="goPrev()">← Nazad</button><button class="btnp" onclick="goNext()">Tabela · Table →</button></div>
+  `);
+
+  // ── SCREEN 3: Full pronoun table ───────────────────────────────────────────
+  mk('table',`
+    <div class="slabel">Tabela · Table</div>
+    <div class="stitle">Sve akuzativne zamenice · All accusative pronouns</div>
+    <div class="ibox">Learn the short forms first — they appear far more often in speech and writing. Notice that masculine and neuter share the same forms (ga / njega).</div>
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th>Lice · Person</th>
+          <th>Kratki · Short</th>
+          <th>Dugi · Long</th>
+          <th>Primer · Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ja (I)</td>
+          <td class="pron">me</td>
+          <td class="long">mene</td>
+          <td>Vidi me. ${spkBtnSm('Vidi me.')}</td>
+        </tr>
+        <tr>
+          <td>ti (you sg.)</td>
+          <td class="pron">te</td>
+          <td class="long">tebe</td>
+          <td>Znam te. ${spkBtnSm('Znam te.')}</td>
+        </tr>
+        <tr>
+          <td>on / ono (he / it)</td>
+          <td class="pron">ga</td>
+          <td class="long">njega</td>
+          <td>Vidim ga. ${spkBtnSm('Vidim ga.')}</td>
+        </tr>
+        <tr>
+          <td>ona (she)</td>
+          <td class="pron">je</td>
+          <td class="long">nju</td>
+          <td>Volim je. ${spkBtnSm('Volim je.')}</td>
+        </tr>
+        <tr>
+          <td>mi (we)</td>
+          <td class="pron">nas</td>
+          <td class="long">nas</td>
+          <td>Vidi nas. ${spkBtnSm('Vidi nas.')}</td>
+        </tr>
+        <tr>
+          <td>vi (you pl.)</td>
+          <td class="pron">vas</td>
+          <td class="long">vas</td>
+          <td>Zove vas. ${spkBtnSm('Zove vas.')}</td>
+        </tr>
+        <tr>
+          <td>oni / one (they)</td>
+          <td class="pron">ih</td>
+          <td class="long">njih</td>
+          <td>Gledam ih. ${spkBtnSm('Gledam ih.')}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="ibox ibox-amber" style="margin-top:.25rem;">
+      <strong>⚠ Note on "nas" and "vas":</strong> first and second person plural are identical in their short and long forms. Context (position in sentence, preposition) still determines which is appropriate, but the word itself does not change.
+    </div>
+    <div class="ibox ibox-purple" style="margin-top:.5rem;">
+      <strong>⚠ Note on "je":</strong> the short accusative pronoun "je" (her) is written identically to the 3rd-person short form of the verb "biti" (to be) — "je" meaning "is". Serbian speakers distinguish them by context. When in doubt, use the long form "nju" to be clear.
+    </div>
+    <div class="navrow"><button class="btng" onclick="goPrev()">← Nazad</button><button class="btnp" onclick="goNext()">Akuzativ vs. dativ →</button></div>
+  `);
+
+  // ── SCREEN 4: Accusative vs dative contrast ────────────────────────────────
+  mk('danger',`
+    <div class="slabel">Ključna razlika · Key distinction</div>
+    <div class="stitle">Akuzativ vs. dativ — ne mešaj ih!</div>
+    <div class="ibox ibox-amber">
+      The most common pronoun error in Serbian is using a dative pronoun where an accusative is needed, or vice versa. The pronouns look similar — "ga" and "mu", "je" and "joj", "ih" and "im" — but they belong to different cases. The verb determines which you need.
+    </div>
+
+    <div class="danger-grid">
+      <div class="danger-card acc">
+        <div class="danger-label">Akuzativ — koga? šta?</div>
+        <div class="danger-pair">ga <span style="font-size:12px;font-weight:400;">/ njega</span></div>
+        <div class="danger-sub">him / it (masc.)</div>
+        <div class="danger-pair">je <span style="font-size:12px;font-weight:400;">/ nju</span></div>
+        <div class="danger-sub">her (fem.)</div>
+        <div class="danger-pair">ih <span style="font-size:12px;font-weight:400;">/ njih</span></div>
+        <div class="danger-sub">them (plural)</div>
+      </div>
+      <div class="danger-card dat">
+        <div class="danger-label">Dativ — kome? čemu?</div>
+        <div class="danger-pair">mu <span style="font-size:12px;font-weight:400;">/ njemu</span></div>
+        <div class="danger-sub">to him / to it</div>
+        <div class="danger-pair">joj <span style="font-size:12px;font-weight:400;">/ njoj</span></div>
+        <div class="danger-sub">to her</div>
+        <div class="danger-pair">im <span style="font-size:12px;font-weight:400;">/ njima</span></div>
+        <div class="danger-sub">to them</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div style="font-size:13px;font-weight:500;color:var(--text-secondary);margin-bottom:10px;">Same verb, different objects — hear the difference</div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div>
+          <div style="font-size:15px;margin-bottom:2px;">Vidim <span class="hl">ga</span>. — I see him. <em style="font-size:13px;color:var(--text-secondary);">(acc. — koga vidim?)</em></div>
+          ${spkBtn('Vidim ga.')}
+        </div>
+        <div style="border-top:0.5px solid var(--border-light);padding-top:10px;">
+          <div style="font-size:15px;margin-bottom:2px;">Pomažem <span class="hl3">mu</span>. — I help him. <em style="font-size:13px;color:var(--text-secondary);">(dat. — kome pomažem?)</em></div>
+          ${spkBtn('Pomažem mu.')}
+        </div>
+        <div style="border-top:0.5px solid var(--border-light);padding-top:10px;">
+          <div style="font-size:15px;margin-bottom:2px;">Volim <span class="hl">je</span>. — I love her. <em style="font-size:13px;color:var(--text-secondary);">(acc. — koga volim?)</em></div>
+          ${spkBtn('Volim je.')}
+        </div>
+        <div style="border-top:0.5px solid var(--border-light);padding-top:10px;">
+          <div style="font-size:15px;margin-bottom:2px;">Pišem <span class="hl3">joj</span>. — I write to her. <em style="font-size:13px;color:var(--text-secondary);">(dat. — kome pišem?)</em></div>
+          ${spkBtn('Pišem joj.')}
+        </div>
+      </div>
+    </div>
+    <div class="ibox" style="margin-top:.25rem;">
+      <strong>Quick test:</strong> mentally swap in <em>koga?</em> or <em>šta?</em> — if it fits, use the accusative pronoun. Swap in <em>kome?</em> — if that fits, use the dative pronoun.
+    </div>
+    <div class="navrow"><button class="btng" onclick="goPrev()">← Nazad</button><button class="btnp" onclick="goNext()">Vežba 1 →</button></div>
+  `);
+
+  // ── SCREENS 5 & 6: Exercises ───────────────────────────────────────────────
+  mk('ex1', buildEx1HTML());
+  mk('ex2', buildEx2HTML());
+
+  // ── SCREEN 7: Done ─────────────────────────────────────────────────────────
+  const s1=EX1.filter((_,i)=>ex1s.checked[i]===true).length;
+  const s2=EX2.filter((_,i)=>ex2s.checked[i]===true).length;
+  mk('done',`
+    <div class="slabel">Završeno · Done</div>
+    <div class="stitle">Odlično! Lekcija 4b završena.</div>
+    <div class="score-wrap">
+      <div class="score-circle"><div class="score-num">${s1}/${EX1.length}</div><div class="score-lbl">Vežba 1</div></div>
+      <div class="score-circle"><div class="score-num">${s2}/${EX2.length}</div><div class="score-lbl">Vežba 2</div></div>
+    </div>
+    <div class="card">
+      <div class="cs" style="font-size:15px;margin-bottom:8px;">Šta si naučio/la</div>
+      <ul style="padding-left:1.1rem;font-size:14px;color:var(--text-secondary);line-height:2.2;">
+        <li>Short accusative pronouns: <strong>me, te, ga, je, nas, vas, ih</strong></li>
+        <li>Long accusative pronouns: <strong>mene, tebe, njega, nju, nas, vas, njih</strong></li>
+        <li>Short forms for normal sentences — long forms after prepositions and for emphasis</li>
+        <li>Short clitics <strong>cannot open a sentence</strong> and cannot follow a preposition</li>
+        <li>Accusative <strong>ga/je/ih</strong> ≠ dative <strong>mu/joj/im</strong> — test with koga? vs kome?</li>
+        <li>"Je" (her, acc.) looks like "je" (is, verb) — use "nju" when ambiguous</li>
+      </ul>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:.6rem;margin-top:1.25rem;">
+      <button class="btn-complete" onclick="markAndGoNext()">&#x279C; Lekcija 4c — accusative with prepositions (u, na, za, kroz, između) and motion vs. location.</button>
+      <button class="btng" style="width:100%;text-align:center;" onclick="markAndGoHome()">&#x21A9; Vrati se na početnu &middot; Back to home</button>
+      <button class="btng" style="width:100%;text-align:center;" onclick="restart()">&#x21BA; Ponovi lekciju &middot; Restart</button>
+    </div>
+  `);
+}
+
+// ── Exercise builders ──────────────────────────────────────────────────────────
+
+function buildEx1HTML(){
+  let h=`<div class="slabel">Vežba 1 · Exercise 1</div>
+    <div class="stitle">Zameni imenicu zamenicom · Replace the noun</div>
+    <div class="ibox">The underlined word is the direct object in the accusative. Replace the full sentence using the correct short accusative pronoun. Watch out for dative look-alikes.</div>`;
+  EX1.forEach((q,qi)=>{
+    const chk=ex1s.checked[qi]!==undefined;
+    const sel=ex1s.answers[qi];
+    h+=`<div class="card" style="margin-bottom:1rem;">
+      <div style="font-size:16px;color:var(--text-primary);margin-bottom:2px;">${q.noun}</div>
+      <div style="font-size:13px;color:var(--text-secondary);margin-bottom:6px;">${q.eng}</div>
+      <div style="font-size:13px;color:var(--text-tertiary);margin-bottom:8px;">${q.q}</div>
+      <div class="optsrow">`;
+    q.opts.forEach((opt,oi)=>{
+      let cls='opt';
+      if(chk){ cls+=' locked'; if(oi===q.correct) cls+=' ok'; else if(oi===sel&&oi!==q.correct) cls+=' bad'; }
+      else if(sel===oi) cls+=' sel';
+      h+=`<button class="${cls}" onclick="ex1pick(${qi},${oi})" style="font-size:14px;">${opt}</button>`;
+    });
+    h+=`</div>`;
+    if(chk){
+      h+=`<div class="fb ${ex1s.checked[qi]?'ok':'bad'}">${ex1s.checked[qi]?'Tačno!':'Netačno.'} — ${q.expl}</div>`;
+      if(ex1s.checked[qi]) h+=spkBtn(q.full);
+    }
+    h+=`</div>`;
+  });
+  const allA=EX1.every((_,i)=>ex1s.answers[i]!==undefined);
+  const allC=EX1.every((_,i)=>ex1s.checked[i]!==undefined);
+  h+=`<div class="navrow"><button class="btng" onclick="goPrev()">← Nazad</button>`;
+  if(!allC) h+=`<button class="btnp" ${allA?'':'disabled'} onclick="checkEx1()">Proveri · Check</button>`;
+  else h+=`<button class="btnp" onclick="goNext()">Vežba 2 →</button>`;
+  h+=`</div>`;
+  return h;
+}
+
+function buildEx2HTML(){
+  let h=`<div class="slabel">Vežba 2 · Exercise 2</div>
+    <div class="stitle">Kratki ili dugi oblik? · Short or long form?</div>
+    <div class="ibox">The context label above each question tells you whether the sentence is neutral, emphatic, or has a preposition. Use that to decide between the short and long forms.</div>`;
+  EX2.forEach((q,qi)=>{
+    const chk=ex2s.checked[qi]!==undefined;
+    const sel=ex2s.answers[qi];
+    const filled=sel!==undefined ? q.opts[sel] : '___';
+    const display=q.s.includes('___')
+      ? q.s.replace('___',`<span class="blank">${filled}</span>`)
+      : q.s;
+    h+=`<div class="card" style="margin-bottom:1rem;">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--blue-text);margin-bottom:6px;">${q.context}</div>
+      <div style="font-size:17px;color:var(--text-primary);margin-bottom:4px;line-height:1.6;">${display}</div>
+      <div style="font-size:13px;color:var(--text-secondary);margin-bottom:8px;">${q.e}</div>
+      <div class="optsrow">`;
+    q.opts.forEach((opt,oi)=>{
+      let cls='opt';
+      if(chk){ cls+=' locked'; if(oi===q.correct) cls+=' ok'; else if(oi===sel&&oi!==q.correct) cls+=' bad'; }
+      else if(sel===oi) cls+=' sel';
+      h+=`<button class="${cls}" onclick="ex2pick(${qi},${oi})" style="font-size:14px;">${opt}</button>`;
+    });
+    h+=`</div>`;
+    if(chk){
+      h+=`<div class="fb ${ex2s.checked[qi]?'ok':'bad'}">${ex2s.checked[qi]?'Tačno!':'Netačno.'} — ${q.expl}</div>`;
+      if(ex2s.checked[qi]) h+=spkBtn(q.full);
+    }
+    h+=`</div>`;
+  });
+  const allA=EX2.every((_,i)=>ex2s.answers[i]!==undefined);
+  const allC=EX2.every((_,i)=>ex2s.checked[i]!==undefined);
+  h+=`<div class="navrow"><button class="btng" onclick="goPrev()">← Nazad</button>`;
+  if(!allC) h+=`<button class="btnp" ${allA?'':'disabled'} onclick="checkEx2()">Proveri · Check</button>`;
+  else h+=`<button class="btnp" onclick="goNext()">Završetak →</button>`;
+  h+=`</div>`;
+  return h;
+}
+
+// ── State management ───────────────────────────────────────────────────────────
+function ex1pick(qi,oi){ if(ex1s.checked[qi]!==undefined)return; ex1s.answers[qi]=oi; refreshEx1(); }
+function refreshEx1(){
+  const old=document.getElementById('sc-ex1'); if(!old)return;
+  const d=document.createElement('div');
+  d.className=`screen ${SCREENS[cur].id==='ex1'?'active':''}`;
+  d.id='sc-ex1'; d.innerHTML=buildEx1HTML(); old.replaceWith(d);
+}
+function checkEx1(){
+  EX1.forEach((_,i)=>{ if(ex1s.answers[i]!==undefined) ex1s.checked[i]=ex1s.answers[i]===EX1[i].correct; });
+  refreshEx1();
+}
+function ex2pick(qi,oi){ if(ex2s.checked[qi]!==undefined)return; ex2s.answers[qi]=oi; refreshEx2(); }
+function refreshEx2(){
+  const old=document.getElementById('sc-ex2'); if(!old)return;
+  const d=document.createElement('div');
+  d.className=`screen ${SCREENS[cur].id==='ex2'?'active':''}`;
+  d.id='sc-ex2'; d.innerHTML=buildEx2HTML(); old.replaceWith(d);
+}
+function checkEx2(){
+  EX2.forEach((_,i)=>{ if(ex2s.answers[i]!==undefined) ex2s.checked[i]=ex2s.answers[i]===EX2[i].correct; });
+  refreshEx2();
+}
+function goNext(){ if(cur<SCREENS.length-1){ cur++; render(); window.scrollTo({top:0,behavior:'smooth'}); } }
+function goPrev(){ if(cur>0){ cur--; render(); window.scrollTo({top:0,behavior:'smooth'}); } }
+function restart(){ cur=0; ex1s={answers:{},checked:{}}; ex2s={answers:{},checked:{}}; render(); }
+function render(){
+  buildScreens(); buildProgress();
+  document.querySelectorAll('.screen').forEach(s=>{
+    s.classList.toggle('active', s.id===`sc-${SCREENS[cur].id}`);
+  });
+}
+render();
+
+function markAndGoHome(){
+  try{
+    const p=JSON.parse(localStorage.getItem('serbian_course_progress')||'{}');
+    p['L4b']=true;
+    localStorage.setItem('serbian_course_progress',JSON.stringify(p));
+  }catch(e){}
+  window.location.href='serbian-course-home.html';
+}
+
+function markAndGoNext(){
+  try{
+    const p=JSON.parse(localStorage.getItem('serbian_course_progress')||'{}');
+    p['L4b']=true;
+    localStorage.setItem('serbian_course_progress',JSON.stringify(p));
+  }catch(e){}
+  window.location.href='serbian-lesson4c-akuzativ-predlozi.html';
+}
+
+  </script>
+</body>
+</html>
