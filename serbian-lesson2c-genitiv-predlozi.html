@@ -274,7 +274,7 @@ function speak(t){
     window.speechSynthesis.speak(u);
   }
 }
-function spkBtn(t,l){
+function spkBtn(t){
   const lang = l || 'sr-RS';
   const safe = t.replace(/'/g,"\\'");
   return '<button class="spk" onclick="speak(\'' + safe + '\',\'' + lang + '\')">'
