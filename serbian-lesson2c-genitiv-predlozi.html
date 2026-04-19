@@ -231,6 +231,9 @@
   .btn-complete:hover { opacity: .88; }
 
   </style>
+ <!-- ResponsiveVoice TTS — better quality than browser built-in, supports Serbian -->
+<script
+src="https://code.responsivevoice.org/responsivevoice.js?key=J0RsyXE5"></script>
 </head>
 <body>
 <div class="lesson-header">
@@ -259,12 +262,18 @@ let cur=0;
 let ex1s={answers:{},checked:{}};
 let ex2s={answers:{},checked:{}};
 
-function speak(t,l){
-  if(!window.speechSynthesis)return;
-  window.speechSynthesis.cancel();
-  const u=new SpeechSynthesisUtterance(t);
-  u.lang=l||'sr-RS';u.rate=0.85;
-  window.speechSynthesis.speak(u);
+function speak(t){
+  if(window.responsiveVoice){
+    responsiveVoice.cancel();
+    responsiveVoice.speak(t,"Serbian Male",{rate:0.9});
+  } else {
+    // fallback to browser TTS if ResponsiveVoice fails to load
+    if(!window.speechSynthesis)return;
+    window.speechSynthesis.cancel();
+    const u=new SpeechSynthesisUtterance(t);
+    u.lang='sr-RS';u.rate=0.85;
+    window.speechSynthesis.speak(u);
+  }
 }
 function spkBtn(t,l){
   const lang = l || 'sr-RS';
