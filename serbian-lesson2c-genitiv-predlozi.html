@@ -552,6 +552,7 @@ function buildScreens(){
 
 function buildEx1HTML(){
   let h=`<div class="slabel">${SCREENS.find(s=>s.id==='ex1').label}</div>`;
+   <div class="stitle">Predlozi u re&#269;enici · Prepositions in context</div>
   h+=`<div class="ibox">Pick the correct answer. Each question has one right answer.</div>`;
   EX1.forEach((q,qi)=>{
     const chk=ex1s.checked[qi]!==undefined;
@@ -581,6 +582,7 @@ function buildEx1HTML(){
 
 function buildEx2HTML(){
   let h=`<div class="slabel">${SCREENS.find(s=>s.id==='ex2').label}</div>`;
+  <div class="stitle">Predlozi u re&#269;enici · Prepositions in context</div>
   h+=`<div class="ibox">Pick the correct answer for each item.</div>`;
   EX2.forEach((q,qi)=>{
     const chk=ex2s.checked[qi]!==undefined;
