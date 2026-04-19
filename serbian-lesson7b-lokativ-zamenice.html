@@ -252,8 +252,7 @@
   .btn-complete:hover{opacity:.88;}
   </style>
   <!-- ResponsiveVoice TTS — better quality than browser built-in, supports Serbian -->
-<script
-src="https://code.responsivevoice.org/responsivevoice.js?key=J0RsyXE5"></script>
+<script src="https://code.responsivevoice.org/responsivevoice.js?key=J0RsyXE5"></script>
 </head>
 <body>
 <div class="lesson-header">
@@ -294,7 +293,8 @@ function speak(t){
     window.speechSynthesis.speak(u);
   }
 }
-function spkBtn(t,l){
+
+  function spkBtn(t,l){
   const lang = l || 'sr-RS';
   const safe = t.replace(/'/g,"\\'");
   return '<button class="spk" onclick="speak(\'' + safe + '\',\'' + lang + '\')">'
