@@ -230,6 +230,40 @@
   }
   .btn-complete:hover { opacity: .88; }
 
+  /* ── Preposition card grid ── */
+  .pair-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 1rem;
+  }
+  .pair-card {
+    background: var(--bg-secondary);
+    border: 0.5px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: .9rem 1rem;
+  }
+  .pair-text {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+  .pair-sub {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+  }
+  .pair-example {
+    font-size: 13px;
+    color: var(--text-tertiary);
+    font-style: italic;
+    margin-bottom: 4px;
+  }
+  @media (max-width: 480px) {
+    .pair-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+ 
   </style>
  <!-- ResponsiveVoice TTS — better quality than browser built-in, supports Serbian -->
 <script src="https://code.responsivevoice.org/responsivevoice.js?key=J0RsyXE5"></script>
