@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Serbian Grammar — Za znatiželjne · For Nerds</title>
+<script src="https://code.responsivevoice.org/responsivevoice.js?key=J0RsyXE5"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg-primary: #ffffff; --bg-secondary: #f5f4f0; --bg-tertiary: #eeedea;
+    --text-primary: #1a1a1a; --text-secondary: #6b6b6b; --text-tertiary: #9b9b9b;
+    --border-light: rgba(0,0,0,0.1); --border-mid: rgba(0,0,0,0.18);
+    --radius-md: 8px; --radius-lg: 12px;
+    --purple-bg: #EEEDFE; --purple-text: #534AB7; --purple-border: #7F77DD;
+    --green-bg: #E1F5EE; --green-text: #0F6E56; --green-border: #1D9E75;
+    --amber-bg: #FAEEDA; --amber-text: #633806; --amber-border: #BA7517;
+    --blue-bg: #E6F1FB; --blue-text: #0C447C; --blue-border: #378ADD;
+    --coral-bg: #FAECE7; --coral-text: #993C1D; --coral-border: #D85A30;
+    --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-primary: #1e1e1e; --bg-secondary: #2a2a2a; --bg-tertiary: #333;
+      --text-primary: #f0f0f0; --text-secondary: #a0a0a0; --text-tertiary: #666;
+      --border-light: rgba(255,255,255,0.1); --border-mid: rgba(255,255,255,0.18);
+      --purple-bg: #26215C; --purple-text: #AFA9EC; --purple-border: #7F77DD;
+      --green-bg: #04342C; --green-text: #9FE1CB; --green-border: #1D9E75;
+      --amber-bg: #412402; --amber-text: #FAC775; --amber-border: #BA7517;
+      --blue-bg: #042C53; --blue-text: #85B7EB; --blue-border: #378ADD;
+      --coral-bg: #4A1B0C; --coral-text: #F0997B; --coral-border: #D85A30;
+    }
+  }
+  body { font-family: var(--font); background: var(--bg-tertiary); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 2rem 1rem; }
+  .page-header { width: 100%; max-width: 680px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  .page-badge { background: var(--purple-bg); color: var(--purple-text); font-size: 12px; font-weight: 500; padding: 4px 12px; border-radius: 20px; }
+  .page-sub { font-size: 12px; color: var(--text-tertiary); }
+  .home-link { font-size: 13px; color: var(--text-tertiary); text-decoration: none; display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: var(--radius-md); border: 0.5px solid var(--border-light); background: none; font-family: var(--font); cursor: pointer; transition: background .15s; }
+  .home-link:hover { background: var(--bg-secondary); color: var(--text-secondary); }
+  .app { width: 100%; max-width: 680px; background: var(--bg-primary); border-radius: var(--radius-lg); border: 0.5px solid var(--border-light); padding: 2rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  .progress-bar { display: flex; gap: 6px; margin-bottom: 1.75rem; }
+  .pdot { height: 5px; flex: 1; border-radius: 10px; background: var(--border-light); transition: background .3s; }
+  .pdot.done   { background: var(--green-border); }
+  .pdot.active { background: var(--purple-border); }
+  .screen { display: none; }
+  .screen.active { display: block; }
+  .slabel { font-size: 11px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: .09em; margin-bottom: .4rem; }
+  .stitle { font-size: 21px; font-weight: 500; color: var(--text-primary); margin-bottom: 1.25rem; line-height: 1.3; }
+  .intro-text { font-size: 15px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.25rem; }
+  .card { background: var(--bg-secondary); border: 0.5px solid var(--border-light); border-radius: var(--radius-lg); padding: 1rem 1.25rem; margin-bottom: .75rem; }
+  .card-title { font-size: 12px; font-weight: 500; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .6rem; }
+  .cs { font-size: 17px; font-weight: 500; color: var(--text-primary); margin-bottom: 4px; }
+  .ce { font-size: 14px; color: var(--text-secondary); }
+  .cn { font-size: 13px; color: var(--purple-text); margin-top: 5px; }
+  .hl  { background: var(--purple-bg); color: var(--purple-text); padding: 1px 6px; border-radius: 4px; font-weight: 500; }
+  .hl2 { background: var(--green-bg);  color: var(--green-text);  padding: 1px 6px; border-radius: 4px; font-weight: 500; }
+  .hl3 { background: var(--amber-bg);  color: var(--amber-text);  padding: 1px 6px; border-radius: 4px; font-weight: 500; }
+  .hl4 { background: var(--blue-bg);   color: var(--blue-text);   padding: 1px 6px; border-radius: 4px; font-weight: 500; }
+  .hl5 { background: var(--coral-bg);  color: var(--coral-text);  padding: 1px 6px; border-radius: 4px; font-weight: 500; }
+  .ibox { background: var(--bg-secondary); border-left: 3px solid var(--purple-border); border-radius: 0 var(--radius-md) var(--radius-md) 0; padding: .75rem 1rem; margin-bottom: 1rem; font-size: 14px; line-height: 1.8; color: var(--text-secondary); }
+  .ibox.amber  { border-left-color: var(--amber-border); }
+  .ibox.green  { border-left-color: var(--green-border); }
+  .ibox.blue   { border-left-color: var(--blue-border); }
+  .ibox.coral  { border-left-color: var(--coral-border); }
+  .ibox strong { color: var(--text-primary); font-weight: 500; }
+  .callout { border: 1.5px solid var(--green-border); border-radius: var(--radius-lg); padding: 1rem 1.25rem; background: var(--green-bg); margin-bottom: 1rem; font-size: 14px; color: var(--green-text); line-height: 1.7; }
+  .callout strong { font-weight: 600; }
+  .callout.amber  { border-color: var(--amber-border);  background: var(--amber-bg);  color: var(--amber-text); }
+  .callout.purple { border-color: var(--purple-border); background: var(--purple-bg); color: var(--purple-text); }
+  .metaphor { border-radius: var(--radius-lg); background: var(--bg-tertiary); border: 0.5px solid var(--border-mid); padding: 1.1rem 1.25rem; margin-bottom: .75rem; font-size: 14px; line-height: 1.8; color: var(--text-secondary); }
+  .metaphor strong { color: var(--text-primary); font-weight: 500; display: block; margin-bottom: .3rem; font-size: 15px; }
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 1rem; }
+  .compare-card { border-radius: var(--radius-lg); padding: .9rem 1rem; }
+  .compare-card.left  { background: var(--blue-bg);   border: 0.5px solid var(--blue-border); }
+  .compare-card.right { background: var(--purple-bg); border: 0.5px solid var(--purple-border); }
+  .compare-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: .07em; margin-bottom: 6px; }
+  .compare-card.left  .compare-label { color: var(--blue-text); }
+  .compare-card.right .compare-label { color: var(--purple-text); }
+  .compare-item { font-size: 14px; color: var(--text-primary); margin-bottom: 4px; line-height: 1.5; }
+  .role-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 1rem; }
+  .role-card { border-radius: var(--radius-md); padding: .75rem 1rem; border: 0.5px solid var(--border-light); background: var(--bg-secondary); }
+  .role-case { font-size: 13px; font-weight: 500; margin-bottom: 3px; }
+  .role-q    { font-size: 12px; color: var(--text-tertiary); font-style: italic; margin-bottom: 4px; }
+  .role-ex   { font-size: 13px; color: var(--text-secondary); margin-bottom: 4px; }
+  .tbl { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: .75rem; }
+  .tbl th { text-align: left; font-weight: 500; font-size: 11px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: .07em; padding: 6px 10px; border-bottom: 0.5px solid var(--border-light); }
+  .tbl td { padding: 9px 10px; border-bottom: 0.5px solid var(--border-light); color: var(--text-primary); vertical-align: top; }
+  .tbl tr:last-child td { border-bottom: none; }
+  .tbl .dim { color: var(--text-secondary); font-size: 13px; }
+  .tbl .end { font-weight: 500; color: var(--purple-text); font-size: 15px; }
+  .spk { display: inline-flex; align-items: center; gap: 6px; background: none; border: 0.5px solid var(--border-mid); border-radius: var(--radius-md); padding: 5px 12px; font-size: 13px; color: var(--text-secondary); cursor: pointer; margin-top: 8px; transition: background .15s; font-family: var(--font); }
+  .spk:hover { background: var(--bg-tertiary); }
+  .spk svg { width: 14px; height: 14px; flex-shrink: 0; }
+  .navrow { display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; }
+  .btnp { background: var(--purple-border); color: var(--purple-bg); border: none; border-radius: var(--radius-md); padding: 10px 24px; font-size: 15px; font-weight: 500; cursor: pointer; transition: opacity .15s; font-family: var(--font); }
+  .btnp:hover { opacity: .88; }
+  .btng { background: none; border: 0.5px solid var(--border-mid); border-radius: var(--radius-md); padding: 10px 20px; font-size: 15px; color: var(--text-secondary); cursor: pointer; font-family: var(--font); }
+  .btng:hover { background: var(--bg-secondary); }
+  .btn-complete { background: var(--green-border); color: #fff; border: none; border-radius: var(--radius-md); padding: 12px 28px; font-size: 15px; font-weight: 500; cursor: pointer; font-family: var(--font); transition: opacity .15s; display: block; width: 100%; text-align: center; }
+  .btn-complete:hover { opacity: .88; }
+  .divider { height: 0.5px; background: var(--border-light); margin: 1.25rem 0; }
+  footer { margin-top: 2rem; font-size: 12px; color: var(--text-tertiary); text-align: center; }
+  @media (max-width: 480px) {
+    .compare-grid { grid-template-columns: 1fr; }
+    .role-grid    { grid-template-columns: 1fr; }
+    .app { padding: 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div style="display:flex;align-items:center;gap:10px;">
+    <span class="page-badge">Za znatiželjne &middot; For Nerds</span>
+    <span class="page-sub">Serbian Grammar Deep Dive</span>
+  </div>
+  <a href="serbian-course-home.html" class="home-link">&#x21A9; Back to course</a>
+</div>
+
+<div class="app">
+  <div class="progress-bar" id="pbar"></div>
+  <div id="screens"></div>
+</div>
+
+<footer>Serbian Language Course &middot; Grammar Reference &middot; Za znatiželjne</footer>
+
+<script>
+const SCREENS = [
+  { id: 'intro',      label: 'Uvod · Introduction' },
+  { id: 'wordorder',  label: 'Princip · Word Order vs. Endings' },
+  { id: 'whatiscase', label: 'Definicija · What Is a Case?' },
+  { id: 'sevencases', label: 'Padeži · Seven Cases' },
+  { id: 'gender',     label: 'Rod · Gender' },
+  { id: 'nominative', label: 'Nominativ · The Anchor' },
+  { id: 'agreement',  label: 'Slaganje · Agreement' },
+  { id: 'mental',     label: 'Model · Web Not a Line' },
+  { id: 'tips',       label: 'Saveti · Learner Tips' },
+];
+
+let cur = 0;
+
+function speak(t) {
+  if (window.responsiveVoice) {
+    responsiveVoice.cancel();
+    responsiveVoice.speak(t, "Serbian Male", { rate: 0.9 });
+  } else {
+    if (!window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(t);
+    u.lang = 'sr-RS'; u.rate = 0.85;
+    window.speechSynthesis.speak(u);
+  }
+}
+function spkBtn(t) {
+  const safe = t.replace(/'/g, "\\'");
+  return `<button class="spk" onclick="speak('${safe}')"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M10 3v14M6 6v8M14 5v10M2 8v4M18 7v6"/></svg>Slušaj</button>`;
+}
+
+function buildProgress() {
+  document.getElementById('pbar').innerHTML = SCREENS.map((s, i) =>
+    `<div class="pdot ${i < cur ? 'done' : i === cur ? 'active' : ''}"></div>`).join('');
+}
+
+function nav(showBack = true) {
+  const isLast = cur === SCREENS.length - 1;
+  let h = `<div class="navrow">`;
+  h += showBack && cur > 0
+    ? `<button class="btng" onclick="goPrev()">&#x2190; Nazad</button>`
+    : `<span></span>`;
+  if (isLast) {
+    h += `<button class="btng" onclick="goHome()">&#x21A9; Back to course</button>`;
+  } else {
+    h += `<button class="btnp" onclick="goNext()">Dalje &#x2192;</button>`;
+  }
+  h += `</div>`;
+  return h;
+}
+
+function buildScreens() {
+  const c = document.getElementById('screens'); c.innerHTML = '';
+  const mk = (id, html) => {
+    const d = document.createElement('div');
+    d.className = `screen${id === SCREENS[cur].id ? ' active' : ''}`;
+    d.id = `sc-${id}`; d.innerHTML = html; c.appendChild(d);
+  };
+
+  // ── SCREEN 1: Introduction ──────────────────────────────────────────────
+  mk('intro', `
+    <div class="slabel">${SCREENS[0].label}</div>
+    <div class="stitle">Why Serbian Cases Are Not Optional</div>
+    <div class="intro-text">
+      If English relies on word order to show meaning, Serbian relies on <strong>word endings</strong>.
+      Cases are not a grammar footnote &mdash; they are the core system that holds every sentence together.
+      This reference is for learners who want the deeper picture.
+    </div>
+    <div class="callout purple">
+      <strong>&#x1F9E0; The key insight:</strong>
+      Without cases, you can understand individual Serbian words &mdash; but you cannot understand
+      the <em>relationships</em> between them.
+    </div>
+    <div class="ibox">
+      This page walks through <strong>9 screens</strong> covering why cases exist, what they do,
+      how gender connects to them, and how the whole system creates fluency.
+      Use the <em>Slu&scaron;aj</em> buttons to hear every Serbian example out loud.
+    </div>
+    ${nav(false)}
+  `);
+
+  // ── SCREEN 2: Word order vs endings ────────────────────────────────────
+  mk('wordorder', `
+    <div class="slabel">${SCREENS[1].label}</div>
+    <div class="stitle">Word Order vs. Word Endings</div>
+    <div class="intro-text">
+      In English, <em>where</em> a word sits tells you its role. In Serbian,
+      the <em>ending</em> of the word tells you its role &mdash; regardless of where it sits.
+    </div>
+    <div class="compare-grid">
+      <div class="compare-card left">
+        <div class="compare-label">English &mdash; word order</div>
+        <div class="compare-item">&ldquo;The dog bites the man.&rdquo;</div>
+        <div class="compare-item">&#x2260; &ldquo;The man bites the dog.&rdquo;</div>
+        <div class="compare-item" style="margin-top:8px;font-size:13px;opacity:.8;">Move a word &rarr; change the meaning.</div>
+      </div>
+      <div class="compare-card right">
+        <div class="compare-label">Serbian &mdash; word endings</div>
+        <div class="compare-item"><span class="hl">Pas</span> grize <span class="hl3">&#269;oveka</span>.</div>
+        <div class="compare-item"><span class="hl3">&#268;oveka</span> grize <span class="hl">pas</span>.</div>
+        <div class="compare-item" style="margin-top:8px;font-size:13px;opacity:.85;">Same meaning &mdash; endings hold the roles.</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Hear both sentences &mdash; same meaning, different order</div>
+      <div class="cs"><span class="hl">Pas</span> grize <span class="hl3">&#269;oveka</span>.</div>
+      <div class="ce">The dog bites the man. <em>(pas = nominative &rarr; the biter)</em></div>
+      ${spkBtn('Pas grize čoveka.')}
+      <div class="cs" style="margin-top:10px;"><span class="hl3">&#268;oveka</span> grize <span class="hl">pas</span>.</div>
+      <div class="ce">Still: the dog bites the man. <em>(same roles, different order)</em></div>
+      ${spkBtn('Čoveka grize pas.')}
+    </div>
+    <div class="ibox">
+      <strong>Pas</strong> (nominative) is always the biter.
+      <strong>&#268;oveka</strong> (accusative) is always bitten &mdash; no matter where they appear.
+      The ending is the signal, not the position.
+    </div>
+    ${nav()}
+  `);
+
+  // ── SCREEN 3: What is a case ────────────────────────────────────────────
+  mk('whatiscase', `
+    <div class="slabel">${SCREENS[2].label}</div>
+    <div class="stitle">What Exactly Is a Case?</div>
+    <div class="intro-text">
+      A case is a change in the <strong>form of a noun</strong> &mdash; and related words like
+      adjectives and pronouns &mdash; that announces the noun&rsquo;s <em>role</em> in the sentence.
+    </div>
+    <div class="metaphor">
+      <strong>&#x1F3AD; Think of nouns as actors in a play.</strong>
+      Each actor plays a role: main character, recipient, companion, location, possession.
+      In English, the stage <em>position</em> tells you the role.
+      In Serbian, the <em>costume ending</em> tells you &mdash; wherever the actor stands on stage.
+    </div>
+    <div class="card">
+      <div class="card-title">Same noun, three different roles &mdash; three different forms</div>
+      <div class="cs"><span class="hl">Prijatelj</span> dolazi.</div>
+      <div class="ce">The friend is coming. &mdash; <em>nominative: he is the subject</em></div>
+      ${spkBtn('Prijatelj dolazi.')}
+      <div class="cs" style="margin-top:10px;">Vidim <span class="hl2">prijatelja</span>.</div>
+      <div class="ce">I see the friend. &mdash; <em>accusative: he is the object</em></div>
+      ${spkBtn('Vidim prijatelja.')}
+      <div class="cs" style="margin-top:10px;">Pi&scaron;em <span class="hl3">prijatelju</span>.</div>
+      <div class="ce">I write to the friend. &mdash; <em>dative: he is the receiver</em></div>
+      ${spkBtn('Pišem prijatelju.')}
+    </div>
+    <div class="ibox">
+      Instead of using separate words like <em>&ldquo;of,&rdquo; &ldquo;to,&rdquo; &ldquo;with,&rdquo; &ldquo;about&rdquo;</em>,
+      Serbian often just <strong>changes the ending</strong> of the noun itself.
+      Cases replace many prepositions and make sentences more compact.
+    </div>
+    ${nav()}
+  `);
+
+  // ── SCREEN 4: Seven cases ───────────────────────────────────────────────
+  mk('sevencases', `
+    <div class="slabel">${SCREENS[3].label}</div>
+    <div class="stitle">Seven Cases, Seven Questions</div>
+    <div class="ibox">
+      Every case answers a different question. Learning the question is the fastest way
+      to recognize which case you need. The verb is your best guide to which question to ask.
+    </div>
+    <div class="role-grid">
+      <div class="role-card">
+        <div class="role-case"><span class="hl">Nominativ</span></div>
+        <div class="role-q">Ko? &Scaron;ta? &mdash; Who? What?</div>
+        <div class="role-ex"><em>Pas</em> tr&#269;i.</div>
+        ${spkBtn('Pas trči.')}
+      </div>
+      <div class="role-card">
+        <div class="role-case"><span class="hl2">Genitiv</span></div>
+        <div class="role-q">Koga? &#268;ega? &mdash; Of whom?</div>
+        <div class="role-ex"><em>&#268;a&scaron;a vode.</em></div>
+        ${spkBtn('Čaša vode.')}
+      </div>
+      <div class="role-card">
+        <div class="role-case"><span class="hl3">Dativ</span></div>
+        <div class="role-q">Kome? &mdash; To whom?</div>
+        <div class="role-ex"><em>Dajem mami.</em></div>
+        ${spkBtn('Dajem mami.')}
+      </div>
+      <div class="role-card">
+        <div class="role-case"><span class="hl4">Akuzativ</span></div>
+        <div class="role-q">Koga? &Scaron;ta? &mdash; Whom? What?</div>
+        <div class="role-ex"><em>Volim brata.</em></div>
+        ${spkBtn('Volim brata.')}
+      </div>
+      <div class="role-card">
+        <div class="role-case"><span class="hl5">Vokativ</span></div>
+        <div class="role-q">Direct address</div>
+        <div class="role-ex"><em>Marko, do&#273;i!</em></div>
+        ${spkBtn('Marko, dođi!')}
+      </div>
+      <div class="role-card">
+        <div class="role-case"><span class="hl">Instrumental</span></div>
+        <div class="role-q">S kim? &#268;ime? &mdash; With what?</div>
+        <div class="role-ex"><em>Pi&scaron;em olovkom.</em></div>
+        ${spkBtn('Pišem olovkom.')}
+      </div>
+      <div class="role-card" style="grid-column:span 2;">
+        <div class="role-case"><span class="hl2">Lokativ</span></div>
+        <div class="role-q">O kome? Gde? &mdash; About? Where? (always with preposition)</div>
+        <div class="role-ex"><em>Pri&#269;am o prijatelju.</em> &nbsp;|&nbsp; <em>&#381;ivim u gradu.</em></div>
+        ${spkBtn('Pričam o prijatelju.')}
+      </div>
+    </div>
+    <div class="callout amber">
+      <strong>&#x26A0; Watch out:</strong> Nominative and Accusative share the same question words
+      (<em>ko? / &scaron;ta?</em>) but Nominative is the <em>doer</em> and Accusative is the <em>receiver</em>.
+      The verb tells you which one you need.
+    </div>
+    ${nav()}
+  `);
+
+  // ── SCREEN 5: Gender ────────────────────────────────────────────────────
+  mk('gender', `
+    <div class="slabel">${SCREENS[4].label}</div>
+    <div class="stitle">Why You Can Never Ignore Gender</div>
+    <div class="intro-text">
+      Every Serbian noun has a grammatical gender: masculine, feminine, or neuter.
+      This is not just a vocabulary label &mdash; it <strong>controls how the noun behaves</strong>
+      in every single case.
+    </div>
+    <table class="tbl">
+      <thead><tr><th>Gender</th><th>Nom. ending</th><th>Examples</th><th>Dative form</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="hl4">Mu&scaron;ki &middot; Masc.</span></td>
+          <td class="end">&mdash; (consonant)</td>
+          <td class="dim">grad, pas, brat</td>
+          <td class="end">-u &nbsp;<span class="dim">gradu, psu, bratu</span></td>
+        </tr>
+        <tr>
+          <td><span class="hl5">&#381;enski &middot; Fem.</span></td>
+          <td class="end">-a</td>
+          <td class="dim">&scaron;kola, knjiga, mama</td>
+          <td class="end">-i &nbsp;<span class="dim">&scaron;koli, knjizi, mami</span></td>
+        </tr>
+        <tr>
+          <td><span class="hl2">Srednji &middot; Neuter</span></td>
+          <td class="end">-o / -e</td>
+          <td class="dim">selo, more, dete</td>
+          <td class="end">-u* &nbsp;<span class="dim">selu, moru, <strong>detetu</strong></span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="ibox amber">
+      <strong>* Stem changes:</strong> some neuter nouns extend before case endings:
+      <em>dete &rarr; detet-u</em>, <em>ime &rarr; imen-u</em>, <em>vreme &rarr; vremen-u</em>.
+      Meet them one at a time as you progress through the lessons.
+    </div>
+    <div class="card">
+      <div class="card-title">Same verb, three genders &mdash; hear the subject form</div>
+      <div class="cs"><span class="hl4">Brat</span> spava. &nbsp;<span style="font-size:13px;color:var(--text-secondary);">Brother sleeps. (masc.)</span></div>
+      ${spkBtn('Brat spava.')}
+      <div class="cs" style="margin-top:10px;"><span class="hl5">Sestra</span> spava. &nbsp;<span style="font-size:13px;color:var(--text-secondary);">Sister sleeps. (fem.)</span></div>
+      ${spkBtn('Sestra spava.')}
+      <div class="cs" style="margin-top:10px;"><span class="hl2">Dete</span> spava. &nbsp;<span style="font-size:13px;color:var(--text-secondary);">Child sleeps. (neuter)</span></div>
+      ${spkBtn('Dete spava.')}
+    </div>
+    <div class="callout amber">
+      <strong>&#x26A0; Rule:</strong> Always learn every noun as a pair: <em>word + gender</em>.
+      The nominative ending is your first clue. You never truly know a noun without its gender.
+    </div>
+    ${nav()}
+  `);
+
+  // ── SCREEN 6: Nominative deep dive ─────────────────────────────────────
+  mk('nominative', `
+    <div class="slabel">${SCREENS[5].label}</div>
+    <div class="stitle">The Nominative &mdash; Your Anchor</div>
+    <div class="intro-text">
+      The nominative is the dictionary form of a noun. It marks the <strong>main actor</strong>
+      of the sentence and is the base form from which all other cases are built.
+    </div>
+    <div class="card">
+      <div class="card-title">1 &mdash; Subject of the sentence</div>
+      <div class="cs"><span class="hl">Devojka</span> voli psa.</div>
+      <div class="ce">The girl loves the dog.</div>
+      <div class="cn">devojka = nominative &mdash; she is the one doing the loving</div>
+      ${spkBtn('Devojka voli psa.')}
+    </div>
+    <div class="card">
+      <div class="card-title">2 &mdash; Predicate noun after <em>biti</em> (to be)</div>
+      <div class="cs">On je <span class="hl">u&#269;itelj</span>.</div>
+      <div class="ce">He is a teacher. &mdash; identifying, not acting</div>
+      <div class="cn">u&#269;itelj = nominative &mdash; used to name or identify</div>
+      ${spkBtn('On je učitelj.')}
+    </div>
+    <div class="card">
+      <div class="card-title">3 &mdash; Word order is flexible, case endings stay fixed</div>
+      <div class="cs"><span class="hl">Devojka</span> voli psa.</div>
+      <div class="ce">The girl loves the dog.</div>
+      ${spkBtn('Devojka voli psa.')}
+      <div class="cs" style="margin-top:10px;">Psa voli <span class="hl">devojka</span>.</div>
+      <div class="ce">Still: the girl loves the dog. <em>Devojka stays nominative &mdash; she&rsquo;s still the lover.</em></div>
+      ${spkBtn('Psa voli devojka.')}
+    </div>
+    <div class="ibox">
+      <strong>The nominative is the base form.</strong> When you look up a word in a dictionary,
+      you always find the nominative singular. Mastering nominative endings by gender gives you
+      the foundation for every other case in this course.
+    </div>
+    ${nav()}
+  `);
+
+  // ── SCREEN 7: Agreement ─────────────────────────────────────────────────
+  mk('agreement', `
+    <div class="slabel">${SCREENS[6].label}</div>
+    <div class="stitle">The System Working Together</div>
+    <div class="intro-text">
+      Cases don&rsquo;t work alone. Serbian is a language of <strong>agreement</strong> &mdash;
+      adjectives, pronouns, and sometimes verbs all adjust to match the noun they relate to.
+    </div>
+    <div class="card">
+      <div class="card-title">Same adjective, three genders &mdash; three forms</div>
+      <div class="cs"><span class="hl3">Veliki</span> <span class="hl4">pas</span> spava.</div>
+      <div class="ce">The big dog sleeps. &mdash; <em>veliki</em> = masculine</div>
+      ${spkBtn('Veliki pas spava.')}
+      <div class="cs" style="margin-top:10px;"><span class="hl3">Velika</span> <span class="hl5">ma&#269;ka</span> spava.</div>
+      <div class="ce">The big cat sleeps. &mdash; <em>velika</em> = feminine</div>
+      ${spkBtn('Velika mačka spava.')}
+      <div class="cs" style="margin-top:10px;"><span class="hl3">Veliko</span> <span class="hl2">dete</span> spava.</div>
+      <div class="ce">The big child sleeps. &mdash; <em>veliko</em> = neuter</div>
+      ${spkBtn('Veliko dete spava.')}
+    </div>
+    <div class="card">
+      <div class="card-title">Agreement extends through cases &mdash; both noun and adjective shift</div>
+      <div class="cs">Dajem <span class="hl3">dobrom</span> <span class="hl">prijatelju</span> kafu.</div>
+      <div class="ce">I give the good friend a coffee. &mdash; <em>both shift to dative</em></div>
+      ${spkBtn('Dajem dobrom prijatelju kafu.')}
+    </div>
+    <div class="ibox">
+      Words don&rsquo;t stand alone in Serbian &mdash; they <em>adjust to each other</em>.
+      <strong>Cases + gender = a network of signals</strong> that keeps meaning clear
+      even when word order shifts freely.
+    </div>
+    ${nav()}
+  `);
+
+  // ── SCREEN 8: Mental model ──────────────────────────────────────────────
+  mk('mental', `
+    <div class="slabel">${SCREENS[7].label}</div>
+    <div class="stitle">A Web, Not a Line</div>
+    <div class="metaphor">
+      <strong>&#x1F9F5; English builds sentences like a straight line.</strong>
+      Subject &rarr; Verb &rarr; Object. Move a word out of position and meaning breaks.
+    </div>
+    <div class="metaphor">
+      <strong>&#x1F578;&#xFE0F; Serbian builds sentences like a web.</strong>
+      Each word carries its role in its ending. Rearrange the words and the web stays intact &mdash;
+      because the threads (case endings + agreement) still connect everything correctly.
+    </div>
+    <div class="card">
+      <div class="card-title">Four word orders &mdash; one meaning</div>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px;">
+        <div>
+          <div class="cs" style="font-size:15px;"><span class="hl">Ana</span> voli <span class="hl3">Marka</span>.</div>
+          ${spkBtn('Ana voli Marka.')}
+        </div>
+        <div style="border-top:0.5px solid var(--border-light);padding-top:10px;">
+          <div class="cs" style="font-size:15px;"><span class="hl3">Marka</span> voli <span class="hl">Ana</span>.</div>
+          ${spkBtn('Marka voli Ana.')}
+        </div>
+        <div style="border-top:0.5px solid var(--border-light);padding-top:10px;">
+          <div class="cs" style="font-size:15px;">Voli <span class="hl">Ana</span> <span class="hl3">Marka</span>.</div>
+          ${spkBtn('Voli Ana Marka.')}
+        </div>
+        <div style="border-top:0.5px solid var(--border-light);padding-top:10px;">
+          <div class="cs" style="font-size:15px;">Voli <span class="hl3">Marka</span> <span class="hl">Ana</span>.</div>
+          ${spkBtn('Voli Marka Ana.')}
+        </div>
+      </div>
+      <div class="cn" style="margin-top:10px;">All four mean: &ldquo;Ana loves Marko.&rdquo; &mdash; Ana = nominative (doer), Marka = accusative (receiver). Always.</div>
+    </div>
+    <div class="callout">
+      <strong>&#x1F4A1; Bottom line:</strong>
+      Cases are a <strong>logical system</strong> that replaces many prepositions,
+      allows flexible word order, and creates precision through structure.
+      Mastering cases is not advanced Serbian &mdash; it is <em>essential</em> Serbian.
+    </div>
+    ${nav()}
+  `);
+
+  // ── SCREEN 9: Learner tips ──────────────────────────────────────────────
+  mk('tips', `
+    <div class="slabel">${SCREENS[8].label}</div>
+    <div class="stitle">What to Focus On as a Learner</div>
+    <div class="ibox">
+      You don&rsquo;t need to memorize everything at once. These are the habits that build
+      a solid foundation &mdash; return to this list whenever a pattern feels unclear.
+    </div>
+    <div class="card">
+      <ul style="padding-left:1.1rem;font-size:14px;color:var(--text-secondary);line-height:2.4;">
+        <li>Always learn nouns with their <strong>gender</strong> &mdash; never just the word alone</li>
+        <li>Pay attention to <strong>endings</strong>, not just words in isolation</li>
+        <li>Notice <strong>patterns</strong> across cases, not individual memorized forms</li>
+        <li>Use the <strong>question test</strong>: <em>Ko? Koga? Kome? S kim?</em> to find the right case</li>
+        <li>Accept that meaning comes from <strong>structure</strong>, not word position</li>
+        <li>Identify the <strong>verb first</strong> &mdash; verbs tell you which case to use</li>
+        <li>Short pronouns (<em>ga, mu, je, joj</em>) cannot open a sentence or follow a preposition</li>
+        <li>The nominative is the anchor &mdash; get that right, and the rest follows</li>
+      </ul>
+    </div>
+    <div class="callout">
+      <strong>&#x2705; Ready?</strong> Return to the lessons. Every case module (Lekcija 1&ndash;7)
+      builds on exactly these principles. The patterns here become automatic through practice.
+    </div>
+    <div style="display:flex;flex-direction:column;gap:.6rem;margin-top:1.25rem;">
+      <button class="btn-complete" onclick="goHome()">&#x21A9; Vrati se na kurs &middot; Back to course</button>
+      <button class="btng" style="width:100%;text-align:center;" onclick="restart()">&#x21BA; Ponovi &middot; Read again from start</button>
+    </div>
+  `);
+}
+
+function goNext()  { if (cur < SCREENS.length - 1) { cur++; render(); window.scrollTo({ top: 0, behavior: 'smooth' }); } }
+function goPrev()  { if (cur > 0) { cur--; render(); window.scrollTo({ top: 0, behavior: 'smooth' }); } }
+function restart() { cur = 0; render(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+function goHome()  {
+  try {
+    const p = JSON.parse(localStorage.getItem('serbian_course_progress') || '{}');
+    p['nerds'] = true;
+    localStorage.setItem('serbian_course_progress', JSON.stringify(p));
+  } catch(e) {}
+  window.location.href = 'serbian-course-home.html';
+}
+
+function render() {
+  buildScreens(); buildProgress();
+  document.querySelectorAll('.screen').forEach(s => {
+    s.classList.toggle('active', s.id === `sc-${SCREENS[cur].id}`);
+  });
+}
+
+render();
+</script>
+</body>
+</html>
